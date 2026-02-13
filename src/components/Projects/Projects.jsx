@@ -49,7 +49,7 @@ const projects = [
 export default function Projects() {
     return (
         <section className="py-20 px-4 md:px-8  text-white" id="work">
-             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[400px] md:auto-rows-[500px]">
+             <div className="max-w-[92rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[400px] md:auto-rows-[500px]">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
                 ))}
