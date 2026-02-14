@@ -26,24 +26,26 @@ export default function AboutPreview() {
             <p className="text-1xl text-white/40 font-bold">why work with me</p>
             <p className="text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               I build under pressure and ship on time. hackathons taught me
-              speed, focus, and ruthless prioritization—projects taught me
-              how real systems break and how to fix them. I'm full-stack by
-              default, ui-obsessed by habit, and deep into agentic ai by
-              curiosity. I move fast, learn faster, and communicate
-              clearly—through code, clean interfaces, and visuals. if you
-              want someone who treats every idea like a live product and
-              every deadline like it's real, I'm a strong bet.
+              speed, focus, and ruthless prioritization—projects taught me how
+              real systems break and how to fix them. I'm full-stack by default,
+              ui-obsessed by habit, and deep into agentic ai by curiosity. I
+              move fast, learn faster, and communicate clearly—through code,
+              clean interfaces, and visuals. if you want someone who treats
+              every idea like a live product and every deadline like it's real,
+              I'm a strong bet.
             </p>
           </div>
 
           {/* Column 3: When I'm Not Building */}
           <div className="flex flex-col gap-1">
-            <p className="text-balance text-white/40 font-bold">when I'm not building</p>
+            <p className="text-balance text-white/40 font-bold">
+              when I'm not building
+            </p>
             <p className="text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               you'll find me exploring music - more into rap, making short
-              videos, managing events, watching anime, playing sports
-              physically and virtually. hanging out with friends and building
-              something other than projects, more to come
+              videos, managing events, watching anime, playing sports physically
+              and virtually. hanging out with friends and building something
+              other than projects, more to come
             </p>
           </div>
         </div>

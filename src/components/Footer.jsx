@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <footer className=" text-[#f6f4f0] px-6 md:px-12 pt-12 pb-6">
+    <footer className="font-semibold text-[#f6f4f0] px-6 md:px-12 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           {/* Left Column - Contact Info */}
-          <div className="flex flex-col gap-2 text-sm md:text-base ">
+          <div className="flex flex-col gap-2 text-sm md:text-xl ">
             <p className="hover:text-white/40">
               email:{" "}
               <a
@@ -33,14 +33,11 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Pages & Socials */}
-          <div className="flex gap-16 text-sm md:text-base">
+          <div className="flex gap-16 text-sm md:text-xl">
             {/* Pages */}
             <div className="flex flex-col gap-1">
-              <p className="text-white/40 mb-1">pages</p>
-              <a
-                href="#"
-                className="hover:text-white/40 transition-colors"
-              >
+              <p className="text-white/65 mb-1 text-lg">pages</p>
+              <a href="#" className="hover:text-white/40 transition-colors">
                 home
               </a>
               <a
@@ -49,17 +46,14 @@ export default function Footer() {
               >
                 about
               </a>
-              <a
-                href="#work"
-                className="hover:text-white/40 transition-colors"
-              >
+              <a href="#work" className="hover:text-white/40 transition-colors">
                 work
               </a>
             </div>
 
             {/* Socials */}
             <div className="flex flex-col gap-1">
-              <p className="text-white/40 mb-1">socials</p>
+              <p className="text-white/65 mb-1 text-lg">socials</p>
               <a
                 href=""
                 target="_blank"
@@ -96,9 +90,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center font-bold mt-6 pt-6 border-t border-white/10 text-sm text-white/60">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-6 pt-6 border-t border-white/10 text-lg text-white/60">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
-          <p className="mt-2 md:mt-0 font-bold">never give up</p>
+          <p className="mt-2 md:mt-0">never give up</p>
         </div>
       </div>
     </footer>

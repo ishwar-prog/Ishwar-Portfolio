@@ -1,10 +1,10 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Projects from './components/Projects/Projects'
-import AboutPreview from './components/AboutPreview'
-import CallToAction from './components/CallToAction'
-import Footer from './components/Footer'
+import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects/Projects";
+import AboutPreview from "./components/AboutPreview";
+import CallToAction from "./components/CallToAction";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
