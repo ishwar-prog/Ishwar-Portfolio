@@ -11,9 +11,9 @@ export default function AboutPreview() {
         <TextReveal text={revealText} className="mb-20" />
 
         {/* Three Column Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-28 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-full aspect-square bg-[#f6f4f0] rounded-4xl overflow-hidden">
+          <div className="w-fit aspect-square bg-[#f6f4f0] rounded-4xl overflow-hidden">
             <img
               src={ishwar}
               alt="Ishwar"
