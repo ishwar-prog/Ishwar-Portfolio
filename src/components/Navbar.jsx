@@ -6,9 +6,9 @@ export default function Navbar() {
 
   const navItems = [
     { label: "ishwar suthar", href: "/" },
-    { label: "work", href: "#work" },
-    { label: "about me", href: "#about" },
-    { label: "start a project", href: "#contact" },
+    { label: "work", href: "/#work" },
+    { label: "about me", href: "/about" },
+    { label: "start a project", href: "/#contact" },
   ];
 
   return (
