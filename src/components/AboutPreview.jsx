@@ -13,16 +13,16 @@ export default function AboutPreview() {
         {/* Three Column Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-fit aspect-square bg-[#f6f4f0] rounded-4xl overflow-hidden">
+          <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[50px] overflow-hidden">
             <img
               src={ishwar}
               alt="Ishwar"
-              className="w-full h-full object-cover hover:grayscale-0 transition-all duration-500"
+              className="w-[500px] h-[500px]  object-cover hover:grayscale-0 transition-all duration-500"
             />
           </div>
 
           {/* Column 2: Why Work With Me */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 mt-18">
             <p className="text-1xl text-white/40 font-bold">why work with me</p>
             <p className="text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               I build under pressure and ship on time. hackathons taught me
@@ -37,7 +37,7 @@ export default function AboutPreview() {
           </div>
 
           {/* Column 3: When I'm Not Building */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 mt-18">
             <p className="text-balance text-white/40 font-bold">
               when I'm not building
             </p>
@@ -45,7 +45,7 @@ export default function AboutPreview() {
               you'll find me exploring music - more into rap, making short
               videos, managing events, watching anime, playing sports physically
               and virtually. hanging out with friends and building something
-              other than projects, more to come
+              other than projects, more to come.
             </p>
           </div>
         </div>

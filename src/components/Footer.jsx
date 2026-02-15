@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="font-semibold text-[#f6f4f0] px-6 md:px-12 pt-12 pb-6">
+    <footer className="font-normal text-[#f6f4f0] px-6 md:px-12 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
@@ -37,16 +37,16 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <a href="#" className="hover:text-white/40 transition-colors">
+              <a href="#" className="hover:text-white/40 transition-colors font-semibold">
                 home
               </a>
               <a
                 href="#about"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-white/40 transition-colors font-semibold"
               >
                 about
               </a>
-              <a href="#work" className="hover:text-white/40 transition-colors">
+              <a href="#work" className="hover:text-white/40 transition-colors font-semibold  ">
                 work
               </a>
             </div>
@@ -58,7 +58,7 @@ export default function Footer() {
                 href=""
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-white/40 transition-colors font-semibold"
               >
                 instagram
               </a>
@@ -66,7 +66,7 @@ export default function Footer() {
                 href=""
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-white/40 transition-colors font-semibold"
               >
                 x(twitter)
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                 href=""
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-white/40 transition-colors font-semibold"
               >
                 linkedin
               </a>
@@ -83,14 +83,14 @@ export default function Footer() {
         </div>
 
         {/* Large Name */}
-        <div className="mt-12 md:mt-8">
+        <div className="mt-12 md:mt-11">
           <h2 className="text-[20vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-center md:text-left">
             ishwar suthar
           </h2>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-6 pt-6 border-t border-white/10 text-lg text-white/60">
+        <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-6 pt-6 border-t border-white/10  text-white/70">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
           <p className="mt-2 md:mt-0">never give up</p>
         </div>
