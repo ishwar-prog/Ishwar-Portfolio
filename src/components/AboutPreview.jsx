@@ -1,8 +1,66 @@
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
 import TextReveal from "./ui/TextReveal";
 import ishwar from "../assets/ishwar.png";
+import "./ui/ChromaEffect.css";
 
 export default function AboutPreview() {
   const revealText = `Ishwar Suthar — Full-stack developer and an UI/UX enthusiast from Mumbai, Sophomore in Computer Engineering at KCCEMSR. I build fast, expressive web apps, diving into agentic AI and automation, and fuse clean UI with visual storytelling. Learning by building and breaking. For more Contact Me.`;
+
+  // Chroma effect refs and logic
+  const rootRef = useRef(null);
+  const fadeRef = useRef(null);
+  const setX = useRef(null);
+  const setY = useRef(null);
+  const pos = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    setX.current = gsap.quickSetter(el, '--x', 'px');
+    setY.current = gsap.quickSetter(el, '--y', 'px');
+    const { width, height } = el.getBoundingClientRect();
+    pos.current = { x: width / 2, y: height / 2 };
+    setX.current(pos.current.x);
+    setY.current(pos.current.y);
+  }, []);
+
+  const moveTo = (x, y) => {
+    gsap.to(pos.current, {
+      x,
+      y,
+      duration: 0.45,
+      ease: 'power3.out',
+      onUpdate: () => {
+        setX.current?.(pos.current.x);
+        setY.current?.(pos.current.y);
+      },
+      overwrite: true
+    });
+  };
+
+  const handleMove = e => {
+    const r = rootRef.current.getBoundingClientRect();
+    moveTo(e.clientX - r.left, e.clientY - r.top);
+    gsap.to(fadeRef.current, { opacity: 0, duration: 0.25, overwrite: true });
+  };
+
+  const handleLeave = () => {
+    gsap.to(fadeRef.current, {
+      opacity: 1,
+      duration: 0.6,
+      overwrite: true
+    });
+  };
+
+  const handleCardMove = e => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
 
   return (
     <section className="py-20 px-4 md:px-8 bg-[#1f1f1f]" id="about">
@@ -14,11 +72,29 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-28 items-start">
           {/* Column 1: Image */}
           <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[50px] overflow-hidden">
-            <img
-              src={ishwar}
-              alt="Ishwar"
-              className="w-[500px] h-[500px]  object-cover hover:grayscale-0 transition-all duration-500"
-            />
+            <div
+              ref={rootRef}
+              className="chroma-grid"
+              style={{
+                '--r': '300px', // radius
+                // Default vars to prevent flash of unstyled content
+                '--x': '50%',
+                '--y': '50%'
+              }}
+              onPointerMove={handleMove}
+              onPointerLeave={handleLeave}
+            >
+              <article
+                className="chroma-card"
+                onMouseMove={handleCardMove}
+              >
+                <div className="chroma-img-wrapper">
+                  <img src={ishwar} alt="Ishwar" loading="lazy" />
+                </div>
+              </article>
+              <div className="chroma-overlay" />
+              <div ref={fadeRef} className="chroma-fade" />
+            </div>
           </div>
 
           {/* Column 2: Why Work With Me */}

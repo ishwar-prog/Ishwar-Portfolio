@@ -1,20 +1,36 @@
+import { useState } from "react";
+import { ScrambleText } from "./ui/ScrambleText";
+
 export default function Navbar() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const navItems = [
+    { label: "ishwar suthar", href: "/" },
+    { label: "work", href: "#work" },
+    { label: "about me", href: "#about" },
+    { label: "start a project", href: "#contact" },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md ">
       <div className="mx-auto max-w-[92rem] px-2 py-2 flex items-center justify-between text-white text-xl font-bold">
-        <a href="/" className=" hover:opacity-80 transition-opacity">
-          ishwar suthar
-        </a>
-        <a href="#work" className="hover:opacity-80 transition-opacity">
-          work
-        </a>
-        <a href="#about" className="hover:opacity-80 transition-opacity">
-          about me
-        </a>
-        <a href="#contact" className="hover:opacity-80 transition-opacity">
-          start a project
-        </a>
+        {navItems.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            className={`transition-colors duration-300 ${
+              hoveredIndex !== null && hoveredIndex !== index
+                ? "text-white/40"
+                : "text-white"
+            }`}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <ScrambleText text={item.label} />
+          </a>
+        ))}
       </div>
     </nav>
   );
 }
+

@@ -40,7 +40,7 @@ export default function TextReveal({
           scrollTrigger: {
             trigger: el,
             ...scrollerConfig,
-            start: 'top bottom',
+            start: 'top bottom', 
             end: rotationEnd,
             scrub: true
           }

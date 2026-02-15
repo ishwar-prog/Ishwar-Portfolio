@@ -22,7 +22,7 @@ export default function Footer() {
             <p className="hover:text-white/40">
               github:
               <a
-                href=""
+                href="https://github.com/ishwar-prog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white/40 transition-colors"
@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">socials</p>
               <a
-                href=""
+                href="https://www.instagram.com/ishwarrreal/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white/40 transition-colors font-semibold"
@@ -63,7 +63,7 @@ export default function Footer() {
                 instagram
               </a>
               <a
-                href=""
+                href="https://x.com/ishwarrreal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white/40 transition-colors font-semibold"
@@ -71,7 +71,7 @@ export default function Footer() {
                 x(twitter)
               </a>
               <a
-                href=""
+                href="https://www.linkedin.com/in/ishwar-suthar-8906b7328/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white/40 transition-colors font-semibold"
@@ -83,8 +83,8 @@ export default function Footer() {
         </div>
 
         {/* Large Name */}
-        <div className="mt-12 md:mt-11">
-          <h2 className="text-[20vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-center md:text-left">
+        <div className="mt-12 md:mt-10">
+          <h2 className="text-[20vw] md:text-[17vw] font-extrabold leading-none tracking-tighter text-left md:text-center">
             ishwar suthar
           </h2>
         </div>
@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-6 pt-6 border-t border-white/10  text-white/70">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
-          <p className="mt-2 md:mt-0">never give up</p>
+          <p className="mt-2 md:mt-0 text-3xl text-lime-400 font-bold">TB$M</p>
         </div>
       </div>
     </footer>
