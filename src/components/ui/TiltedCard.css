@@ -35,7 +35,7 @@
   top: 0;
   left: 0;
   object-fit: cover;
-  border-radius: 50px; /* Matched to About-Me design */
+  border-radius: 80px; /* Matched to About-Me design */
   will-change: transform;
   transform: translateZ(0);
   
