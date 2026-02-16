@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="font-normal text-[#f6f4f0] px-6 md:px-12 pt-12 pb-6">
+    <footer className="font-normal text-[#f6f4f0] px-6 md:px-1 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">

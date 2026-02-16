@@ -46,15 +46,15 @@ export default function WorkDisasterIQ() {
       <Navbar />
 
       {/* Project Header */}
-      <section className="pt-28 pb-10 px-4 md:px-8 max-w-368 mx-auto">
-        <h1 className="text-[15vw] md:text-[14rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
+      <section className="pt-30 pb-25 px-4 md:px-8 max-w-368 mx-auto">
+        <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
           disasterIQ
         </h1>
       </section>
 
       {/* Main Project Image with Icons */}
-      <section className="pb-16 px-4 md:px-8 max-w-368 mx-auto">
-        <div className="relative w-full rounded-[30px] overflow-hidden">
+      <section className="pb-16 px-4 md:px-1 max-w-368 mx-auto">
+        <div className="relative w-full rounded-[12px] overflow-hidden">
           <img
             src={disasterIQMain}
             alt="disasterIQ main"
@@ -117,25 +117,25 @@ export default function WorkDisasterIQ() {
       </section>
 
       {/* Additional Project Images - Bento Layout */}
-      <section className="pb-20 px-4 md:px-8 max-w-368 mx-auto">
+      <section className="pb-20 px-4 md:px-1 max-w-368 mx-auto">
         {/* Large image on top */}
-        <div className="rounded-[30px] overflow-hidden mb-6">
+        <div className="rounded-[12px] overflow-hidden mb-6">
           <img src={disaster1} alt="disasterIQ screenshot 1" className="w-full h-auto object-cover" />
         </div>
         {/* Two smaller images side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-[30px] overflow-hidden">
+          <div className="rounded-[12px] overflow-hidden">
             <img src={disaster2} alt="disasterIQ screenshot 2" className="w-full h-auto object-cover" />
           </div>
-          <div className="rounded-[30px] overflow-hidden">
+          <div className="rounded-[12px] overflow-hidden">
             <img src={disaster3} alt="disasterIQ screenshot 3" className="w-full h-auto object-cover" />
           </div>
         </div>
       </section>
 
       {/* Other Projects Section */}
-      <section className="pb-20 px-4 md:px-8 max-w-368 mx-auto">
-        <h2 className="text-[10vw] md:text-[8rem] leading-[0.9] font-black tracking-tighter lowercase mb-12">
+      <section className="pb-25 px-4 md:px-1 max-w-368 mx-auto">
+        <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
           other projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -145,7 +145,7 @@ export default function WorkDisasterIQ() {
               to={project.route}
               className="flex flex-col gap-3 group cursor-pointer"
             >
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[20px]">
+              <div className="relative w-full aspect-[6/6] overflow-hidden rounded-[12px]">
                 <img
                   src={project.image}
                   alt={project.title}
