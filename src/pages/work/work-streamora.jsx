@@ -63,7 +63,7 @@ export default function WorkStreamora() {
           {/* Icons at bottom right */}
           <div className="absolute bottom-6 right-6 flex gap-4">
             <a
-              href=""
+              href="https://github.com/ishwar-prog/Grand-Backend"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
@@ -73,7 +73,7 @@ export default function WorkStreamora() {
               </svg>
             </a>
             <a
-              href=""
+              href="https://streamoraa.onrender.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"

@@ -63,7 +63,7 @@ export default function WorkRedux() {
           {/* Icons at bottom right */}
           <div className="absolute bottom-6 right-6 flex gap-4">
             <a
-              href=""
+              href="https://github.com/ishwar-prog/Redux-Project"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
@@ -73,12 +73,12 @@ export default function WorkRedux() {
               </svg>
             </a>
             <a
-              href=""
+              href=" https://modi-rahul.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
