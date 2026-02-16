@@ -84,7 +84,7 @@ export default function Footer() {
 
         {/* Large Name */}
         <div className="mt-12 md:mt-10">
-          <h2 className="text-[20vw] md:text-[17vw] font-extrabold leading-none tracking-tighter text-left md:text-center">
+          <h2 className="text-[20vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-left md:text-center">
             ishwar suthar
           </h2>
         </div>

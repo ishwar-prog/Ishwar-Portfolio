@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 export function ScrambleText({ 
   text, 
   speed = 30, 
-  chars = "$€£¥₹₽₩₺₪₫₦₱₲₵₡₭₮₨₴",
+  chars = "...........",
   className = "",
   startOnHover = true
 }) {

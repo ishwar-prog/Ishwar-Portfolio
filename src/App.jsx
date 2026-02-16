@@ -7,6 +7,7 @@ import AboutPreview from "./components/AboutPreview";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import AboutMe from "./pages/About-Me/About-Me";
+import SelectedWork from "./pages/work/selected-work";
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutMe />} />
+        <Route path="/work" element={<SelectedWork />} />
       </Routes>
     </Router>
   );

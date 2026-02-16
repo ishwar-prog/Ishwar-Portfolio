@@ -4,7 +4,7 @@ import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
 import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
-import { gsap } from "gsap";
+
 
 const experiences = [
   {
@@ -51,7 +51,7 @@ export default function AboutMe() {
           about me
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Column: Text */}
           <div className="flex flex-col gap-8 max-w-[500px]">
             <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
@@ -68,20 +68,21 @@ export default function AboutMe() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="flex justify-end">
-            <div className="w-full md:w-[580px] h-[650px]  rounded-[80px] relative flex items-center justify-center">
+          {/* Customization: Change 'justify-center' to 'justify-start' for left align, 'justify-end' for right align */}
+          <div className="flex justify-center">
+            <div className="w-full md:w-[540px] h-[580px]  rounded-[80px] relative flex items-center justify-center">
                <TiltedCard
                  imageSrc={ishwar}
                  altText="Ishwar Suthar"
-                 captionText=""
+                 captionText="ishwar suthar"
                  containerHeight="100%"
                  containerWidth="100%"
                  imageHeight="100%"
                  imageWidth="100%"
-                 rotateAmplitude={12}
-                 scaleOnHover={1.05}
+                 rotateAmplitude={22}
+                 scaleOnHover={1.2}
                  showMobileWarning={false}
-                 showTooltip={false}
+                 showTooltip={true}
                  displayOverlayContent={false}
                />
             </div>
@@ -99,10 +100,10 @@ export default function AboutMe() {
         
         <div className="flex flex-col">
           {experiences.map((exp, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-8 gap-y-4 py-12 border-t border-white/20 items-start">
+            <div key={index} className="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-8 gap-y-4 py-8 border-t border-white/20 items-start">
               
               <div className="flex flex-col gap-1">
-                <h3 className="text-3xl font-bold lowercase">{exp.role}</h3>
+                <h3 className="text-2xl font-bold lowercase">{exp.role}</h3>
                 <p className="text-xl text-white/50 lowercase">{exp.org}</p>
               </div>
 
@@ -118,6 +119,8 @@ export default function AboutMe() {
 
             </div>
           ))}
+          {/* Closing Line */}
+          <div className="w-full border-t border-white/20"></div>
         </div>
       </section>
 
