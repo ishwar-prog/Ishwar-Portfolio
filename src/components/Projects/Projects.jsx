@@ -13,36 +13,42 @@ const projects = [
     category: "video streaming",
     image: streamora,
     className: "col-span-1 md:col-span-8",
+    route: "/projects/streamora",
   },
   {
-    title: "gsap-project",
+    title: "VibeLab",
     category: "gsap",
     image: gsap,
     className: "col-span-1 md:col-span-4",
+    route: "/projects/vibelab",
   },
   {
     title: "mediasearch",
     category: "search engine",
     image: mediasearch,
     className: "col-span-1 md:col-span-5",
+    route: "/projects/mediasearch",
   },
   {
     title: "reboxed",
     category: "e-commerce",
     image: reboxed,
     className: "col-span-1 md:col-span-7",
+    route: "/projects/reboxed",
   },
   {
     title: "disasterIQ",
     category: "disaster intelligence system",
     image: disasterIQ,
     className: "col-span-1 md:col-span-8",
+    route: "/projects/disasteriq",
   },
   {
     title: "jellmo",
     category: "ai/ml",
     image: jellmo,
     className: "col-span-1 md:col-span-4",
+    route: "/projects/jellmo",
   },
 ];
 

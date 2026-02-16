@@ -1,6 +1,8 @@
-export default function ProjectCard({ title, category, image, className }) {
+import { Link } from "react-router-dom";
+
+export default function ProjectCard({ title, category, image, className, route }) {
   return (
-    <div className={`flex flex-col gap-3 ${className}`}>
+    <Link to={route} className={`flex flex-col gap-3 ${className}`}>
       <div className="relative w-full flex-1 overflow-hidden rounded-2xl ">
         <img
           src={image}
@@ -9,11 +11,11 @@ export default function ProjectCard({ title, category, image, className }) {
         />
       </div>
       <div className="flex flex-col px-1">
-        <h3 className="text-xl md:text-2xl font-medium tracking-tight text-white">
+        <h3 className="text-xl md:text-xl font-bold tracking-tight text-white">
           {title}
         </h3>
-        <p className="text-white/50 text-base md:text-lg">{category}</p>
+        <p className="text-white/50 text-sm font-semibold md:text-medium">{category}</p>
       </div>
-    </div>
+    </Link>
   );
 }
