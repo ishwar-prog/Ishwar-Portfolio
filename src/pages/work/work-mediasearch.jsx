@@ -107,7 +107,7 @@ It’s not about searching media — it’s about mastering how data moves throu
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">2026</p>
+            <p className="font-semibold text-2xl lowercase">1/26</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>

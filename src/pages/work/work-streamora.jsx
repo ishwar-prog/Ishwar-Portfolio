@@ -106,7 +106,7 @@ export default function WorkStreamora() {
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">2025</p>
+            <p className="font-semibold text-2xl lowercase">11/25</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>

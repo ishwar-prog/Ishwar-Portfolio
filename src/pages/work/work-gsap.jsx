@@ -91,27 +91,31 @@ export default function WorkGsap() {
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
-          {/* Add project description here */}
+        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-max">
+          K72 UI Clone is a motion-focused React project built to deeply understand GSAP and modern animation architecture.
+I recreated the visual and interaction patterns of the K72 website to explore timeline sequencing, scroll-triggered effects, and component-scoped animations using gsap.context(). The goal wasn’t just visual polish - it was mastering performance-safe transforms, lifecycle cleanup, and animation orchestration inside React. This project sharpened my understanding of motion as a structural design tool, not decoration.
+<br />
+<br />
+It’s a study in controlled, high-performance UI animation.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add type */}</p>
+            <p className="font-semibold text-2xl lowercase">Web Application - GSAP Animation Study</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add year */}</p>
+            <p className="font-semibold text-2xl lowercase">10/25</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add role */}</p>
+            <p className="font-semibold text-2xl lowercase">Frontend Developer</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add client */}</p>
+            <p className="font-semibold text-2xl lowercase">Personal Project</p>
           </div>
         </div>
       </section>

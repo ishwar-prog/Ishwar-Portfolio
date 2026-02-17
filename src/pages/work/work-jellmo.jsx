@@ -80,7 +80,7 @@ export default function WorkJellmo() {
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
         <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
-          {/* Add project description here */}
+          
         </h2>
 
         {/* Project Metadata */}

@@ -91,27 +91,30 @@ export default function WorkDisasterIQ() {
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
-          {/* Add project description here */}
+        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-max">
+          Disaster Relief Resource Scout is an agentic AI system built during a hackathon to transform chaotic disaster reports into structured, actionable intelligence.
+I worked on building and integrating AI agents that analyze text, URLs, and images, normalize reports into structured JSON, and enable location-based alerts with verification layers. The system combines LLM-powered intake agents, geospatial intelligence, and real-time alert visualization to simulate a disaster-response workflow. It’s a practical exploration of multi-agent orchestration, not just an AI demo.
+<br /><br />
+This project models how autonomous agents can assist real-world emergency coordination.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add type */}</p>
+            <p className="font-semibold text-2xl lowercase">Multi agent ai system with web interface</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add year */}</p>
+            <p className="font-semibold text-2xl lowercase">1/26</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add role */}</p>
+            <p className="font-semibold text-2xl lowercase">ai engineer</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add client */}</p>
+            <p className="font-semibold text-2xl lowercase">Hackathon Project</p>
           </div>
         </div>
       </section>

@@ -16,7 +16,6 @@ import WorkMediaSearch from "./pages/work/work-mediasearch";
 import WorkReboxed from "./pages/work/work-reboxed";
 import WorkDisasterIQ from "./pages/work/work-disasteriq";
 import WorkJellmo from "./pages/work/work-jellmo";
-import WorkRedux from "./pages/work/work-redux";
 
 function Home() {
   return (
@@ -46,7 +45,7 @@ export default function App() {
         <Route path="/projects/reboxed" element={<WorkReboxed />} />
         <Route path="/projects/disasteriq" element={<WorkDisasterIQ />} />
         <Route path="/projects/jellmo" element={<WorkJellmo />} />
-        <Route path="/projects/redux" element={<WorkRedux />} />
+      
       </Routes>
     </Router>
   );
