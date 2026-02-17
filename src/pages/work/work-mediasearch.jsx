@@ -4,16 +4,16 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 // Main project image
-import gsapMain from "../../assets/gsap.png.png";
-// Additional project images
-import gsap1 from "../../assets/gsap-1.png";
-import gsap2 from "../../assets/gsap-2.png";
-import gsap3 from "../../assets/gsap-3.png";
+import mediaSearchMain from "../../assets/mediasearch.png.png";
+// Additional project images (using main image as placeholder since specific ones weren't found)
+import mediaSearch1 from "../../assets/mediasearch.png.png";
+import mediaSearch2 from "../../assets/mediasearch.png.png";
+import mediaSearch3 from "../../assets/mediasearch.png.png";
 
 // Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
-import reboxedImg from "../../assets/reboxed.png.png";
 import jellmoImg from "../../assets/jellmo.png.png";
+import reboxedImg from "../../assets/reboxed.png.png";
 
 const otherProjects = [
   {
@@ -23,20 +23,20 @@ const otherProjects = [
     route: "/projects/streamora",
   },
   {
-    title: "reboxed",
-    category: "ecommerce",
-    image: reboxedImg,
-    route: "/projects/reboxed",
-  },
-  {
     title: "jellmo",
     category: "ai/ml",
     image: jellmoImg,
     route: "/projects/jellmo",
   },
+  {
+    title: "reboxed",
+    category: "ecommerce",
+    image: reboxedImg,
+    route: "/projects/reboxed",
+  },
 ];
 
-export default function WorkGsap() {
+export default function WorkMediaSearch() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -48,7 +48,7 @@ export default function WorkGsap() {
       {/* Project Header */}
       <section className="pt-30 pb-25 px-0 md:px-0 max-w-368 mx-auto">
         <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
-          vibelab
+          media search
         </h1>
       </section>
 
@@ -56,14 +56,14 @@ export default function WorkGsap() {
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <div className="relative w-full rounded-[12px] overflow-hidden">
           <img
-            src={gsapMain}
-            alt="vibelab main"
+            src={mediaSearchMain}
+            alt="media search main"
             className="w-full h-auto object-cover"
           />
           {/* Icons at bottom right */}
           <div className="absolute bottom-6 right-6 flex gap-4">
             <a
-              href="https://github.com/ishwar-prog/Gsap-Project"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
@@ -73,7 +73,7 @@ export default function WorkGsap() {
               </svg>
             </a>
             <a
-              href="https://gsap1-project.onrender.com/"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/80 transition-colors"
@@ -120,15 +120,15 @@ export default function WorkGsap() {
       <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
         {/* Large image on top */}
         <div className="rounded-[12px] overflow-hidden mb-6">
-          <img src={gsap1} alt="vibelab screenshot 1" className="w-full h-auto object-cover" />
+          <img src={mediaSearch1} alt="media search screenshot 1" className="w-full h-auto object-cover" />
         </div>
         {/* Two smaller images side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-[12px] overflow-hidden">
-            <img src={gsap2} alt="vibelab screenshot 2" className="w-full h-auto object-cover" />
+            <img src={mediaSearch2} alt="media search screenshot 2" className="w-full h-auto object-cover" />
           </div>
           <div className="rounded-[12px] overflow-hidden">
-            <img src={gsap3} alt="vibelab screenshot 3" className="w-full h-auto object-cover" />
+            <img src={mediaSearch3} alt="media search screenshot 3" className="w-full h-auto object-cover" />
           </div>
         </div>
       </section>

@@ -46,14 +46,14 @@ export default function WorkStreamora() {
       <Navbar />
 
       {/* Project Header */}
-      <section className="pt-30 pb-25 px-4 md:px-8 max-w-368 mx-auto">
+      <section className="pt-30 pb-25 px-0 md:px-0 max-w-368 mx-auto">
         <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
           streamora
         </h1>
       </section>
 
       {/* Main Project Image with Icons */}
-      <section className="pb-16 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <div className="relative w-full rounded-[12px] overflow-hidden">
           <img
             src={streamoraMain}
@@ -89,35 +89,35 @@ export default function WorkStreamora() {
       </section>
 
       {/* Project Overview */}
-      <section className="pb-16 px-4 md:px-8 max-w-368 mx-auto">
-        <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
+      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
+        <p className="text-white/65 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
+        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
           streamora a video streaming platform made to learn in depth about backend development, apis, state mangement, etc.
         </h2>
 
         {/* Project Metadata */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 text-sm md:text-base">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
-            <p className="text-white/50 lowercase mb-1">project type</p>
-            <p className="font-semibold lowercase">video streaming</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
+            <p className="font-semibold text-2xl lowercase">video streaming</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">year</p>
-            <p className="font-semibold lowercase">2025</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
+            <p className="font-semibold text-2xl lowercase">2025</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">my role</p>
-            <p className="font-semibold lowercase">full stack</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">my role</p>
+            <p className="font-semibold text-2xl lowercase">full stack</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">client</p>
-            <p className="font-semibold lowercase">ishwar</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
+            <p className="font-semibold text-2xl lowercase">ishwar</p>
           </div>
         </div>
       </section>
 
       {/* Additional Project Images - Bento Layout */}
-      <section className="pb-20 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
         {/* Large image on top */}
         <div className="rounded-[12px] overflow-hidden mb-6">
           <img src={streamora1} alt="streamora screenshot 1" className="w-full h-auto object-cover" />
@@ -134,7 +134,7 @@ export default function WorkStreamora() {
       </section>
 
       {/* Other Projects Section */}
-      <section className="pb-25 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-25 px-0 md:px-0 max-w-368 mx-auto">
         <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
           other projects
         </h2>

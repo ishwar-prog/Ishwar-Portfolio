@@ -44,7 +44,7 @@ export default function AboutMe() {
     <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
-      <section className="pt-32 pb-40 px-4 md:px-8 max-w-[92rem] mx-auto">
+      <section className="pt-32 pb-40 px-0 md:px-0 max-w-[92rem] mx-auto">
         
         {/* Header */}
         <h1 className="text-[20rem] leading-[0.5] font-extrabold mb-33 tracking-tighter flex justify-center text-center">
@@ -93,7 +93,7 @@ export default function AboutMe() {
       </section>
 
       {/* Experience Section */}
-      <section className="pb-30 px-4 md:px-8 max-w-[92rem] mx-auto">
+      <section className="pb-30 px-0 md:px-0 max-w-[92rem] mx-auto">
         <h2 className="text-[8rem] leading-[0.8] font-bold mb-16 tracking-tighter lowercase">
           my experience
         </h2>

@@ -46,14 +46,14 @@ export default function WorkRedux() {
       <Navbar />
 
       {/* Project Header */}
-      <section className="pt-30 pb-25 px-4 md:px-8 max-w-368 mx-auto">
+      <section className="pt-30 pb-25 px-0 md:px-0 max-w-368 mx-auto">
         <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
           redux
         </h1>
       </section>
 
       {/* Main Project Image with Icons */}
-      <section className="pb-16 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <div className="relative w-full rounded-[12px] overflow-hidden">
           <img
             src={reduxMain}
@@ -89,7 +89,7 @@ export default function WorkRedux() {
       </section>
 
       {/* Project Overview */}
-      <section className="pb-16 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
         <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
           {/* Add project description here */}
@@ -117,7 +117,7 @@ export default function WorkRedux() {
       </section>
 
       {/* Additional Project Images - Bento Layout */}
-      <section className="pb-20 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
         {/* Large image on top */}
         <div className="rounded-[12px] overflow-hidden mb-6">
           <img src={redux1} alt="redux screenshot 1" className="w-full h-auto object-cover" />
@@ -134,7 +134,7 @@ export default function WorkRedux() {
       </section>
 
       {/* Other Projects Section */}
-      <section className="pb-20 px-4 md:px-1 max-w-368 mx-auto">
+      <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
         <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
           other projects
         </h2>

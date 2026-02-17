@@ -12,6 +12,7 @@ import SelectedWork from "./pages/work/selected-work";
 // Project pages
 import WorkStreamora from "./pages/work/work-streamora";
 import WorkGsap from "./pages/work/work-gsap";
+import WorkMediaSearch from "./pages/work/work-mediasearch";
 import WorkReboxed from "./pages/work/work-reboxed";
 import WorkDisasterIQ from "./pages/work/work-disasteriq";
 import WorkJellmo from "./pages/work/work-jellmo";
@@ -41,6 +42,7 @@ export default function App() {
         {/* Project routes */}
         <Route path="/projects/streamora" element={<WorkStreamora />} />
         <Route path="/projects/vibelab" element={<WorkGsap />} />
+        <Route path="/projects/mediasearch" element={<WorkMediaSearch />} />
         <Route path="/projects/reboxed" element={<WorkReboxed />} />
         <Route path="/projects/disasteriq" element={<WorkDisasterIQ />} />
         <Route path="/projects/jellmo" element={<WorkJellmo />} />

@@ -25,7 +25,7 @@ export default function CallToAction() {
   return (
     <section
       id="contact"
-      className="py-20 px-4 md:px-8 bg-[#1f1f1f] flex justify-center items-center min-h-[40vh] text-[#f6f4f0]"
+      className="py-20 px-0 md:px-0 bg-[#1f1f1f] flex justify-center items-center min-h-[40vh] text-[#f6f4f0]"
     >
       <a 
         href="mailto:ishwar16suthar@gmail.com"

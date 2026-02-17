@@ -63,7 +63,7 @@ export default function AboutPreview() {
   };
 
   return (
-    <section className="py-20 px-4 md:px-8 bg-[#1f1f1f]" id="about">
+    <section className="py-20 px-0 md:px-0 bg-[#1f1f1f]" id="about">
       <div className="max-w-[92rem] mx-auto">
         {/* Text Reveal Section */}
         <TextReveal text={revealText} className="mb-20" />
@@ -71,7 +71,7 @@ export default function AboutPreview() {
         {/* Three Column Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[50px] overflow-hidden">
+          <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[8px] overflow-hidden">
             <div
               ref={rootRef}
               className="chroma-grid"
