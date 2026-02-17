@@ -92,26 +92,29 @@ export default function WorkStreamora() {
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/65 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
         <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
-          streamora a video streaming platform made to learn in depth about backend development, apis, state mangement, etc.
+          streamora isn't just a video app- it's my deep dive into real backend arcjitecture. I built it to understand how production systems actually work: layered express structure, JWT auth flows, secure middleware, upload pipelines, and clean API contracts. The React frontend isn't just UI - it mirrors real-world patterns with service layers, Zustand state, and infinite feeds. From Cloudinary uploads to rate limiting and global error handling, this project forced me to think like a backend engineer, not just a coder. 
+          <br />
+          <br />
+          if you're curious how modern full-stack systems are structured under the hood, Streamora is worth exploring.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">video streaming</p>
+            <p className="font-semibold text-2xl lowercase">web application</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
             <p className="font-semibold text-2xl lowercase">2025</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">my role</p>
-            <p className="font-semibold text-2xl lowercase">full stack</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
+            <p className="font-semibold text-2xl lowercase">full-stack developer</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
-            <p className="font-semibold text-2xl lowercase">ishwar</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">Context</p>
+            <p className="font-semibold text-2xl lowercase">personal project</p>
           </div>
         </div>
       </section>
@@ -135,10 +138,10 @@ export default function WorkStreamora() {
 
       {/* Other Projects Section */}
       <section className="pb-25 px-0 md:px-0 max-w-368 mx-auto">
-        <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
+        <h2 className="text-[10vw] md:text-[6rem] leading-[1] font-black tracking-tighter lowercase mb-15">
           other projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {otherProjects.map((project) => (
             <Link
               key={project.title}
@@ -153,10 +156,10 @@ export default function WorkStreamora() {
                 />
               </div>
               <div className="flex flex-col">
-                <h3 className="text-lg md:text-xl font-bold tracking-tight lowercase">
+                <h3 className="text-lg md:text-2xl font-semibold tracking-tight lowercase">
                   {project.title}
                 </h3>
-                <p className="text-white/50 text-sm lowercase">
+                <p className="text-white/50 text-xs md:text-base lowercase font-[600]">
                   {project.category}
                 </p>
               </div>

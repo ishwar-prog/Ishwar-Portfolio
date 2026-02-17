@@ -92,26 +92,28 @@ export default function WorkRedux() {
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
         <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
-          {/* Add project description here */}
+          This Media Search Engine is my deep dive into production-grade state management with Redux Toolkit.
+It aggregates real APIs (Unsplash, Pexels, Giphy) into one unified experience, forcing me to design predictable data flow, async lifecycles, and global state architecture the right way. I implemented slice-based modular state, deduplication logic, persistence with LocalStorage, and optimized selectors to control re-renders. The result is a clean, responsive platform that behaves less like a demo and more like a real product.
+It’s not about searching media — it’s about mastering how data moves through a serious React application.
         </h2>
 
         {/* Project Metadata */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 text-sm md:text-base">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
-            <p className="text-white/50 lowercase mb-1">project type</p>
-            <p className="font-semibold lowercase">{/* Add type */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add type */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">year</p>
-            <p className="font-semibold lowercase">{/* Add year */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add year */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">my role</p>
-            <p className="font-semibold lowercase">{/* Add role */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add role */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">client</p>
-            <p className="font-semibold lowercase">{/* Add client */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add client */}</p>
           </div>
         </div>
       </section>

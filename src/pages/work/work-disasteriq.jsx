@@ -96,22 +96,22 @@ export default function WorkDisasterIQ() {
         </h2>
 
         {/* Project Metadata */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 text-sm md:text-base">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
-            <p className="text-white/50 lowercase mb-1">project type</p>
-            <p className="font-semibold lowercase">{/* Add type */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add type */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">year</p>
-            <p className="font-semibold lowercase">{/* Add year */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add year */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">my role</p>
-            <p className="font-semibold lowercase">{/* Add role */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add role */}</p>
           </div>
           <div>
-            <p className="text-white/50 lowercase mb-1">client</p>
-            <p className="font-semibold lowercase">{/* Add client */}</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
+            <p className="font-semibold text-2xl lowercase">{/* Add client */}</p>
           </div>
         </div>
       </section>
