@@ -91,15 +91,26 @@ export default function TransitionWrapper({ children }) {
       let targetPath;
       try {
         const urlOb = new URL(link.href, window.location.origin);
-        targetPath = urlOb.pathname.replace(/\/+$/, '');
+        targetPath = urlOb.pathname.replace(/\/+$/, '') || '/';
       } catch(e) {
         targetPath = href;
       }
       
-      const currentPath = location.pathname.replace(/\/+$/, '');
-      
-      if(currentPath === targetPath && targetPath !== '') {
-          e.preventDefault(); // Prevent default but don't animate
+      const currentPath = location.pathname.replace(/\/+$/, '') || '/';
+
+      // Check if we are already on the target page
+      // But also check if there is a hash (anchor) change
+      const isSamePath = currentPath === targetPath;
+      const hasHash = href.includes('#');
+
+      if (isSamePath && !hasHash) {
+          e.preventDefault(); 
+          return;
+      }
+
+      if (isSamePath && hasHash) {
+          // It's an anchor link on the same page, let default behavior happen or handle scroll
+          // Don't animate
           return; 
       }
 
@@ -161,7 +172,7 @@ export default function TransitionWrapper({ children }) {
 
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [navigate]);
+  }, [location, navigate]); // Removed navigate from dependency array? No, location is needed for comparison.
 
   // Handle bfcache restoration
   useEffect(() => {
@@ -176,81 +187,45 @@ export default function TransitionWrapper({ children }) {
 
   // Route Change / Initial Load
   useEffect(() => {
-      const openCurtain = () => {
-          const transition = transitionRef.current;
-          if(!transition) return;
-          
-          gsap.set(transition, { display: "grid", zIndex: 9999 });
-          const blocks = transition.querySelectorAll('.transition-block');
+    // Reset state on location change
+    isTransitioning.current = false;
+
+    const openCurtain = () => {
+        const transition = transitionRef.current;
+        if(!transition) return;
         
-          // Create a timeline just for cleanup
-          const tl = gsap.timeline({
-              defaults: { ease: "linear" },
-              onComplete: () => {
-                 gsap.set(transition, { display: "none" });
-              }
-          });
-
-          // If coming from a navigation, blocks are at opacity 1.
-          // If initial load, we might need to set them. 
-          // Safest is to set them to 1 then fade to 0.
-          
-          // Wait, if it's a fresh load (reload), blocks are NOT at opacity 1 created by previous exit animation (because strict reload clears DOM).
-          // So we MUST set them to opacity 1 immediately to block view, then fade out.
-          
-          // But we need to distinguish:
-          // 1. Initial Load: Grid empty -> create blocks -> set opacity 1 -> fade out.
-          // 2. Route Change: Grid has blocks (opacity 1 from exit animation) -> fade out.
-          
-          // Since `adjustGrid` clears innerHTML and recreates blocks, we are effectively in case 1 always if we blindly call it.
-          // Wait, if we recreate blocks, they lose their opacity: 1 state from the previous animation!
-          // They will be default (opacity: 0 in CSS).
-          // So we MUST set opacity: 1 after creating them if we want to validly transition.
-
-          // Optimization: Only adjust grid if size changed? 
-          // For now, to be safe and simple:
-          // Always recreate (fast enough) or ensuring opacity is 1.
-
-          // Ensure container is visible for the "reveal"
-          gsap.set(transition, { display: "grid", zIndex: 9999, autoAlpha: 1 });
-          
-          // Set blocks to full opacity initially (covering the screen)
-          gsap.set(blocks, { autoAlpha: 1 });
-
-          // Kill any existing tweens on blocks to prevent conflict
-          gsap.killTweensOf(blocks);
-
-          tl.to(blocks, {
-             autoAlpha: 0,
-             duration: 0.5,
-             ease: "power2.inOut", // Smoother easing
-             stagger: { amount: 0.75, from: "random" }, 
-             onComplete: () => {
-                // Ensure hidden after animation completes to start fresh
-                gsap.set(transition, { display: "none" }); 
-                isTransitioning.current = false; 
-             }
-          });
-      };
+        // Check if transition is actually covering screen
+        // If not (e.g. reload), we should ensure it starts covered?
+        // Actually for reloads, we want it to start covered then reveal.
+        
+        gsap.set(transition, { display: "grid", zIndex: 9999, autoAlpha: 1 });
+        const blocks = transition.querySelectorAll('.transition-block');
       
-      // Always ensure grid is correct size
-      // Reset isTransitioning state on route change just in case
-      isTransitioning.current = false; 
-      
-      // Use .then to ensure grid exists before animating
-      // Add a small delay to ensure React has updated the route and DOM if needed
-      setTimeout(() => {
-          adjustGrid().then(openCurtain).catch(() => {
-              // Fallback if something fails: hide everything
-              const transition = transitionRef.current;
-              if(transition) transition.style.display = 'none';
-          });
-      }, 10);
+        // Ensure blocks are visible
+        gsap.set(blocks, { autoAlpha: 1 });
 
-      window.addEventListener('resize', adjustGrid);
-      return () => window.removeEventListener('resize', adjustGrid);
+        // Kill any existing tweens on blocks to prevent conflict
+        gsap.killTweensOf(blocks);
 
-  }, [location.pathname]); // Runs on mount and route change
+        gsap.to(blocks, {
+           autoAlpha: 0,
+           duration: 0.5,
+           ease: "power2.inOut",
+           stagger: { amount: 0.75, from: "random" }, 
+           onComplete: () => {
+              gsap.set(transition, { display: "none" }); 
+           }
+        });
+    };
+    
+    // Always ensure grid is correct size
+    // Use .then to ensure grid exists before animating
+    adjustGrid().then(openCurtain).catch(() => {
+        const transition = transitionRef.current;
+        if(transition) transition.style.display = 'none';
+    });
+
+  }, [location.pathname]); // Runs on switch
 
   return (
     <>

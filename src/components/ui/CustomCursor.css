@@ -1,0 +1,80 @@
+.cursor {
+  z-index: 9999; /* Ensure it's on top of everything including transition layer if desired, or just below */
+  background-color: #9ae600;
+  border: 1px solid #010101;
+  border-radius: 100em;
+  width: 1em;
+  height: 1em;
+  transition: background-color .375s cubic-bezier(.625, .05, 0, 1), 
+              height .375s cubic-bezier(.625, .05, 0, 1), 
+              width .375s cubic-bezier(.625, .05, 0, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Text inside the cursor */
+.cursor-text {
+  opacity: 0;
+  color: white;
+  font-size: 0.25rem; /* Start small */
+  font-weight: bold;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease, font-size 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover states */
+body:has(a:hover) .cursor,
+body:has(button:hover) .cursor,
+body:has([data-cursor]:hover) .cursor,
+body:has([data-cursor-text]:hover) .cursor,
+.cursor.is-hovering {
+  width: 3em;
+  height: 3em;
+  background-color: rgba(154, 230, 0, 0.3);
+}
+
+/* Specific state when text is present */
+.cursor.has-text {
+  width: auto !important;
+  height: auto !important;
+  min-width: 6em;
+  min-height: 6em;
+  padding: 1rem;
+  /* background-color: #9ae600 !important;  Solid color for readability  */
+  mix-blend-mode: normal; 
+}
+
+.cursor.has-text .cursor-text {
+  opacity: 1;
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+/* Hide default cursor only when custom cursor is active/visible if preferred, 
+   but usually one hides it globally or on interactive elements. 
+   For now, let's keep default cursor visible or hide it on body? 
+   User implementation didn't specify hiding default cursor, but usually "custom cursor" implies it. 
+*/
+@media (match-media: hover) {
+    body {
+        cursor: none;
+    }
+    a, button, [data-cursor], [data-cursor-text] {
+        cursor: none;
+    }
+}

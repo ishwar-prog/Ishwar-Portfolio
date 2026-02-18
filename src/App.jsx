@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import AboutMe from "./pages/About-Me/About-Me";
 import SelectedWork from "./pages/work/selected-work";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
+import CustomCursor from "./components/ui/CustomCursor";
 
 // Project pages
 import WorkStreamora from "./pages/work/work-streamora";
@@ -34,6 +35,7 @@ function Home() {
 export default function App() {
   return (
     <Router>
+      <CustomCursor />
       <TransitionWrapper>
         <Routes>
           <Route path="/" element={<Home />} />

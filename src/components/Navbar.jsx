@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ScrambleText } from "./ui/ScrambleText";
 
 export default function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const location = useLocation();
 
   const navItems = [
     { label: "ishwar suthar", href: "/" },
@@ -14,21 +16,24 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md ">
       <div className="mx-auto max-w-[92rem] px-2 py-2 flex items-center justify-between text-white text-xl font-bold">
-        {navItems.map((item, index) => (
-          <a
+        {navItems.map((item, index) => {
+          const isActive = location.pathname === item.href;
+          return (
+          <Link
             key={index}
-            href={item.href}
+            to={item.href}
             className={`transition-colors duration-300 ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "text-white/40"
                 : "text-white"
             }`}
+            data-transition-prevent={isActive ? "true" : undefined}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <ScrambleText text={item.label} />
-          </a>
-        ))}
+          </Link>
+        )})}
       </div>
     </nav>
   );
