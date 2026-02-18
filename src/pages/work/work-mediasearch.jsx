@@ -7,9 +7,9 @@ import ImageGallery from "../../components/ui/ImageGallery";
 // Main project image
 import mediaSearchMain from "../../assets/mediasearch.png.png";
 // Additional project images (using main image as placeholder since specific ones weren't found)
-import mediaSearch1 from "../../assets/mediasearch.png.png";
-import mediaSearch2 from "../../assets/mediasearch.png.png";
-import mediaSearch3 from "../../assets/mediasearch.png.png";
+import redux1 from "../../assets/redux-1.png";
+import redux2 from "../../assets/redux-2.png";
+import redux3 from "../../assets/redux-3.png";
 
 // Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
@@ -125,9 +125,9 @@ It’s not about searching media — it’s about mastering how data moves throu
       <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
         <ImageGallery
           images={[
-            { title: "media search screenshot 1", url: mediaSearch1 },
-            { title: "media search screenshot 2", url: mediaSearch2 },
-            { title: "media search screenshot 3", url: mediaSearch3 },
+            { title: "media search screenshot 1", url: redux1 },
+            { title: "media search screenshot 2", url: redux2 },
+            { title: "media search screenshot 3", url: redux3 },
           ]}
         />
       </section>

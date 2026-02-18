@@ -27,7 +27,7 @@ const otherProjects = [
     title: "redux",
     category: "state management",
     image: reduxImg,
-    route: "/projects/redux",
+    route: "/projects/mediasearch",
   },
   {
     title: "reboxed",
