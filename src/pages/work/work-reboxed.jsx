@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ImageGallery from "../../components/ui/ImageGallery";
 
 // Main project image
 import reboxedMain from "../../assets/reboxed.png.png";
@@ -120,21 +121,15 @@ It’s not just a marketplace - it’s a front-end model of how digital trust sy
         </div>
       </section>
 
-      {/* Additional Project Images - Bento Layout */}
+      {/* Additional Project Images - Gallery */}
       <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
-        {/* Large image on top */}
-        <div className="rounded-[12px] overflow-hidden mb-6">
-          <img src={reboxed1} alt="reboxed screenshot 1" className="w-full h-auto object-cover" />
-        </div>
-        {/* Two smaller images side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-[12px] overflow-hidden">
-            <img src={reboxed2} alt="reboxed screenshot 2" className="w-full h-auto object-cover" />
-          </div>
-          <div className="rounded-[12px] overflow-hidden">
-            <img src={reboxed3} alt="reboxed screenshot 3" className="w-full h-auto object-cover" />
-          </div>
-        </div>
+        <ImageGallery
+          images={[
+            { title: "reboxed screenshot 1", url: reboxed1 },
+            { title: "reboxed screenshot 2", url: reboxed2 },
+            { title: "reboxed screenshot 3", url: reboxed3 },
+          ]}
+        />
       </section>
 
       {/* Other Projects Section */}

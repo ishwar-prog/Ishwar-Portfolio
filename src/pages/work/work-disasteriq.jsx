@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ImageGallery from "../../components/ui/ImageGallery";
 
 // Main project image
 import disasterIQMain from "../../assets/disasterIQ.png.png";
@@ -119,21 +120,15 @@ This project models how autonomous agents can assist real-world emergency coordi
         </div>
       </section>
 
-      {/* Additional Project Images - Bento Layout */}
+      {/* Additional Project Images - Gallery */}
       <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
-        {/* Large image on top */}
-        <div className="rounded-[12px] overflow-hidden mb-6">
-          <img src={disaster1} alt="disasterIQ screenshot 1" className="w-full h-auto object-cover" />
-        </div>
-        {/* Two smaller images side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-[12px] overflow-hidden">
-            <img src={disaster2} alt="disasterIQ screenshot 2" className="w-full h-auto object-cover" />
-          </div>
-          <div className="rounded-[12px] overflow-hidden">
-            <img src={disaster3} alt="disasterIQ screenshot 3" className="w-full h-auto object-cover" />
-          </div>
-        </div>
+        <ImageGallery
+          images={[
+            { title: "disasterIQ screenshot 1", url: disaster1 },
+            { title: "disasterIQ screenshot 2", url: disaster2 },
+            { title: "disasterIQ screenshot 3", url: disaster3 },
+          ]}
+        />
       </section>
 
       {/* Other Projects Section */}
