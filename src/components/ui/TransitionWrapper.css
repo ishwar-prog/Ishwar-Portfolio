@@ -1,0 +1,47 @@
+.transition {
+    z-index: 9999;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+/* When active, pointer-events should be auto to block interaction */
+.transition[style*="display: grid"] {
+    pointer-events: auto;
+}
+
+.transition-block {
+    background-color: #9ae600;
+    width: 100.5%; /* Slight overlap to prevent horizontal gaps */
+    height: 100.5%; /* Slight overlap to prevent vertical gaps */
+    opacity: 0; 
+    visibility: hidden;
+    margin: -1px; /* Pull blocks together slightly */
+}
+
+/* Ensure visibility when animating */
+.transition-block[style*="visibility: inherit"], 
+.transition-block[style*="visibility: visible"],
+.transition-block[style*="opacity: 1"] {
+    visibility: visible;
+}
+
+@media screen and (max-width: 767px) {
+    .transition {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .transition {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
