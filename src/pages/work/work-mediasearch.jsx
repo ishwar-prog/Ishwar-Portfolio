@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
+import ExpandCards from "../../components/ui/ExpandCards";
 
 // Main project image
 import mediaSearchMain from "../../assets/mediasearch.png.png";
@@ -14,28 +15,17 @@ import redux3 from "../../assets/redux-3.png";
 
 // Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
-import jellmoImg from "../../assets/jellmo.png.png";
+import gsapImg from "../../assets/gsap.png.png";
 import reboxedImg from "../../assets/reboxed.png.png";
+import disasterIQImg from "../../assets/disasterIQ.png.png";
+import jellmoImg from "../../assets/jellmo.png.png";
 
 const otherProjects = [
-  {
-    title: "streamora",
-    category: "video streaming",
-    image: streamoraImg,
-    route: "/projects/streamora",
-  },
-  {
-    title: "jellmo",
-    category: "ai/ml",
-    image: jellmoImg,
-    route: "/projects/jellmo",
-  },
-  {
-    title: "reboxed",
-    category: "ecommerce",
-    image: reboxedImg,
-    route: "/projects/reboxed",
-  },
+  { title: "streamora", category: "video streaming", image: streamoraImg, route: "/projects/streamora" },
+  { title: "vibelab", category: "gsap", image: gsapImg, route: "/projects/vibelab" },
+  { title: "reboxed", category: "ecommerce", image: reboxedImg, route: "/projects/reboxed" },
+  { title: "disasterIQ", category: "disaster intelligence", image: disasterIQImg, route: "/projects/disasteriq" },
+  { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo" },
 ];
 
 export default function WorkMediaSearch() {
@@ -138,31 +128,7 @@ It’s not about searching media — it’s about mastering how data moves throu
         <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
           other projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {otherProjects.map((project) => (
-            <Link
-              key={project.title}
-              to={project.route}
-              className="flex flex-col gap-3 group cursor-pointer"
-            >
-              <div className="relative w-full aspect-[6/6] overflow-hidden rounded-[12px]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-lg md:text-xl font-bold tracking-tight lowercase">
-                  {project.title}
-                </h3>
-                <p className="text-white/50 text-sm lowercase">
-                  {project.category}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <ExpandCards projects={otherProjects} />
       </section>
 
       <Footer />
