@@ -123,56 +123,48 @@ export default function TransitionWrapper({ children }) {
       const blocks = transition.querySelectorAll('.transition-block');
 
       // Helper to run animation
-      const runExit = (elements) => {
+      const runEnter = (elements, path) => {
           gsap.killTweensOf(elements); // Kill any existing tweens
           
           // Ensure container is visible and on top
-          gsap.set(transition, { display: "grid", zIndex: 9999, autoAlpha: 1 });
+          if(transitionRef.current) {
+            transitionRef.current.style.display = 'grid';
+            transitionRef.current.style.zIndex = 9999;
+          }
 
-          // Reset blocks to initial state for animation
-          gsap.set(elements, { autoAlpha: 0 });
+          // Reset blocks to initial state for animation (invisible)
+          gsap.set(elements, { opacity: 0, visibility: 'visible' });
 
-          gsap.to(
-            elements,
-            {
-              autoAlpha: 1,
-              duration: 0.05, 
-              ease: "linear",
-              stagger: { amount: 0.5, from: "random" },
-              onComplete: () => {
-                isTransitioning.current = false;
-                
-                // Ensure we navigate correctly
-                if (href.startsWith('http')) {
-                    // Start from root if full URL is passed? No, usually href from getAttribute is relative or absolute.
-                    // If it is absolute internal URL, strip origin.
-                    try {
-                        const url = new URL(href);
-                        navigate(url.pathname + url.search + url.hash);
-                    } catch(e) {
-                         navigate(href);
-                    }
-                } else {
-                    navigate(href);
-                }
-              }
+          gsap.to(elements, {
+            opacity: 1,
+            duration: 0.1, 
+            ease: "power1.inOut",
+            stagger: {
+              amount: 0.8, // Slow down the filling animation
+              grid: "auto",
+              from: "random"
+            },
+            onComplete: () => {
+              isTransitioning.current = false;
+              navigate(path);
             }
-          );
+          });
       };
 
-      if (blocks.length === 0) {
+      if (!blocks || blocks.length === 0) {
           adjustGrid().then(() => {
              const newBlocks = transitionRef.current.querySelectorAll('.transition-block');
-             runExit(newBlocks);
+             runEnter(newBlocks, href);
           });
       } else {
-          runExit(blocks);
+          runEnter(blocks, href);
       }
     };
-
+    
+    // Use event delegation on document
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [location, navigate]); // Removed navigate from dependency array? No, location is needed for comparison.
+  }, [location, navigate]); // Check dependencies
 
   // Handle bfcache restoration
   useEffect(() => {
@@ -190,40 +182,44 @@ export default function TransitionWrapper({ children }) {
     // Reset state on location change
     isTransitioning.current = false;
 
+    const transition = transitionRef.current;
+    if (transition) {
+       // Ensure it's covered immediately if it's not already
+       // But wait, if we nav from another page, it is ALREADY covered by the previous animation.
+       // We just need to make sure we don't flash.
+       transition.style.display = 'grid';
+       transition.style.zIndex = 9999;
+    }
+
     const openCurtain = () => {
-        const transition = transitionRef.current;
         if(!transition) return;
         
-        // Check if transition is actually covering screen
-        // If not (e.g. reload), we should ensure it starts covered?
-        // Actually for reloads, we want it to start covered then reveal.
-        
-        gsap.set(transition, { display: "grid", zIndex: 9999, autoAlpha: 1 });
         const blocks = transition.querySelectorAll('.transition-block');
       
-        // Ensure blocks are visible
-        gsap.set(blocks, { autoAlpha: 1 });
-
+        // Start covered
+        gsap.set(blocks, { opacity: 1, visibility: 'visible' });
+        
         // Kill any existing tweens on blocks to prevent conflict
         gsap.killTweensOf(blocks);
 
+        // Animate out (reveal page)
         gsap.to(blocks, {
-           autoAlpha: 0,
-           duration: 0.5,
-           ease: "power2.inOut",
-           stagger: { amount: 0.75, from: "random" }, 
+           opacity: 0,
+           duration: 0.1, // Element duration
+           ease: "power2.inOut", // Smoother ease
+           stagger: {
+             amount: 0.9, // Slower reveal
+             grid: "auto",
+             from: "random"
+           },
            onComplete: () => {
-              gsap.set(transition, { display: "none" }); 
+              transition.style.display = 'none'; 
            }
         });
     };
     
     // Always ensure grid is correct size
-    // Use .then to ensure grid exists before animating
-    adjustGrid().then(openCurtain).catch(() => {
-        const transition = transitionRef.current;
-        if(transition) transition.style.display = 'none';
-    });
+    adjustGrid().then(openCurtain);
 
   }, [location.pathname]); // Runs on switch
 
