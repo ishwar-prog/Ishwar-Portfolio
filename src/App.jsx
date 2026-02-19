@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useLenis } from "./lib/useLenis";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects/Projects";
@@ -9,7 +10,7 @@ import Footer from "./components/Footer";
 import AboutMe from "./pages/About-Me/About-Me";
 import SelectedWork from "./pages/work/selected-work";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
-import CustomCursor from "./components/ui/CustomCursor";
+
 
 // Project pages
 import WorkStreamora from "./pages/work/work-streamora";
@@ -21,7 +22,7 @@ import WorkJellmo from "./pages/work/work-jellmo";
 
 function Home() {
   return (
-    <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden">
+    <main className="bg-[#1f1f1f] min-h-screen w-full">
       <Navbar />
       <Hero />
       <Projects />
@@ -33,9 +34,10 @@ function Home() {
 }
 
 export default function App() {
+  useLenis();
+
   return (
     <Router>
-      <CustomCursor />
       <TransitionWrapper>
         <Routes>
           <Route path="/" element={<Home />} />
