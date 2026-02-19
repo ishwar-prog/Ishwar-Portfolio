@@ -1,6 +1,6 @@
 .cursor {
   z-index: 9999; /* Ensure it's on top of everything including transition layer if desired, or just below */
-  background-color: #9ae600;
+  background-color: #A6E3E9;
   border: 1px solid #010101;
   border-radius: 100em;
   width: 1em;
@@ -38,7 +38,7 @@ body:has([data-cursor-text]:hover) .cursor,
 .cursor.is-hovering {
   width: 3em;
   height: 3em;
-  background-color: rgba(154, 230, 0, 0.3);
+  background-color: rgb(255, 0, 0);
 }
 
 /* Specific state when text is present */
