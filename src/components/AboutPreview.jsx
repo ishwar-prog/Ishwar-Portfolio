@@ -5,7 +5,7 @@ import ishwar from "../assets/ishwar.png";
 import "./ui/ChromaEffect.css";
 
 export default function AboutPreview() {
-  const revealText = `Ishwar Suthar — Full-stack developer and an UI/UX enthusiast from Mumbai, Sophomore in Computer Engineering at KCCEMSR. I build fast, expressive web apps, diving into agentic AI and automation, and fuse clean UI with visual storytelling. Learning by building and breaking. For more Contact Me.`;
+  const revealText = `Ishwar Suthar -- Full-stack developer and an UI/UX enthusiast from Mumbai, Sophomore in Computer Engineering at KCCEMSR. I build fast, expressive web apps, diving into agentic AI and automation, and fuse clean UI with visual storytelling. Learning by building and breaking. For more Contact Me.`;
 
   // Chroma effect refs and logic
   const rootRef = useRef(null);
@@ -71,7 +71,7 @@ export default function AboutPreview() {
         {/* Three Column Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[8px] overflow-hidden">
+          <div className="w-[460px] h-[500px] bg-[#f6f4f0] rounded-[30px] overflow-hidden">
             <div
               ref={rootRef}
               className="chroma-grid"
@@ -102,10 +102,10 @@ export default function AboutPreview() {
             <p className="text-1xl text-white/40 font-bold">why work with me</p>
             <p className="text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               I build under pressure and ship on time. hackathons taught me
-              speed, focus, and ruthless prioritization—projects taught me how
+              speed, focus, and ruthless prioritization-projects taught me how
               real systems break and how to fix them. I'm full-stack by default,
               ui-obsessed by habit, and deep into agentic ai by curiosity. I
-              move fast, learn faster, and communicate clearly—through code,
+              move fast, learn faster, and communicate clearly-through code,
               clean interfaces, and visuals. if you want someone who treats
               every idea like a live product and every deadline like it's real,
               I'm a strong bet.

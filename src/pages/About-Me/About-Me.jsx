@@ -4,6 +4,7 @@ import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
 import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
+import ExperienceTimeline from "../../components/ExperienceTimeline"; // Import the new component
 
 
 const experiences = [
@@ -93,35 +94,12 @@ export default function AboutMe() {
       </section>
 
       {/* Experience Section */}
-      <section className="pb-30 px-0 md:px-0 max-w-[92rem] mx-auto">
-        <h2 className="text-[8rem] leading-[0.8] font-bold mb-16 tracking-tighter lowercase">
+      <section className="pb-30 px-0 md:px-0 max-w-[92rem] mx-auto overflow-visible relative">
+        <h2 className="text-[8rem] leading-[0.8] font-bold mb-16 tracking-tighter lowercase text-center">
           my experience
         </h2>
         
-        <div className="flex flex-col">
-          {experiences.map((exp, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-8 gap-y-4 py-8 border-t border-white/20 items-start">
-              
-              <div className="flex flex-col gap-1">
-                <h3 className="text-2xl font-bold lowercase">{exp.role}</h3>
-                <p className="text-xl text-white/50 lowercase">{exp.org}</p>
-              </div>
-
-              <div>
-                <p className="text-xl text-white/70 leading-snug lowercase font-medium">
-                  {exp.desc}
-                </p>
-              </div>
-
-              <div className="flex md:justify-end">
-                <p className="text-2xl font-bold lowercase">{exp.date}</p>
-              </div>
-
-            </div>
-          ))}
-          {/* Closing Line */}
-          <div className="w-full border-t border-white/20"></div>
-        </div>
+        <ExperienceTimeline experiences={experiences} />
       </section>
 
       <CallToAction />
