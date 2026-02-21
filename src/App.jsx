@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import AboutMe from "./pages/About-Me/About-Me";
 import SelectedWork from "./pages/work/selected-work";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
+import LoadingScreen from "./components/ui/LoadingScreen";
 
 
 // Project pages
@@ -37,22 +38,27 @@ export default function App() {
   useLenis();
 
   return (
-    <Router>
-      <TransitionWrapper>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutMe />} />
-          <Route path="/work" element={<SelectedWork />} />
-          
-          {/* Project routes */}
-          <Route path="/projects/streamora" element={<WorkStreamora />} />
-          <Route path="/projects/vibelab" element={<WorkGsap />} />
-          <Route path="/projects/mediasearch" element={<WorkMediaSearch />} />
-          <Route path="/projects/reboxed" element={<WorkReboxed />} />
-          <Route path="/projects/disasteriq" element={<WorkDisasterIQ />} />
-          <Route path="/projects/jellmo" element={<WorkJellmo />} />
-        </Routes>
-      </TransitionWrapper>
-    </Router>
+    <>
+      <LoadingScreen />
+      <div id="ishwar-app-content">
+        <Router>
+          <TransitionWrapper>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutMe />} />
+              <Route path="/work" element={<SelectedWork />} />
+              
+              {/* Project routes */}
+              <Route path="/projects/streamora" element={<WorkStreamora />} />
+              <Route path="/projects/vibelab" element={<WorkGsap />} />
+              <Route path="/projects/mediasearch" element={<WorkMediaSearch />} />
+              <Route path="/projects/reboxed" element={<WorkReboxed />} />
+              <Route path="/projects/disasteriq" element={<WorkDisasterIQ />} />
+              <Route path="/projects/jellmo" element={<WorkJellmo />} />
+            </Routes>
+          </TransitionWrapper>
+        </Router>
+        </div>
+    </>
   );
 }

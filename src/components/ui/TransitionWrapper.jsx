@@ -178,9 +178,21 @@ export default function TransitionWrapper({ children }) {
   }, []);
 
   // Route Change / Initial Load
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
     // Reset state on location change
     isTransitioning.current = false;
+    
+    // Skip the transition animation on the very first load
+    // The LoadingScreen component handles the initial reveal
+    if (isFirstRender.current) {
+      if (transitionRef.current) {
+        transitionRef.current.style.display = 'none';
+      }
+      isFirstRender.current = false;
+      return;
+    }
 
     const transition = transitionRef.current;
     if (transition) {
