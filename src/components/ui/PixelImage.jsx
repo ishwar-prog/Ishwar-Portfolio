@@ -99,15 +99,6 @@ export const PixelImage = ({
         ${(col + 1) * (100 / cols)}% ${(row + 1) * (100 / rows)}%,
         ${col * (100 / cols)}% ${(row + 1) * (100 / rows)}%
       )`
-
-      // Use a consistent value for delay based on index to avoid hydration mismatch or re-render inconsistencies
-      // But we want it to look random. 
-      // We can use a simple pseudo-random generator or just rely on index.
-      // But users want random look. 
-      // To satisfy pure render, we can use a seed. 
-      // For now, let's just use Math.random() but suppress the warning? 
-      // Or better, move this logic to useEffect? No, we need it for render.
-      // Let's use a specialized random function that is deterministic based on index.
       
       const pseudoRandom = (seed) => {
         const x = Math.sin(seed) * 10000;

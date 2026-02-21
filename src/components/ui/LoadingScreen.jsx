@@ -3,14 +3,14 @@ import gsap from 'gsap';
 import './LoadingScreen.css';
 
 // Import only the 3 images. The 4th state reveals the app.
-import godImg from '../../assets/god.png';
-import viratImg from '../../assets/virat.png';
-import krsnaImg from '../../assets/krsna.png';
+import god2Img from '../../assets/god2.png';
+import virat2Img from '../../assets/virat2.png';
+import krsna2 from '../../assets/krsna2.png';
 
 const images = [
-  godImg,
-  viratImg,
-  krsnaImg
+  god2Img,
+  virat2Img,
+    krsna2
 ];
 
 const LoadingScreen = ({ onComplete }) => {
@@ -48,19 +48,6 @@ const LoadingScreen = ({ onComplete }) => {
     const headingEnd = container.querySelectorAll(".ishwar__h1-end");
     const coverImageExtra = container.querySelectorAll(".ishwar__cover-image-extra");
     const headerContent = container.querySelector(".ishwar-header__content");
-    
-    // Create a hole in the white background
-    // We'll mask the container to reveal the app behind the "box" area
-    // This is tricky with CSS, so we'll use a clearer approach:
-    // The "box" will just be transparent, and the white background will be composed of 
-    // separate elements or we use clip-path on the main container.
-    // Let's use clip-path on the container.
-    // Initial clip-path: full screen (no hole) -> actually, we want the white bg to be everywhere
-    // EXCEPT the box.
-    // BUT the box starts at width 0. So full white is fine.
-    // Then box expands to width 10em. We need a hole there.
-    
-    // Backdrop Panels
     const panelTop = container.querySelector(".ishwar-backdrop-panel.top");
     const panelBottom = container.querySelector(".ishwar-backdrop-panel.bottom");
     const panelLeft = container.querySelector(".ishwar-backdrop-panel.left");
@@ -217,16 +204,14 @@ const LoadingScreen = ({ onComplete }) => {
       <div className="ishwar-loader">
         <div className="ishwar__h1">
           <div className="ishwar__h1-start">
-            <span className="ishwar__letter">I</span>
-            <span className="ishwar__letter">s</span>
-            <span className="ishwar__letter">h</span>
+            <span className="ishwar__letter font-black">I</span>
+            <span className="ishwar__letter font-black">s</span>
+            <span className="ishwar__letter font-black">h</span>
           </div>
           <div className="ishwar-loader__box">
             <div className="ishwar-loader__box-inner">
               <div className="ishwar__growing-image">
                 <div className="ishwar__growing-image-wrap">
-                   {/* White blocker behind images to hide app initially - fades out later */}
-                  <div className="ishwar-project-blocker"></div> 
                   
                   <img className="ishwar__cover-image-extra is--1" src={images[0]} alt="" />
                   <img className="ishwar__cover-image-extra is--2" src={images[1]} alt="" />
@@ -236,9 +221,9 @@ const LoadingScreen = ({ onComplete }) => {
             </div>
           </div>
           <div className="ishwar__h1-end">
-            <span className="ishwar__letter">w</span>
-            <span className="ishwar__letter">a</span>
-            <span className="ishwar__letter">r</span>
+            <span className="ishwar__letter font-black">w</span>
+            <span className="ishwar__letter font-black">a</span>
+            <span className="ishwar__letter font-black">r</span>
           </div>
         </div>
       </div>
@@ -248,13 +233,12 @@ const LoadingScreen = ({ onComplete }) => {
         <div className="ishwar-header__top">
           <nav className="ishwar-nav">
             <div>
-              <a href="#" className="ishwar-nav__link">Ishwar ©</a>
+              <a href="#" className="ishwar-nav__link font-semibold">Ishwar ©</a>
             </div>
           </nav>
         </div>
         <div className="ishwar-header__bottom">
           <div className="ishwar__h1">
-             {/* Duplicate text removed or kept for effect? kept but hidden mainly */}
           </div>
         </div>
       </div>

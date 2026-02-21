@@ -1,6 +1,6 @@
 /* Loading Screen Styles */
 .ishwar-header {
-  color: #1f1f1f; /* Black text */
+  color: #201d1d; /* Black text */
   position: fixed;
   inset: 0;
   z-index: 10000; /* Higher than TransitionWrapper */
@@ -12,7 +12,7 @@
 /* Backdrop Panels to create the hole effect */
 .ishwar-backdrop-panel {
   position: absolute;
-  background-color: #ffffff;
+  background-color: #f4f4f4;
   z-index: 1; /* Behind loader text (z-index 2) but above App (z-index 0) */
 }
 
