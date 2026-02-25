@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects/Projects";
 import AboutPreview from "./components/AboutPreview";
+import TechStack from "./components/TechStack";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import AboutMe from "./pages/About-Me/About-Me";
@@ -28,6 +29,7 @@ function Home() {
       <Hero />
       <Projects />
       <AboutPreview />
+      <TechStack />
       <CallToAction />
       <Footer />
     </main>
