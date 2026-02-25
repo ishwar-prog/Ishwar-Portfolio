@@ -140,8 +140,8 @@ const StickyProjects = ({ projects }) => {
 
   return (
     <div className="relative h-full w-full" ref={container}>
-      <div className="sticky-cards relative flex h-[100vh] w-full items-center justify-center overflow-hidden p-3 lg:p-8">
-        <div className="relative h-[500px] md:h-[600px] w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
+      <div className="sticky-cards relative flex h-[100vh] w-full items-center justify-center pt-20 pb-10 px-3 lg:px-8">
+        <div className="relative h-[600px] sm:h-[650px] md:h-[700px] lg:h-[770px] w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl">
           {projects.map((project, index) => (
             <div
               key={project.title}
@@ -197,7 +197,7 @@ export default function SelectedWork() {
 
         <section className="pt-15 pb-30 px-0 md:px-0 max-w-368 mx-auto">
           {/* Header */}
-          <h1 className="text-[12vw] md:text-[15rem] leading-[0.9] font-black mb-10 tracking-tighter lowercase text-center">
+          <h1 className="text-[12vw] md:text-[15rem] leading-[0.9] font-black mb-20 tracking-tighter lowercase text-center">
             selected work
           </h1>
 
