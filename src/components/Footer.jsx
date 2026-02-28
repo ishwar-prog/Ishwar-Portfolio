@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-6 pt-6 border-t border-white/10  text-white/70">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
-          <p className="mt-2 md:mt-0 text-3xl text-lime-400 font-bold">TB$M</p>
+          <p className="mt-2 md:mt-0 text-3xl text-[#D3FD50] font-bold">TB$M</p>
         </div>
       </div>
     </footer>
