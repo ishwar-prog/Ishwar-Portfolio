@@ -63,10 +63,10 @@ export default function AboutMe() {
   const handleMouseMove = (e) => {
     if (xTo.current && yTo.current && imageContainerRef.current) {
       // Adjust offset center image roughly based on its dimension 
-      // width ~ 320px => offset -160
-      // height ~ 400px => offset -200
-      const imgWidth = 320;
-      const imgHeight = 400;
+      // width ~ 250px => offset -125
+      // height ~ 250px => offset -125
+      const imgWidth = 250;
+      const imgHeight = 250;
       xTo.current(e.clientX - imgWidth / 2);
       yTo.current(e.clientY - imgHeight / 2);
     }
@@ -141,11 +141,11 @@ export default function AboutMe() {
       {/* Hover Image Container */}
       <div 
         ref={imageContainerRef}
-        className="fixed top-0 left-0 pointer-events-none z-50 overflow-hidden rounded-xl w-[320px] aspect-[4/5] opacity-0 scale-50 hidden md:block shadow-2xl"
+        className="fixed top-0 left-0 pointer-events-none z-50 overflow-visible w-[250px] aspect-[1/1] opacity-0 scale-50 hidden md:block"
       >
         <img 
           src={hoveredIndex !== null ? experiences[hoveredIndex].image : experiences[0].image} 
-          className="w-full h-full object-cover bg-[#D3FD50]" 
+          className="w-full h-full object-contain drop-shadow-2xl" 
           alt="Experience visual" 
         />
       </div>
