@@ -68,6 +68,9 @@ export default function TransitionWrapper({ children }) {
       
       // Ignore anchor links on same page
       if (href.startsWith('#')) return;
+      
+      // Ignore mailto and tel links
+      if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
       // Ignore if preventing transition
       if (link.hasAttribute('data-transition-prevent')) return;
@@ -110,7 +113,19 @@ export default function TransitionWrapper({ children }) {
 
       if (isSamePath && hasHash) {
           // It's an anchor link on the same page, let default behavior happen or handle scroll
-          // Don't animate
+          e.preventDefault();
+          const hashString = '#' + href.split('#')[1];
+          if (hashString && hashString !== '#') {
+            // Update URL without reloading
+            window.history.pushState({}, '', href);
+            // Smooth scroll to the target
+            if (window.lenis) {
+              window.lenis.scrollTo(hashString, { offset: 0, duration: 1.5 });
+            } else {
+              const el = document.querySelector(hashString);
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
           return; 
       }
 
@@ -226,6 +241,18 @@ export default function TransitionWrapper({ children }) {
            },
            onComplete: () => {
               transition.style.display = 'none'; 
+              
+              // If we navigated to a hash, smoothly scroll down to it after revealing the page
+              if (location.hash) {
+                  setTimeout(() => {
+                      if (window.lenis) {
+                          window.lenis.scrollTo(location.hash, { offset: 0, duration: 1.5 });
+                      } else {
+                          const el = document.querySelector(location.hash);
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                  }, 50);
+              }
            }
         });
     };

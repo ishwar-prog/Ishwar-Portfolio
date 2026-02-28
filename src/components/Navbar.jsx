@@ -27,7 +27,6 @@ export default function Navbar() {
                 ? "text-white/40"
                 : "text-white"
             }`}
-            data-transition-prevent={isActive ? "true" : undefined}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >

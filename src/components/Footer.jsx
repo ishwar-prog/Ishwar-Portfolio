@@ -9,7 +9,9 @@ export default function Footer() {
             <p className="hover:text-[#D3FD50]">
               email:{" "}
               <a
-                href="mailto:ishwar16suthar@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors"
               >
                 ishwar16suthar@gmail.com
@@ -37,16 +39,16 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <a href="#" className="hover:text-[#D3FD50] transition-colors font-semibold">
+              <a href="/" className="hover:text-[#D3FD50] transition-colors font-semibold">
                 home
               </a>
               <a
-                href="#about"
+                href="/about"
                 className="hover:text-[#D3FD50] transition-colors font-semibold"
               >
                 about
               </a>
-              <a href="#work" className="hover:text-[#D3FD50] transition-colors font-semibold  ">
+              <a href="/work" className="hover:text-[#D3FD50] transition-colors font-semibold  ">
                 work
               </a>
             </div>

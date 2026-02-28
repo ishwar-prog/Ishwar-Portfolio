@@ -14,6 +14,8 @@ export function useLenis() {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    
+    window.lenis = lenis; // Expose globally for smooth hash scrolling
 
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
