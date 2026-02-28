@@ -82,8 +82,8 @@ export default function WorkDisasterIQ() {
 
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
-        <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-max">
+        <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
+        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
           Disaster Relief Resource Scout is an agentic AI system built during a hackathon to transform chaotic disaster reports into structured, actionable intelligence.
 I worked on building and integrating AI agents that analyze text, URLs, and images, normalize reports into structured JSON, and enable location-based alerts with verification layers. The system combines LLM-powered intake agents, geospatial intelligence, and real-time alert visualization to simulate a disaster-response workflow. It’s a practical exploration of multi-agent orchestration, not just an AI demo.
 <br /><br />

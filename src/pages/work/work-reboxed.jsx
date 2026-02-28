@@ -82,7 +82,7 @@ export default function WorkReboxed() {
 
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
-        <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
+        <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
         <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
           Reboxed is a secure escrow marketplace prototype built during a hackathon to reimagine trust in second-hand electronics.
 As the frontend developer, I engineered the full buyer–seller experience - from escrow timelines and verification flows to dispute handling and seller analytics. The system simulates real-world transaction states using modular Zustand stores and a scalable component architecture. With property-based testing and a structured design system, this project balances UX clarity with transactional logic.

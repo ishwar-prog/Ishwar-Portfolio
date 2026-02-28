@@ -80,7 +80,6 @@ export default function AboutMe() {
   };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null);
     if (imageContainerRef.current) {
       gsap.to(imageContainerRef.current, { scale: 0.5, opacity: 0, duration: 0.4, ease: "power3.in" });
     }

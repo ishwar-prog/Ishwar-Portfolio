@@ -82,8 +82,8 @@ export default function WorkGsap() {
 
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
-        <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-max">
+        <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
+        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
           K72 UI Clone is a motion-focused React project built to deeply understand GSAP and modern animation architecture.
 I recreated the visual and interaction patterns of the K72 website to explore timeline sequencing, scroll-triggered effects, and component-scoped animations using gsap.context(). The goal wasn’t just visual polish - it was mastering performance-safe transforms, lifecycle cleanup, and animation orchestration inside React. This project sharpened my understanding of motion as a structural design tool, not decoration.
 <br />

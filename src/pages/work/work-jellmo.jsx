@@ -70,28 +70,31 @@ export default function WorkJellmo() {
 
       {/* Project Overview */}
       <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
-        <p className="text-white/50 text-sm md:text-base mb-4 lowercase">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-snug tracking-tight lowercase max-w-4xl">
-          
+        <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
+        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
+          We built a hybrid AI system that combines the structured world modeling of V-JEPA with the reasoning and interpretability strengths of Large Language Models. Our system first converts visual scenes into stable, predictive latent representations that capture physical structure and temporal dynamics. These latent metrics are then translated into human-readable insights using an LLM, enabling explainable reasoning over real-world interactions. 
+          <br />
+          <br />
+          The result is a grounded AI pipeline that bridges low-level visual prediction with high-level logical interpretation.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add type */}</p>
+            <p className="font-semibold text-2xl lowercase">hybrid multimodal ai research system</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add year */}</p>
+            <p className="font-semibold text-2xl lowercase">2/26</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add role */}</p>
+            <p className="font-semibold text-2xl lowercase">llm integration & reasoning pipeline engineer</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
-            <p className="font-semibold text-2xl lowercase">{/* Add client */}</p>
+            <p className="font-semibold text-2xl lowercase">hackathon project</p>
           </div>
         </div>
       </section>

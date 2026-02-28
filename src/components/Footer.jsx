@@ -6,11 +6,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           {/* Left Column - Contact Info */}
           <div className="flex flex-col gap-2 text-sm md:text-xl ">
-            <p className="hover:text-white/40">
+            <p className="hover:text-[#D3FD50]">
               email:{" "}
               <a
                 href="mailto:ishwar16suthar@gmail.com"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-[#D3FD50] transition-colors"
               >
                 ishwar16suthar@gmail.com
               </a>
@@ -19,13 +19,13 @@ export default function Footer() {
             <p>based in: mumbai, india</p>
             <p>available:freelance projects & internships</p>
 
-            <p className="hover:text-white/40">
+            <p className="hover:text-[#D3FD50]">
               github:
               <a
                 href="https://github.com/ishwar-prog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors"
+                className="hover:text-[#D3FD50] transition-colors"
               >
                 ishwar-prog
               </a>
@@ -37,16 +37,16 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <a href="#" className="hover:text-white/40 transition-colors font-semibold">
+              <a href="#" className="hover:text-[#D3FD50] transition-colors font-semibold">
                 home
               </a>
               <a
                 href="#about"
-                className="hover:text-white/40 transition-colors font-semibold"
+                className="hover:text-[#D3FD50] transition-colors font-semibold"
               >
                 about
               </a>
-              <a href="#work" className="hover:text-white/40 transition-colors font-semibold  ">
+              <a href="#work" className="hover:text-[#D3FD50] transition-colors font-semibold  ">
                 work
               </a>
             </div>
@@ -58,7 +58,7 @@ export default function Footer() {
                 href="https://www.instagram.com/ishwarrreal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors font-semibold"
+                className="hover:text-[#D3FD50] transition-colors font-semibold"
               >
                 instagram
               </a>
@@ -66,7 +66,7 @@ export default function Footer() {
                 href="https://x.com/ishwarrreal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors font-semibold"
+                className="hover:text-[#D3FD50] transition-colors font-semibold"
               >
                 x(twitter)
               </a>
@@ -74,7 +74,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/ishwar-suthar-8906b7328/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/40 transition-colors font-semibold"
+                className="hover:text-[#D3FD50] transition-colors font-semibold"
               >
                 linkedin
               </a>
