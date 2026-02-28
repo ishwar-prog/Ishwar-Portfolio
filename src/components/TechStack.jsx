@@ -124,7 +124,7 @@ function SkillIcon({ skill }) {
 
   return (
     <Tooltip text={skill.name} position="top">
-      <div className="group w-17 h-17 rounded-2xl border border-white/10 bg-white/3 flex items-center justify-center cursor-default transition-all duration-200 hover:border-white/25 hover:bg-white/[0.07] hover:scale-110 hover:shadow-[0_0_18px_rgba(255,255,255,0.06)] shrink-0">
+      <div className="group w-17 h-17 flex items-center justify-center cursor-default transition-transform duration-200 hover:scale-110 shrink-0">
         {SvgComp ? (
           <SvgComp />
         ) : skill.icon ? (
@@ -134,7 +134,7 @@ function SkillIcon({ skill }) {
               alt={skill.name}
               width={38}
               height={38}
-              className="w-9.5 h-9.5 object-contain select-none"
+              className="w-50 h-50 object-contain select-none"
               draggable={false}
               onError={(e) => {
                 e.currentTarget.style.display = "none";
@@ -161,14 +161,14 @@ function SkillIcon({ skill }) {
 
 export default function TechStack() {
   return (
-    <section className="py-20 bg-[#1f1f1f]" id="techstack">
+    <section className="py-40 bg-[#1f1f1f]" id="techstack">
         <div className="max-w-368 mx-auto px-6 md:px-10">
         {/* Section header */}
-        <div className="mb-12">
-          <p className="text-white/40 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+        <div className="mb-7">
+          <p className="text-white/40 text-xs font-semibold tracking-[0.3em] uppercase mb-3">
             Skills
           </p>
-          <h2 className="text-[#f6f4f0] text-5xl md:text-6xl font-extrabold leading-none tracking-tight">
+          <h2 className="text-[#f6f4f0] text-5xl md:text-6xl font-black leading-none tracking-tight">
             tech stack
           </h2>
         </div>
@@ -178,7 +178,7 @@ export default function TechStack() {
 
         {/* Row 1 – 11 icons */}
         <div
-          className="grid gap-3 mb-3"
+          className="grid gap-3 mb-15"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
         >
           {row1.map((skill) => (

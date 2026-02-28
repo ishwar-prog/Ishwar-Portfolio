@@ -7,8 +7,8 @@ import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
-import kcecellImg from "../../assets/kcecell.png";
-import googleImg from "../../assets/google.png";
+import kcecellImg from "../../assets/ecelllogo.jpg";
+import googleImg from "../../assets/google.svg";
 
 const experiences = [
   {
