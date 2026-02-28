@@ -19,9 +19,9 @@ export default function Navbar() {
         {navItems.map((item, index) => {
           const isActive = location.pathname === item.href;
           return (
-          <Link
+          <a
             key={index}
-            to={item.href}
+            href={item.href}
             className={`transition-colors duration-300 ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "text-white/40"
@@ -31,7 +31,7 @@ export default function Navbar() {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <ScrambleText text={item.label} />
-          </Link>
+          </a>
         )})}
       </div>
     </nav>

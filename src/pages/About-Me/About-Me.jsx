@@ -108,7 +108,7 @@ export default function AboutMe() {
             </p>
             
             <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
-              when i'm not behind a computer screen, i'm usually making videos, learning japanese and playing games.
+              when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games.
             </p>
           </div>
 
