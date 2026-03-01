@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ScrambleText } from "./ui/ScrambleText";
 
 export default function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -19,19 +18,19 @@ export default function Navbar() {
         {navItems.map((item, index) => {
           const isActive = location.pathname === item.href;
           return (
-          <a
+              <a
             key={index}
             href={item.href}
-            className={`transition-colors duration-300 ${
+            className={`transition-all duration-300 ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "text-white/40"
                 : "text-white"
-            }`}
+            } ${isActive ? "text-white" : ""}`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <ScrambleText text={item.label} />
-          </a>
+            {item.label}
+        </a>
         )})}
       </div>
     </nav>

@@ -154,7 +154,7 @@ function SkillIcon({ skill }) {
 
 export default function TechStack() {
   return (
-    <section className="py-40 bg-[#1f1f1f]" id="techstack">
+    <section className="py-30 bg-[#1f1f1f]" id="techstack">
         <div className="max-w-368 mx-auto px-6 md:px-10">
         {/* Section header */}
         <div className="mb-7">
