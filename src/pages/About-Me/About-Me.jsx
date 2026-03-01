@@ -5,6 +5,7 @@ import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
 import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
+import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
 import kcecellImg from "../../assets/ecelllogo.jpg";
@@ -89,16 +90,28 @@ export default function AboutMe() {
     <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
-      <section className="pt-32 pb-40 px-0 md:px-0 max-w-[92rem] mx-auto">
+      <section className="pt-32 pb-40 px-0 md:px-0 mx-auto overflow-hidden">
         
-        {/* Header */}
-        <h1 className="text-[20rem] leading-[0.5] font-extrabold mb-33 tracking-tighter flex justify-center text-center">
-          about me
-        </h1>
+        {/* Header - Loop Text Animation */}
+        <div className="mb-33 -ml-4 -mr-4 flex flex-col gap-4 origin-center rotate-[-2deg] scale-[1.05]">
+          <ScrollVelocityText 
+            baseVelocity={-2} 
+            className="text-[10rem] md:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center"
+          >
+            about me • about me • 
+          </ScrollVelocityText>
+          <ScrollVelocityText 
+            baseVelocity={2} 
+            className="text-[10rem] md:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center text-transparent"
+            style={{ WebkitTextStroke: "2px rgba(255,255,255,0.2)" }}
+          >
+            <span style={{ WebkitTextStroke: "2px rgba(255,255,255,0.2)" }}>about me • about me • </span>
+          </ScrollVelocityText>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Column: Text */}
-          <div className="flex flex-col gap-8 max-w-[500px]">
+          <div className="flex flex-col gap-8 max-w-[600px]">
             <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
               i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code.
             </p>
