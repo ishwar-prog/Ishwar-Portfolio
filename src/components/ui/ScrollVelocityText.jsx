@@ -15,7 +15,6 @@ export default function ScrollVelocityText({ children, baseVelocity = 3, classNa
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   
-  // Smooth out the velocity so the text doesn't sharply jerk
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
     stiffness: 400
@@ -26,8 +25,6 @@ export default function ScrollVelocityText({ children, baseVelocity = 3, classNa
     clamp: false
   });
 
-  // Seamlessly loop the translate percentage when it goes out of bounds.
-  // Wrapping between -20% and -45% usually creates a perfect loop with 4 spans.
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   const directionFactor = useRef(1);

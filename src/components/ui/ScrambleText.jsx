@@ -37,7 +37,7 @@ export function ScrambleText({
       if (iterationsRef.current >= maxIterations) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
-        setDisplayText(text); // Ensure final text is correct
+        setDisplayText(text); 
       }
     }, speed);
   };

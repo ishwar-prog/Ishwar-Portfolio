@@ -6,14 +6,11 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-// Main project image
 import jellmoMain from "../../assets/jellmo.png.png";
-// Additional project images
 import jellmo1 from "../../assets/jellmo-1.png";
 import jellmo2 from "../../assets/jellmo-2.png";
 import jellmo3 from "../../assets/jellmo-3.png";
 
-// Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import mediasearchImg from "../../assets/mediasearch.png.png";

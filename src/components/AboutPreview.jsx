@@ -6,8 +6,7 @@ import "./ui/ChromaEffect.css";
 
 export default function AboutPreview() {
   const revealText = `Ishwar Suthar -- Full-stack developer and an UI/UX enthusiast from Mumbai, Sophomore in Computer Engineering at KCCEMSR. I build fast, expressive web apps, diving into agentic AI and automation, and fuse clean UI with visual storytelling. Learning by building and breaking. For more Contact Me.`;
-
-  // Chroma effect refs and logic
+  
   const rootRef = useRef(null);
   const fadeRef = useRef(null);
   const setX = useRef(null);

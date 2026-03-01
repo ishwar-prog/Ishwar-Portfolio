@@ -6,14 +6,11 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-// Main project image
 import disasterIQMain from "../../assets/disasterIQ.png.png";
-// Additional project images
 import disaster1 from "../../assets/disaster-1.png";
 import disaster2 from "../../assets/disaster-2.png";
 import disaster3 from "../../assets/disaster-3.png";
 
-// Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import mediasearchImg from "../../assets/mediasearch.png.png";

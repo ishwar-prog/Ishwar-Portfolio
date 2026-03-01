@@ -6,14 +6,11 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-// Main project image
 import mediaSearchMain from "../../assets/mediasearch.png.png";
-// Additional project images (using main image as placeholder since specific ones weren't found)
 import redux1 from "../../assets/redux-1.png";
 import redux2 from "../../assets/redux-2.png";
 import redux3 from "../../assets/redux-3.png";
 
-// Other project images for the "other projects" section
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import reboxedImg from "../../assets/reboxed.png.png";

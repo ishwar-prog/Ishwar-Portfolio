@@ -9,36 +9,28 @@ export default function TransitionWrapper({ children }) {
   const transitionRef = useRef(null);
   const isTransitioning = useRef(false);
 
-  // Function to adjust grid blocks based on window size
   const adjustGrid = () => {
     return new Promise((resolve) => {
       const transition = transitionRef.current;
       if (!transition) return resolve();
 
-      // Ensure transition element is accessible
-      
       const computedStyle = window.getComputedStyle(transition);
       const gridTemplateColumns = computedStyle.getPropertyValue('grid-template-columns');
-      // Fallback if gridTemplateColumns is not set or valid
+
       const columns = gridTemplateColumns && gridTemplateColumns !== 'none' 
         ? gridTemplateColumns.split(' ').length 
         : 8; 
 
-      // Use a cleaner calculation (add 1 pixel to avoid sub-pixel gaps)
       const blockSize = Math.ceil(window.innerWidth / columns) + 1; 
       const rowsNeeded = Math.ceil(window.innerHeight / blockSize) + 1;
 
-      // Update grid styles
-      // We rely on CSS Grid to handle layout, but rows need to be explicitly sized to match aspect ratio
       transition.style.gridTemplateRows = `repeat(${rowsNeeded}, ${blockSize}px)`;
       transition.style.display = 'grid'; 
 
       const totalBlocks = columns * rowsNeeded;
       
-      // Calculate current count using .length instead of childElementCount for reliability
       const currentBlocks = transition.querySelectorAll('.transition-block').length;
 
-      // Only rebuild if necessary
       if (currentBlocks !== totalBlocks) {
           transition.innerHTML = '';
           const fragment = document.createDocumentFragment();
@@ -54,7 +46,6 @@ export default function TransitionWrapper({ children }) {
     });
   };
 
-  // Click Handler
   useEffect(() => {
     const handleClick = (e) => {
       const link = e.target.closest('a');
@@ -66,16 +57,12 @@ export default function TransitionWrapper({ children }) {
       const target = link.getAttribute('target');
       if (target === '_blank') return;
       
-      // Ignore anchor links on same page
       if (href.startsWith('#')) return;
       
-      // Ignore mailto and tel links
       if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-      // Ignore if preventing transition
       if (link.hasAttribute('data-transition-prevent')) return;
 
-      // Check external links
       try {
           const url = new URL(link.href);
           if (url.origin !== window.location.origin) return;
@@ -83,14 +70,11 @@ export default function TransitionWrapper({ children }) {
           // If invalid URL, assume internal relative path
       }
 
-      // It's an internal link we should handle
       e.preventDefault();
 
       if (isTransitioning.current) return;
       isTransitioning.current = true;
 
-      // Normalize paths to prevent re-navigation to same page
-      // Get the path from the href attribute for comparison, but use the full URL check for safety
       let targetPath;
       try {
         const urlOb = new URL(link.href, window.location.origin);
@@ -101,8 +85,6 @@ export default function TransitionWrapper({ children }) {
       
       const currentPath = location.pathname.replace(/\/+$/, '') || '/';
 
-      // Check if we are already on the target page
-      // But also check if there is a hash (anchor) change
       const isSamePath = currentPath === targetPath;
       const hasHash = href.includes('#');
 
@@ -112,13 +94,10 @@ export default function TransitionWrapper({ children }) {
       }
 
       if (isSamePath && hasHash) {
-          // It's an anchor link on the same page, let default behavior happen or handle scroll
           e.preventDefault();
           const hashString = '#' + href.split('#')[1];
           if (hashString && hashString !== '#') {
-            // Update URL without reloading
             window.history.pushState({}, '', href);
-            // Smooth scroll to the target
             if (window.lenis) {
               window.lenis.scrollTo(hashString, { offset: 0, duration: 1.5 });
             } else {
@@ -129,7 +108,6 @@ export default function TransitionWrapper({ children }) {
           return; 
       }
 
-       // Exit animation (Fade In Blocks)
       const transition = transitionRef.current;
       if (!transition) return;
 
@@ -137,17 +115,14 @@ export default function TransitionWrapper({ children }) {
       
       const blocks = transition.querySelectorAll('.transition-block');
 
-      // Helper to run animation
       const runEnter = (elements, path) => {
-          gsap.killTweensOf(elements); // Kill any existing tweens
+          gsap.killTweensOf(elements); 
           
-          // Ensure container is visible and on top
           if(transitionRef.current) {
             transitionRef.current.style.display = 'grid';
             transitionRef.current.style.zIndex = 9999;
           }
 
-          // Reset blocks to initial state for animation (invisible)
           gsap.set(elements, { opacity: 0, visibility: 'visible' });
 
           gsap.to(elements, {
@@ -155,7 +130,7 @@ export default function TransitionWrapper({ children }) {
             duration: 0.1, 
             ease: "power1.inOut",
             stagger: {
-              amount: 0.8, // Slow down the filling animation
+              amount: 0.8,
               grid: "auto",
               from: "random"
             },
@@ -176,12 +151,10 @@ export default function TransitionWrapper({ children }) {
       }
     };
     
-    // Use event delegation on document
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [location, navigate]); // Check dependencies
+  }, [location, navigate]);
 
-  // Handle bfcache restoration
   useEffect(() => {
       const handlePageShow = (event) => {
           if (event.persisted) {
@@ -192,15 +165,11 @@ export default function TransitionWrapper({ children }) {
       return () => window.removeEventListener("pageshow", handlePageShow);
   }, []);
 
-  // Route Change / Initial Load
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    // Reset state on location change
     isTransitioning.current = false;
     
-    // Skip the transition animation on the very first load
-    // The LoadingScreen component handles the initial reveal
     if (isFirstRender.current) {
       if (transitionRef.current) {
         transitionRef.current.style.display = 'none';
@@ -211,9 +180,6 @@ export default function TransitionWrapper({ children }) {
 
     const transition = transitionRef.current;
     if (transition) {
-       // Ensure it's covered immediately if it's not already
-       // But wait, if we nav from another page, it is ALREADY covered by the previous animation.
-       // We just need to make sure we don't flash.
        transition.style.display = 'grid';
        transition.style.zIndex = 9999;
     }
@@ -223,26 +189,22 @@ export default function TransitionWrapper({ children }) {
         
         const blocks = transition.querySelectorAll('.transition-block');
       
-        // Start covered
         gsap.set(blocks, { opacity: 1, visibility: 'visible' });
         
-        // Kill any existing tweens on blocks to prevent conflict
         gsap.killTweensOf(blocks);
 
-        // Animate out (reveal page)
         gsap.to(blocks, {
            opacity: 0,
-           duration: 0.1, // Element duration
-           ease: "power2.inOut", // Smoother ease
+           duration: 0.1,
+           ease: "power2.inOut", 
            stagger: {
-             amount: 0.9, // Slower reveal
+             amount: 0.9, 
              grid: "auto",
              from: "random"
            },
            onComplete: () => {
               transition.style.display = 'none'; 
-              
-              // If we navigated to a hash, smoothly scroll down to it after revealing the page
+
               if (location.hash) {
                   setTimeout(() => {
                       if (window.lenis) {
@@ -257,10 +219,9 @@ export default function TransitionWrapper({ children }) {
         });
     };
     
-    // Always ensure grid is correct size
     adjustGrid().then(openCurtain);
 
-  }, [location.pathname]); // Runs on switch
+  }, [location.pathname]); 
 
   return (
     <>

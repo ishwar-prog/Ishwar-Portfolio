@@ -97,7 +97,6 @@ function GalleryImage({ url, title, open, inPlace, id, onInPlace, total }) {
           });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return (
@@ -208,11 +207,10 @@ export default function ImageGallery({ images }) {
     });
   }, [images.length]);
 
-  // Disable clicks during animation transitions
+
   useEffect(() => setDisabled(true), [opened]);
   useEffect(() => setDisabled(false), [inPlace]);
 
-  // Autoplay with timer reset on interaction
   useEffect(() => {
     if (autoplayTimer.current) {
       clearInterval(autoplayTimer.current);

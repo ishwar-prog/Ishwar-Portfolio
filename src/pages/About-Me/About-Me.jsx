@@ -47,15 +47,11 @@ export default function AboutMe() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const imageContainerRef = useRef(null);
   
-  // Create quickTo functions for smooth cursor tracking
   const xTo = useRef(null);
   const yTo = useRef(null);
 
   useEffect(() => {
-     // Optional: Scroll to top on mount
      window.scrollTo(0, 0);
-     
-     // Initialize quickTo instances
      if (imageContainerRef.current) {
         xTo.current = gsap.quickTo(imageContainerRef.current, "x", { duration: 0.8, ease: "power3" });
         yTo.current = gsap.quickTo(imageContainerRef.current, "y", { duration: 0.8, ease: "power3" });
@@ -64,9 +60,6 @@ export default function AboutMe() {
 
   const handleMouseMove = (e) => {
     if (xTo.current && yTo.current && imageContainerRef.current) {
-      // Adjust offset center image roughly based on its dimension 
-      // width ~ 250px => offset -125
-      // height ~ 250px => offset -125
       const imgWidth = 250;
       const imgHeight = 250;
       xTo.current(e.clientX - imgWidth / 2);
@@ -133,7 +126,6 @@ export default function AboutMe() {
           </div>
 
           {/* Right Column: Image */}
-          {/* Customization: Change 'justify-center' to 'justify-start' for left align, 'justify-end' for right align */}
           <div className="flex justify-center">
             <div className="w-full md:w-[540px] h-[580px]  rounded-[80px] relative flex items-center justify-center">
                <TiltedCard

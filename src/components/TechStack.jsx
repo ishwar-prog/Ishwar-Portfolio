@@ -1,7 +1,5 @@
 import { Tooltip } from "./ui/Tooltip";
 
-/* ── Inline SVG icons ─────────────────────────────────────── */
-
 const FramerSVG = () => (
   <svg width="32" height="32" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M7.5 5.5h5v-5h-10zm0 0h-5v4l5 5v-4h5z" stroke="#f6f4f0" strokeLinejoin="round" strokeWidth="1" />
@@ -85,10 +83,7 @@ const SocketIOSVG = () => (
   </svg>
 );
 
-/* ── Skills data ──────────────────────────────────────────── */
-
 const skills = [
-  // Row 1
   { name: "TypeScript",    icon: "/icons/tech/typescript.svg" },
   { name: "JavaScript",    icon: "/icons/tech/js.svg" },
   { name: "Node.js",       icon: "/icons/tech/nodejs.svg" },
@@ -100,7 +95,7 @@ const skills = [
   { name: "MongoDB",       icon: "/icons/tech/mongodb.svg" },
   { name: "Postman",       icon: "/icons/tools/postman.svg" },
   { name: "Requestly",     icon: "/icons/tools/requestly.svg" },
-  // Row 2
+
   { name: "Redux Toolkit", icon: "/icons/tech/redux.svg" },
   { name: "React Router",  icon: "/icons/tech/react-router-dark.svg" },
   { name: "Antigravity",   icon: "/icons/tech/antigravity.svg" },
@@ -116,8 +111,6 @@ const skills = [
 
 const row1 = skills.slice(0, 11);
 const row2 = skills.slice(11, 22);
-
-/* ── SkillIcon ────────────────────────────────────────────── */
 
 function SkillIcon({ skill }) {
   const SvgComp = skill.svgComponent ?? null;
@@ -173,10 +166,8 @@ export default function TechStack() {
           </h2>
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-white/10 mb-12" />
 
-        {/* Row 1 – 11 icons */}
         <div
           className="grid gap-3 mb-15"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
@@ -186,7 +177,6 @@ export default function TechStack() {
           ))}
         </div>
 
-        {/* Row 2 – 11 icons */}
         <div
           className="grid gap-3"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}

@@ -6,14 +6,11 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-// Main project image
 import streamoraMain from "../../assets/streamora.png.png";
-// Additional project images
 import streamora1 from "../../assets/streamora-1.png";
 import streamora2 from "../../assets/streamora-2.png";
 import streamora3 from "../../assets/streamora-3.png";
 
-// Other project images for the "other projects" section
 import gsapImg from "../../assets/gsap.png.png";
 import reboxedImg from "../../assets/reboxed.png.png";
 import mediasearchImg from "../../assets/mediasearch.png.png";

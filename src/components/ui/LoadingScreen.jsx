@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import './LoadingScreen.css';
 
-// Import only the 3 images. The 4th state reveals the app.
 import god2Img from '../../assets/god2.png';
 import virat2Img from '../../assets/virat2.png';
 import krsna2 from '../../assets/krsna2.png';
@@ -26,8 +25,6 @@ const LoadingScreen = ({ onComplete }) => {
     // Prevent scrolling during loading
     document.body.style.overflow = "hidden";
 
-    // Initial State for App Content: Scaled Down & Fixed
-    // We want it to be visible BEHIND the loader
     gsap.set(appContent, { 
       scale: 0.5, 
       transformOrigin: "center center",
@@ -67,7 +64,7 @@ const LoadingScreen = ({ onComplete }) => {
         }
       });
 
-      // 1. Letters rise up
+      // Letters rise up
       if (loadingLetter.length) {
         tl.from(loadingLetter, {
           yPercent: 100,
@@ -76,33 +73,31 @@ const LoadingScreen = ({ onComplete }) => {
         });
       }
 
-      // 2. Box expands width and height
       if (box.length) {
         tl.fromTo(box, {
           width: "0vw",
           height: "0vh"
         }, {
-          width: "40vw", // Minimized box width
-          height: "40vh", // Minimized box height
+          width: "40vw", 
+          height: "40vh", 
           duration: 1.25
         }, "< 1.25");
-        
-        // Open the vertical and horizontal gap in the panels to match the box
+      
         if (panelTop && panelBottom) {
              tl.to([panelTop, panelBottom], {
-                 height: "30vh", // (100vh - 40vh) / 2
+                 height: "30vh", 
                  duration: 1.25
              }, "<");
         }
         if (panelLeft && panelRight) {
              tl.to([panelLeft, panelRight], {
-                 width: "30vw", // (100vw - 40vw) / 2
+                 width: "30vw", 
                  duration: 1.25
              }, "<");
         }
       }
 
-      // 3. Image container expands inside box
+      //Image container expands inside box
       if (growingImage.length) {
         tl.fromTo(growingImage, {
           width: "0%",
@@ -112,10 +107,7 @@ const LoadingScreen = ({ onComplete }) => {
         }, "<");
       }
 
-      // 4. Text moves apart (handled by flexbox now, so we just let it happen)
-      // We can remove the explicit x translation since flexbox will push them
-
-      // 5. Crossfade images (God, Virat, Krsna)
+      // Crossfade images (God, Virat, Krsna)
       if (coverImageExtra.length) {
         tl.to(coverImageExtra, {
             opacity: 0,
@@ -125,13 +117,13 @@ const LoadingScreen = ({ onComplete }) => {
         }, "-=0.25");
       }
       
-      // 6. Fade Out Blocker to Reveal App
+      // Fade Out Blocker to Reveal App
       if (blocker) {
           // After images fade, we see the blocker. Then fade blocker.
           tl.to(blocker, { opacity: 0, duration: 0.5 }, "+=0.1");
       }
       
-      // 7. EXPAND to Full Screen
+      // EXPAND to Full Screen
       const expansionDuration = 2.0;
       
       if (box.length) {
@@ -143,7 +135,6 @@ const LoadingScreen = ({ onComplete }) => {
         }, "+=0.2");
       }
 
-      // Animate Panels Away completely
       if (panelLeft && panelRight) {
            tl.to([panelLeft, panelRight], { width: 0, duration: expansionDuration, ease: "power2.inOut" }, "<");
       }
@@ -160,7 +151,6 @@ const LoadingScreen = ({ onComplete }) => {
         }, "<");
       }
       
-      // Push text off-screen (fade out since flexbox handles position)
       if (headingStart.length) {
         tl.to(headingStart, { opacity: 0, duration: expansionDuration * 0.5, ease: "power2.inOut" }, "<");
       }
@@ -172,8 +162,7 @@ const LoadingScreen = ({ onComplete }) => {
       if (headerContent) {
            tl.to(headerContent, { opacity: 0, duration: 1 }, "<"); 
       }
-      
-      // Scale up the App
+
       tl.to(appContent, {
         scale: 1,
         duration: expansionDuration,
@@ -182,7 +171,6 @@ const LoadingScreen = ({ onComplete }) => {
 
     }, container);
 
-    // Use clearProps to reset everything GSAP touched
     return () => {
       document.body.style.overflow = "";
       ctx.revert();
@@ -194,13 +182,11 @@ const LoadingScreen = ({ onComplete }) => {
 
   return (
     <section ref={containerRef} className="ishwar-header">
-       {/* 4 Panels forming the white background to allow easy "hole" creation */}
        <div className="ishwar-backdrop-panel top"></div>
        <div className="ishwar-backdrop-panel bottom"></div>
        <div className="ishwar-backdrop-panel left"></div>
        <div className="ishwar-backdrop-panel right"></div>
 
-      {/* Loader Centered Element */}
       <div className="ishwar-loader">
         <div className="ishwar__h1">
           <div className="ishwar__h1-start">

@@ -2,9 +2,7 @@ export default function Footer() {
   return (
     <footer className="font-normal text-[#f6f4f0] px-0 md:px-0 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
-        {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
-          {/* Left Column - Contact Info */}
           <div className="flex flex-col gap-2 text-sm md:text-xl ">
             <p className="hover:text-[#D3FD50]">
               email:{" "}
@@ -84,14 +82,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Large Name */}
         <div className="mt-12 md:mt-10">
           <h2 className="text-[20vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-left md:text-center">
             ishwar suthar
           </h2>
         </div>
 
-        {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-6 pt-6 border-t border-white/10  text-white/70">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
           <p className="mt-2 md:mt-0 text-3xl text-[#D3FD50] font-bold">TB$M</p>

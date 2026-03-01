@@ -92,7 +92,6 @@ export const PixelImage = ({
       const row = Math.floor(index / cols)
       const col = index % cols
 
-      // Calculate clipPath in percentages
       const clipPath = `polygon(
         ${col * (100 / cols)}% ${row * (100 / rows)}%,
         ${(col + 1) * (100 / cols)}% ${row * (100 / rows)}%,

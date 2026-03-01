@@ -30,7 +30,6 @@ export default function TextReveal({
         ? { scroller: scrollContainerRef.current } 
         : {};
 
-      // Rotation animation for the container
       gsap.fromTo(
         el,
         { transformOrigin: '0% 50%', rotate: baseRotation },
@@ -50,16 +49,13 @@ export default function TextReveal({
       const wordElements = el.querySelectorAll('.word');
       const totalWords = wordElements.length;
 
-      // Animate each word individually with staggered scroll positions
       wordElements.forEach((word, i) => {
-        const staggerOffset = (i / totalWords) * 0.3; // Spread animation across 30% of scroll
+        const staggerOffset = (i / totalWords) * 0.3; 
         const wordStart = `top bottom-=${20 + staggerOffset * 100}%`;
         const wordEnd = `top center+=${staggerOffset * 100}%`;
 
-        // Get the animated text span (second child)
         const textSpan = word.querySelector('.animated-text');
 
-        // Color animation from white/40 to #f6f4f0
         if (textSpan) {
           gsap.fromTo(
             textSpan,

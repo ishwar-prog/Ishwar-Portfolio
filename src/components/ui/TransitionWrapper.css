@@ -13,21 +13,19 @@
     pointer-events: none;
 }
 
-/* When active, pointer-events should be auto to block interaction */
 .transition[style*="display: grid"] {
     pointer-events: auto;
 }
 
 .transition-block {
     background-color: #D3FD50;
-    width: 100.5%; /* Slight overlap to prevent horizontal gaps */
-    height: 100.5%; /* Slight overlap to prevent vertical gaps */
+    width: 100.5%; 
+    height: 100.5%; 
     opacity: 0; 
     visibility: hidden;
-    margin: -1px; /* Pull blocks together slightly */
+    margin: -1px;
 }
 
-/* Ensure visibility when animating */
 .transition-block[style*="visibility: inherit"], 
 .transition-block[style*="visibility: visible"],
 .transition-block[style*="opacity: 1"] {
