@@ -6,7 +6,7 @@ const ExpandCards = ({ projects }) => {
 
   return (
     <div className="w-full overflow-x-auto">
-      <div className="flex items-stretch justify-start md:justify-center gap-1 min-w-max md:min-w-0 ">
+      <div className="flex items-stretch justify-start md:justify-center gap-2.5 min-w-max md:min-w-0 ">
         {projects.map((project, idx) => (
           <Link
             key={project.title}

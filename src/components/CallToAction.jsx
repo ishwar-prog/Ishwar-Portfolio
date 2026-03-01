@@ -31,7 +31,7 @@ export default function CallToAction() {
         href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 cursor-pointer hover:text-white/40 transition-colors duration-300 text-decoration-none"
+        className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 cursor-pointer hover:text-white/20 transition-colors duration-300 text-decoration-none"
       >
         <h2 className="text-[15vw] md:text-[12rem] font-extrabold leading-none tracking-tighter">
           get in

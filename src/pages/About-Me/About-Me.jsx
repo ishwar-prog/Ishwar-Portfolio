@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
 import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
+import { TextSpotlight } from "../../components/ui/TextSpotlight";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
 import kcecellImg from "../../assets/ecelllogo.jpg";
@@ -112,17 +113,23 @@ export default function AboutMe() {
         <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Left Column: Text */}
           <div className="flex flex-col gap-8 max-w-[600px]">
-            <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
-              i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code.
-            </p>
+            <TextSpotlight
+              text="i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code."
+              textClassName="text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
             
-            <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
-              i'm currently in second year of computer engineering from kc college of engineering (thane), mumbai university with a deep interest in developement and agentic ai. i have build multiple projects which you can check.
-            </p>
+            <TextSpotlight
+              text="i'm currently in second year of computer engineering from kc college of engineering (thane), mumbai university with a deep interest in developement and agentic ai. i have build multiple projects which you can check."
+              textClassName="text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
             
-            <p className="text-2xl leading-snug font-bold text-white/50 lowercase">
-              when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games.
-            </p>
+            <TextSpotlight
+              text="when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games."
+              textClassName="text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
           </div>
 
           {/* Right Column: Image */}
