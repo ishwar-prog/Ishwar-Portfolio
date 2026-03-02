@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Hyperlink } from "./ui/Hyperlink";
 
 export default function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -18,7 +19,7 @@ export default function Navbar() {
         {navItems.map((item, index) => {
           const isActive = location.pathname === item.href;
           return (
-              <a
+              <Hyperlink
             key={index}
             href={item.href}
             className={`transition-all duration-300 ${
@@ -30,7 +31,7 @@ export default function Navbar() {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             {item.label}
-        </a>
+        </Hyperlink>
         )})}
       </div>
     </nav>

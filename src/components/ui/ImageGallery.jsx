@@ -120,7 +120,7 @@ function GalleryImage({ url, title, open, inPlace, id, onInPlace, total }) {
           width={WIDTH}
           height={HEIGHT}
           href={url}
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="xMidYMid meet"
           className="pointer-events-none"
         />
       </g>
@@ -224,9 +224,9 @@ export default function ImageGallery({ images }) {
   }, [opened, next]);
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto my-10 px-4 md:px-0 z-10">
+    <div className="relative w-full max-w-7xl mx-auto my-10 px-4 md:px-0 z-10">
       {/* Gallery Container */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[15px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.02),0_6.7px_5.3px_rgba(0,0,0,0.028),0_12.5px_10px_rgba(0,0,0,0.035),0_22.3px_17.9px_rgba(0,0,0,0.042),0_41.8px_33.4px_rgba(0,0,0,0.05),0_100px_80px_rgba(0,0,0,0.07)]">
+      <div className="relative w-full aspect-[16/9] overflow-hidden rounded-[15px] bg-neutral-900/5 dark:bg-neutral-800/20 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.02),0_6.7px_5.3px_rgba(0,0,0,0.028),0_12.5px_10px_rgba(0,0,0,0.035),0_22.3px_17.9px_rgba(0,0,0,0.042),0_41.8px_33.4px_rgba(0,0,0,0.05),0_100px_80px_rgba(0,0,0,0.07)]">
         {images.map((image, i) => (
           <div
             key={i}

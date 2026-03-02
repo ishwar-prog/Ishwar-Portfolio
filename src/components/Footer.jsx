@@ -1,34 +1,38 @@
+import { Hyperlink } from "./ui/Hyperlink";
+
 export default function Footer() {
   return (
     <footer className="font-normal text-[#f6f4f0] px-0 md:px-0 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           <div className="flex flex-col gap-2 text-sm md:text-xl ">
-            <p className="hover:text-[#D3FD50]">
+            <p className="hover:text-[#D3FD50] flex items-center gap-1">
               email:{" "}
-              <a
+              <Hyperlink
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors"
+                underlineClassName="bg-[#D3FD50]"
               >
                 ishwar16suthar@gmail.com
-              </a>
+              </Hyperlink>
             </p>
 
             <p>based in: mumbai, india</p>
             <p>available:freelance projects & internships</p>
 
-            <p className="hover:text-[#D3FD50]">
+            <p className="hover:text-[#D3FD50] flex items-center gap-1">
               github:
-              <a
+              <Hyperlink
                 href="https://github.com/ishwar-prog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors"
+                underlineClassName="bg-[#D3FD50]"
               >
                 ishwar-prog
-              </a>
+              </Hyperlink>
             </p>
           </div>
 
@@ -37,47 +41,51 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <a href="/" className="hover:text-[#D3FD50] transition-colors font-semibold">
+              <Hyperlink href="/" className="hover:text-[#D3FD50] transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
                 home
-              </a>
-              <a
+              </Hyperlink>
+              <Hyperlink
                 href="/about"
                 className="hover:text-[#D3FD50] transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
               >
                 about
-              </a>
-              <a href="/work" className="hover:text-[#D3FD50] transition-colors font-semibold  ">
+              </Hyperlink>
+              <Hyperlink href="/work" className="hover:text-[#D3FD50] transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
                 work
-              </a>
+              </Hyperlink>
             </div>
 
             {/* Socials */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">socials</p>
-              <a
+              <Hyperlink
                 href="https://www.instagram.com/ishwarrreal/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
               >
                 instagram
-              </a>
-              <a
+              </Hyperlink>
+              <Hyperlink
                 href="https://x.com/ishwarrreal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
               >
                 x(twitter)
-              </a>
-              <a
+              </Hyperlink>
+              <Hyperlink
                 href="https://www.linkedin.com/in/ishwar-suthar-8906b7328/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#D3FD50] transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
               >
                 linkedin
-              </a>
+              </Hyperlink>
             </div>
           </div>
         </div>
