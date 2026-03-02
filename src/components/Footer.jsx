@@ -6,13 +6,13 @@ export default function Footer() {
       <div className="max-w-[92rem] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
           <div className="flex flex-col gap-2 text-sm md:text-xl ">
-            <p className="hover:text-[#D3FD50] flex items-center gap-1">
+            <p className="flex items-center gap-1">
               email:{" "}
               <Hyperlink
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D3FD50] transition-colors"
+                className="transition-colors"
                 underlineClassName="bg-[#D3FD50]"
               >
                 ishwar16suthar@gmail.com
@@ -22,13 +22,13 @@ export default function Footer() {
             <p>based in: mumbai, india</p>
             <p>available:freelance projects & internships</p>
 
-            <p className="hover:text-[#D3FD50] flex items-center gap-1">
+            <p className="flex items-center gap-1">
               github:
               <Hyperlink
                 href="https://github.com/ishwar-prog"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D3FD50] transition-colors"
+                className="transition-colors"
                 underlineClassName="bg-[#D3FD50]"
               >
                 ishwar-prog
@@ -41,17 +41,17 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <Hyperlink href="/" className="hover:text-[#D3FD50] transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
+              <Hyperlink href="/" className="transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
                 home
               </Hyperlink>
               <Hyperlink
                 href="/about"
-                className="hover:text-[#D3FD50] transition-colors font-semibold"
+                className="transition-colors font-semibold"
                 underlineClassName="bg-[#D3FD50]"
               >
                 about
               </Hyperlink>
-              <Hyperlink href="/work" className="hover:text-[#D3FD50] transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
+              <Hyperlink href="/work" className="transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
                 work
               </Hyperlink>
             </div>
@@ -63,7 +63,7 @@ export default function Footer() {
                 href="https://www.instagram.com/ishwarrreal/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D3FD50] transition-colors font-semibold"
+                className="transition-colors font-semibold"
                 underlineClassName="bg-[#D3FD50]"
               >
                 instagram
@@ -72,7 +72,7 @@ export default function Footer() {
                 href="https://x.com/ishwarrreal"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D3FD50] transition-colors font-semibold"
+                className="transition-colors font-semibold"
                 underlineClassName="bg-[#D3FD50]"
               >
                 x(twitter)
@@ -81,7 +81,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/ishwar-suthar-8906b7328/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#D3FD50] transition-colors font-semibold"
+                className="transition-colors font-semibold"
                 underlineClassName="bg-[#D3FD50]"
               >
                 linkedin

@@ -22,11 +22,12 @@ export default function Navbar() {
               <Hyperlink
             key={index}
             href={item.href}
-            className={`transition-all duration-300 ${
+            className={`transition-colors duration-300 ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "text-white/40"
                 : "text-white"
-            } ${isActive ? "text-white" : ""}`}
+            }`}
+            underlineClassName="bg-[#D3FD50]"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >

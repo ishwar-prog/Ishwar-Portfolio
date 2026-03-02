@@ -26,9 +26,9 @@ const Hyperlink = ({
 
       <span
         className={cn(
-          "absolute left-0 w-full h-[1.5px] bg-current transform scale-x-0 transition-transform duration-500 ease-out -bottom-[2px]",
+          "absolute left-0 w-full h-[1.5px] transform scale-x-0 transition-transform duration-500 ease-out -bottom-[2px]",
           isHovered ? "scale-x-100 origin-left" : "scale-x-0 origin-right",
-          underlineClassName
+          underlineClassName || "bg-current"
         )}
       />
     </a>
