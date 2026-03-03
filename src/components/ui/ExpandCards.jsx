@@ -6,11 +6,11 @@ const ExpandCards = ({ projects }) => {
 
   return (
     <div className="w-full overflow-x-auto">
-      <div className="flex items-stretch justify-start md:justify-center gap-2.5 min-w-max md:min-w-0 ">
+      <div className="flex items-stretch justify-astart md:justify-center gap-2.5 min-w-max md:min-w-0 ">
         {projects.map((project, idx) => (
-          <Link
+          <a
             key={project.title}
-            to={project.route}
+            href={project.route}
             className="relative cursor-pointer overflow-hidden rounded-[20px] shrink-0 block border border-white/60"
             style={{
               width: expandedIndex === idx ? "56rem" : "8rem",
@@ -39,7 +39,7 @@ const ExpandCards = ({ projects }) => {
                 {project.category}
               </p>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>

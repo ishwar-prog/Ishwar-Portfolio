@@ -1,6 +1,9 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './LoadingScreen.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 import god2Img from '../../assets/god2.png';
 import virat2Img from '../../assets/virat2.png';
@@ -34,7 +37,8 @@ const LoadingScreen = ({ onComplete }) => {
       position: "fixed",
       top: 0,
       left: 0,
-      zIndex: 0
+      zIndex: 0,
+      visibility: "hidden"
     });
 
     // Elements
@@ -60,6 +64,11 @@ const LoadingScreen = ({ onComplete }) => {
           setIsHidden(true);
           document.body.style.overflow = ""; // Enable scroll
           gsap.set(appContent, { clearProps: "all" });
+          // Refresh ScrollTrigger so animations like TextReveal recalculate
+          // positions after the loading screen clears its fixed/scale transforms
+          setTimeout(() => {
+            ScrollTrigger.refresh();
+          }, 50);
           if (onComplete) onComplete();
         }
       });
@@ -165,6 +174,7 @@ const LoadingScreen = ({ onComplete }) => {
 
       tl.to(appContent, {
         scale: 1,
+        visibility: "visible",
         duration: expansionDuration,
         ease: "power2.inOut"
       }, "<");
