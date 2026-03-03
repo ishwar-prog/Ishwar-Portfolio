@@ -1,6 +1,9 @@
+import { useLocation } from "react-router-dom";
 import { Hyperlink } from "./ui/Hyperlink";
 
 export default function Footer() {
+  const location = useLocation();
+
   return (
     <footer className="font-normal text-[#f6f4f0] px-0 md:px-0 pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
@@ -41,17 +44,28 @@ export default function Footer() {
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-lg">pages</p>
-              <Hyperlink href="/" className="transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
+              <Hyperlink
+                href="/"
+                isActive={location.pathname === "/"}
+                className="transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
+              >
                 home
               </Hyperlink>
               <Hyperlink
                 href="/about"
+                isActive={location.pathname === "/about"}
                 className="transition-colors font-semibold"
                 underlineClassName="bg-[#D3FD50]"
               >
                 about
               </Hyperlink>
-              <Hyperlink href="/work" className="transition-colors font-semibold" underlineClassName="bg-[#D3FD50]">
+              <Hyperlink
+                href="/work"
+                isActive={location.pathname === "/work"}
+                className="transition-colors font-semibold"
+                underlineClassName="bg-[#D3FD50]"
+              >
                 work
               </Hyperlink>
             </div>

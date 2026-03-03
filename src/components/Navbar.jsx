@@ -22,6 +22,7 @@ export default function Navbar() {
               <Hyperlink
             key={index}
             href={item.href}
+            isActive={isActive}
             className={`transition-colors duration-300 ${
               hoveredIndex !== null && hoveredIndex !== index
                 ? "text-white/40"

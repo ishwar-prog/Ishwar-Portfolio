@@ -150,7 +150,7 @@ const StickyProjects = ({ projects }) => {
                 cardRefs.current[index] = el;
               }}
             >
-              <Link to={project.route} className="block h-full w-full">
+              <a to={project.route} className="block h-full w-full">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ const StickyProjects = ({ projects }) => {
                     </p>
                   </div>
                 </motion.div>
-              </Link>
+              </a>
             </div>
           ))}
         </div>
