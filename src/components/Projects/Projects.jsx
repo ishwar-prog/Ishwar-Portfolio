@@ -54,8 +54,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-0 md:px-0  text-white" id="work">
-      <div className="max-w-[92rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[400px] md:auto-rows-[500px]">
+    <section className="py-10 md:py-20 px-3 md:px-0 text-white" id="work">
+      <div className="max-w-[92rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 auto-rows-[250px] sm:auto-rows-[320px] md:auto-rows-[500px]">
         {projects.map((project, index) => (
           <div key={index} data-cursor-text="See More" className={project.className}>
              <ProjectCard {...project} className="h-full w-full" />

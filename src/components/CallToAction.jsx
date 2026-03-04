@@ -25,19 +25,22 @@ export default function CallToAction() {
   return (
     <section
       id="contact"
-      className="py-20 px-0 md:px-0 bg-[#1f1f1f] flex justify-center items-center min-h-[40vh] text-[#f6f4f0]"
+      className="py-12 md:py-20 px-3 md:px-0 bg-[#1f1f1f] flex justify-center items-center min-h-[30vh] md:min-h-[40vh] text-[#f6f4f0]"
     >
       <a 
         href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 cursor-pointer hover:text-white/20 transition-colors duration-300 text-decoration-none"
+        className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 cursor-pointer hover:text-white/20 transition-colors duration-300 text-decoration-none w-full"
       >
-        <h2 className="text-[15vw] md:text-[12rem] font-extrabold leading-none tracking-tighter">
+        {/* Mobile: image first, then text */}
+        {/* Desktop: get in [image] touch */}
+        <h2 className="hidden md:block text-[12rem] font-extrabold leading-none tracking-tighter">
           get in
         </h2>
 
-        <div className="w-[20vw] h-[20vw] md:w-95 md:h-75 rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
+        {/* Image container - shown first on mobile */}
+        <div className="order-first md:order-none w-[70vw] h-[45vw] sm:w-[50vw] sm:h-[35vw] md:w-95 md:h-75 rounded-[2rem] md:rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
           <AnimatePresence mode="popLayout">
             <motion.img
               key={currentIndex}
@@ -48,7 +51,14 @@ export default function CallToAction() {
           </AnimatePresence>
         </div>
 
-        <h2 className="text-[15vw] md:text-[12rem] font-extrabold leading-none tracking-tighter">
+        {/* Mobile: "get in touch" below image */}
+        <div className="flex flex-col items-center md:hidden">
+          <h2 className="text-[13vw] font-extrabold leading-none tracking-tighter">
+            get in touch
+          </h2>
+        </div>
+
+        <h2 className="hidden md:block text-[12rem] font-extrabold leading-none tracking-tighter">
           touch
         </h2>
       </a>

@@ -5,10 +5,10 @@ export default function Footer() {
   const location = useLocation();
 
   return (
-    <footer className="font-normal text-[#f6f4f0] px-0 md:px-0 pt-12 pb-6">
+    <footer className="font-normal text-[#f6f4f0] px-3 md:px-0 pt-10 md:pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-0">
-          <div className="flex flex-col gap-2 text-sm md:text-xl ">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-0">
+          <div className="flex flex-col gap-2 text-sm md:text-xl">
             <p className="flex items-center gap-1">
               email:{" "}
               <Hyperlink
@@ -40,10 +40,10 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Pages & Socials */}
-          <div className="flex gap-16 text-sm md:text-xl">
+          <div className="flex gap-12 sm:gap-16 text-sm md:text-xl">
             {/* Pages */}
             <div className="flex flex-col gap-1">
-              <p className="text-white/65 mb-1 text-lg">pages</p>
+              <p className="text-white/65 mb-1 text-base md:text-lg">pages</p>
               <Hyperlink
                 href="/"
                 isActive={location.pathname === "/"}
@@ -72,7 +72,7 @@ export default function Footer() {
 
             {/* Socials */}
             <div className="flex flex-col gap-1">
-              <p className="text-white/65 mb-1 text-lg">socials</p>
+              <p className="text-white/65 mb-1 text-base md:text-lg">socials</p>
               <Hyperlink
                 href="https://www.instagram.com/ishwarrreal/"
                 target="_blank"
@@ -104,15 +104,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-10">
-          <h2 className="text-[20vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-left md:text-center">
+        <div className="mt-8 md:mt-10">
+          <h2 className="text-[15vw] sm:text-[18vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-left md:text-center">
             ishwar suthar
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-6 pt-6 border-t border-white/10  text-white/70">
+        <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-4 md:mt-6 pt-4 md:pt-6 border-t border-white/10 text-white/70 text-xs md:text-base">
           <p>© 2026 ishwarsuthar. all rights reserved</p>
-          <p className="mt-2 md:mt-0 text-3xl text-[#D3FD50] font-bold">TB$M</p>
+          <p className="mt-2 md:mt-0 text-xl md:text-3xl text-[#D3FD50] font-bold">TB$M</p>
         </div>
       </div>
     </footer>

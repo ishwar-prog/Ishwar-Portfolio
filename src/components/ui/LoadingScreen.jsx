@@ -116,6 +116,9 @@ const LoadingScreen = ({ onComplete }) => {
         }, "<");
       }
 
+      // Make app content visible now (still scaled small) so no black flash when images fade
+      tl.set(appContent, { visibility: "visible" }, "-=0.25");
+
       // Crossfade images (God, Virat, Krsna)
       if (coverImageExtra.length) {
         tl.to(coverImageExtra, {
@@ -174,7 +177,6 @@ const LoadingScreen = ({ onComplete }) => {
 
       tl.to(appContent, {
         scale: 1,
-        visibility: "visible",
         duration: expansionDuration,
         ease: "power2.inOut"
       }, "<");

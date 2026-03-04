@@ -5,6 +5,7 @@ import { cn } from "../../lib/utils"
 
 const DEFAULT_GRIDS = {
   "6x4": { rows: 4, cols: 6 },
+  "8x4": { rows: 4, cols: 8 },
   "8x8": { rows: 8, cols: 8 },
   "8x3": { rows: 3, cols: 8 },
   "4x6": { rows: 6, cols: 4 },

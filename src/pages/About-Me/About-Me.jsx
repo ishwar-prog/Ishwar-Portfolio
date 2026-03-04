@@ -45,6 +45,7 @@ const experiences = [
 
 export default function AboutMe() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [tappedIndex, setTappedIndex] = useState(null);
   const imageContainerRef = useRef(null);
   
   const xTo = useRef(null);
@@ -80,54 +81,38 @@ export default function AboutMe() {
     }
   };
 
+  const handleTap = (index) => {
+    setTappedIndex(tappedIndex === index ? null : index);
+  };
+
   return (
     <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
-      <section className="pt-32 pb-40 px-0 md:px-0 mx-auto overflow-hidden">
+      <section className="pt-20 md:pt-32 pb-20 md:pb-40 px-0 md:px-0 mx-auto overflow-hidden">
         
         {/* Header - Loop Text Animation */}
-        <div className="mb-33 -ml-4 -mr-4 flex flex-col gap-4 origin-center rotate-[-2deg] scale-[1.05]">
+        <div className="mb-16 md:mb-33 -ml-4 -mr-4 flex flex-col gap-2 md:gap-4 origin-center rotate-[-2deg] scale-[1.05]">
           <ScrollVelocityText 
             baseVelocity={-2} 
-            className="text-[10rem] md:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center"
+            className="text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center"
           >
             about me • about me • 
           </ScrollVelocityText>
           <ScrollVelocityText 
             baseVelocity={2} 
-            className="text-[10rem] md:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center text-transparent"
+            className="text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center text-transparent"
             style={{ WebkitTextStroke: "2px rgba(255,255,255,0.2)" }}
           >
             <span style={{ WebkitTextStroke: "2px rgba(255,255,255,0.2)" }}>about me • about me • </span>
           </ScrollVelocityText>
         </div>
 
-        <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          {/* Left Column: Text */}
-          <div className="flex flex-col gap-8 max-w-[600px]">
-            <TextSpotlight
-              text="i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code."
-              textClassName="text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
-            />
-            
-            <TextSpotlight
-              text="i'm currently in second year of computer engineering from kc college of engineering (thane), mumbai university with a deep interest in developement and agentic ai. i have build multiple projects which you can check."
-              textClassName="text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
-            />
-            
-            <TextSpotlight
-              text="when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games."
-              textClassName="text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
-            />
-          </div>
-
-          {/* Right Column: Image */}
-          <div className="flex justify-center">
-            <div className="w-full md:w-[540px] h-[580px]  rounded-[80px] relative flex items-center justify-center">
+        {/* Mobile: image first, text below. Desktop: side by side */}
+        <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+          {/* Image - shown first on mobile via order */}
+          <div className="flex justify-center order-first md:order-last">
+            <div className="w-full max-w-[400px] md:max-w-none md:w-[540px] h-[400px] sm:h-[480px] md:h-[580px] rounded-[40px] md:rounded-[80px] relative flex items-center justify-center">
                <TiltedCard
                  imageSrc={ishwar}
                  altText="Ishwar Suthar"
@@ -145,11 +130,31 @@ export default function AboutMe() {
             </div>
           </div>
 
+          {/* Text Column - shown second on mobile */}
+          <div className="flex flex-col gap-6 md:gap-8 max-w-[600px] order-last md:order-first">
+            <TextSpotlight
+              text="i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code."
+              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
+            
+            <TextSpotlight
+              text="i'm currently in second year of computer engineering from kc college of engineering (thane), mumbai university with a deep interest in developement and agentic ai. i have build multiple projects which you can check."
+              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
+            
+            <TextSpotlight
+              text="when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games."
+              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
+              animateOnPhone={true}
+            />
+          </div>
         </div>
 
       </section>
 
-      {/* Hover Image Container */}
+      {/* Hover Image Container - desktop only */}
       <div 
         ref={imageContainerRef}
         className="fixed top-0 left-0 pointer-events-none z-50 overflow-visible w-[250px] aspect-[1/1] opacity-0 scale-50 hidden md:block"
@@ -162,8 +167,8 @@ export default function AboutMe() {
       </div>
 
       {/* Experience Section */}
-      <section className="pb-30 px-0 md:px-0 max-w-[100rem] mx-auto w-full relative">
-        <h2 className="text-[8rem] leading-[0.8] font-bold mb-16 tracking-tighter lowercase px-8">
+      <section className="pb-16 md:pb-30 px-0 md:px-0 max-w-[100rem] mx-auto w-full relative">
+        <h2 className="text-[3rem] sm:text-[5rem] md:text-[8rem] leading-[0.8] font-bold mb-8 md:mb-16 tracking-tighter lowercase px-4 md:px-8">
           my experience
         </h2>
         
@@ -176,22 +181,35 @@ export default function AboutMe() {
             <div 
               key={index} 
               onMouseEnter={() => handleMouseEnter(index)}
-              className="group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-8 gap-y-4 py-12 px-8 border-b border-white/20 items-center transition-all duration-300 hover:bg-[#D3FD50] cursor-pointer"
+              onClick={() => handleTap(index)}
+              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer ${
+                tappedIndex === index ? "bg-[#D3FD50] md:bg-transparent" : ""
+              } md:hover:bg-[#D3FD50]`}
             >
+              {/* Mobile: show experience image when tapped */}
+              {tappedIndex === index && (
+                <div className="md:hidden w-full flex justify-center mb-3">
+                  <img 
+                    src={exp.image} 
+                    alt={exp.org}
+                    className="w-24 h-24 object-contain rounded-lg"
+                  />
+                </div>
+              )}
               
-              <div className="flex flex-col gap-2 z-10">
-                <h3 className="text-3xl md:text-4xl font-bold uppercase transition-colors duration-300 group-hover:text-black">{exp.role}</h3>
-                <p className="text-xl text-white/50 uppercase transition-colors duration-300 group-hover:text-black/70">{exp.org}</p>
+              <div className="flex flex-col gap-1 md:gap-2 z-10">
+                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-inherit" : ""} md:group-hover:text-black`}>{exp.role}</h3>
+                <p className={`text-sm sm:text-base md:text-xl text-white/50 uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 md:text-white/50" : ""} md:group-hover:text-black/70`}>{exp.org}</p>
               </div>
 
               <div className="z-10">
-                <p className="text-xl md:text-2xl text-white/70 leading-snug lowercase font-medium transition-colors duration-300 group-hover:text-black/80">
+                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl text-white/70 leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 md:text-white/70" : ""} md:group-hover:text-black/80`}>
                   {exp.desc}
                 </p>
               </div>
 
               <div className="flex md:justify-end z-10">
-                <p className="text-2xl font-bold uppercase transition-colors duration-300 group-hover:text-black">{exp.date}</p>
+                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-inherit" : ""} md:group-hover:text-black`}>{exp.date}</p>
               </div>
 
             </div>

@@ -112,12 +112,18 @@ const skills = [
 const row1 = skills.slice(0, 11);
 const row2 = skills.slice(11, 22);
 
+// Mobile layout: 5 columns, split into rows of 5
+const mobileRows = [];
+for (let i = 0; i < skills.length; i += 5) {
+  mobileRows.push(skills.slice(i, i + 5));
+}
+
 function SkillIcon({ skill }) {
   const SvgComp = skill.svgComponent ?? null;
 
   return (
     <Tooltip text={skill.name} position="top">
-      <div className="group w-17 h-17 flex items-center justify-center cursor-default transition-transform duration-200 hover:scale-110 shrink-0">
+      <div className="group w-12 h-12 sm:w-14 sm:h-14 md:w-17 md:h-17 flex items-center justify-center cursor-default transition-transform duration-200 hover:scale-110 shrink-0">
         {SvgComp ? (
           <SvgComp />
         ) : skill.icon ? (
@@ -127,7 +133,7 @@ function SkillIcon({ skill }) {
               alt={skill.name}
               width={38}
               height={38}
-              className="w-50 h-50 object-contain select-none"
+              className="w-9 h-9 sm:w-10 sm:h-10 md:w-50 md:h-50 object-contain select-none"
               draggable={false}
               onError={(e) => {
                 e.currentTarget.style.display = "none";
@@ -154,22 +160,23 @@ function SkillIcon({ skill }) {
 
 export default function TechStack() {
   return (
-    <section className="py-30 bg-[#1f1f1f]" id="techstack">
-        <div className="max-w-368 mx-auto px-6 md:px-10">
+    <section className="py-16 md:py-30 bg-[#1f1f1f]" id="techstack">
+      <div className="max-w-368 mx-auto px-4 sm:px-6 md:px-10">
         {/* Section header */}
-        <div className="mb-7">
-          <p className="text-white/40 text-xs font-semibold tracking-[0.3em] uppercase mb-3">
+        <div className="mb-5 md:mb-7">
+          <p className="text-white/40 text-xs font-semibold tracking-[0.3em] uppercase mb-2 md:mb-3">
             Skills
           </p>
-          <h2 className="text-[#f6f4f0] text-5xl md:text-6xl font-black leading-none tracking-tight">
+          <h2 className="text-[#f6f4f0] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight">
             tech stack
           </h2>
         </div>
 
-        <div className="w-full h-px bg-white/10 mb-12" />
+        <div className="w-full h-px bg-white/10 mb-8 md:mb-12" />
 
+        {/* Desktop: 11-column grid (hidden on mobile) */}
         <div
-          className="grid gap-3 mb-15"
+          className="hidden md:grid gap-3 mb-15"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
         >
           {row1.map((skill) => (
@@ -178,11 +185,26 @@ export default function TechStack() {
         </div>
 
         <div
-          className="grid gap-3"
+          className="hidden md:grid gap-3"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
         >
           {row2.map((skill) => (
             <SkillIcon key={skill.name} skill={skill} />
+          ))}
+        </div>
+
+        {/* Mobile: 5-column grid (hidden on desktop) */}
+        <div className="md:hidden flex flex-col gap-4">
+          {mobileRows.map((row, rowIdx) => (
+            <div
+              key={rowIdx}
+              className="grid gap-2 justify-items-center"
+              style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
+            >
+              {row.map((skill) => (
+                <SkillIcon key={skill.name} skill={skill} />
+              ))}
+            </div>
           ))}
         </div>
       </div>

@@ -35,14 +35,14 @@ export default function WorkGsap() {
       <Navbar />
 
       {/* Project Header */}
-      <section className="pt-30 pb-25 px-0 md:px-0 max-w-368 mx-auto">
-        <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
+      <section className="pt-20 md:pt-30 pb-12 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
+        <h1 className="text-[12vw] sm:text-[14vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
           vibelab
         </h1>
       </section>
 
       {/* Main Project Image with Icons */}
-      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <CardCurtainReveal className="w-full rounded-[12px]">
           <img
             src={gsapMain}
@@ -78,9 +78,9 @@ export default function WorkGsap() {
       </section>
 
       {/* Project Overview */}
-      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold leading-tight lowercase max-w-max">
           K72 UI Clone is a motion-focused React project built to deeply understand GSAP and modern animation architecture.
 I recreated the visual and interaction patterns of the K72 website to explore timeline sequencing, scroll-triggered effects, and component-scoped animations using gsap.context(). The goal wasn’t just visual polish - it was mastering performance-safe transforms, lifecycle cleanup, and animation orchestration inside React. This project sharpened my understanding of motion as a structural design tool, not decoration.
 <br />
@@ -89,28 +89,28 @@ It’s a study in controlled, high-performance UI animation.
         </h2>
 
         {/* Project Metadata */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-60 mt-8 md:mt-13 text-sm md:text-base">
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">Web Application - GSAP Animation Study</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">project type</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Web Application - GSAP Animation Study</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">10/25</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">year</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">10/25</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
-            <p className="font-semibold text-2xl lowercase">Frontend Developer</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">role</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Frontend Developer</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">client</p>
-            <p className="font-semibold text-2xl lowercase">Personal Project</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">client</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Personal Project</p>
           </div>
         </div>
       </section>
 
       {/* Additional Project Images - Gallery */}
-      <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-12 md:pb-20 px-3 md:px-0 max-w-368 mx-auto">
         <ImageGallery
           images={[
             { title: "vibelab screenshot 1", url: gsap1 },
@@ -121,8 +121,8 @@ It’s a study in controlled, high-performance UI animation.
       </section>
 
       {/* Other Projects Section */}
-      <section className="pb-25 px-0 md:px-0 max-w-368 mx-auto">
-        <h2 className="text-[10vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-18">
+      <section className="pb-14 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
+        <h2 className="text-[8vw] sm:text-[9vw] md:text-[8rem] leading-[1] font-black tracking-tighter lowercase mb-8 md:mb-18">
           other projects
         </h2>
         <ExpandCards projects={otherProjects} />

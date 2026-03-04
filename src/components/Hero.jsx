@@ -4,10 +4,10 @@ import { Highlighter } from "./ui/Highlighter";
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-0 text-center px-2">
+    <section className="pt-16 md:pt-20 pb-0 text-center px-2">
       <div className="w-full">
         <div 
-          className="select-none pointer-events-none"
+          className="select-none pointer-events-none overflow-hidden"
           aria-label="ishwar suthar"
           role="heading"
           aria-level={1}
@@ -23,8 +23,8 @@ export default function Hero() {
           </VideoText>
         </div>
         
-        <div className="flex justify-end mt-3 md:mt-5">
-          <p className="max-w-[630px] md:text-xl text-[2rem] text-white/65 font-bold leading-snug text-start">
+        <div className="flex justify-end mt-3 md:mt-5 px-2">
+          <p className="max-w-[630px] text-base sm:text-lg md:text-xl lg:text-[2rem] text-white/65 font-bold leading-snug text-start">
             i build{" "}
             <Highlighter color="#3b82f6" padding={4} isView={true}>
               dynamic web apps

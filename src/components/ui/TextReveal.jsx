@@ -99,9 +99,9 @@ export default function TextReveal({
 
   return (
     <div ref={containerRef} className={className}>
-      <p className="flex flex-wrap text-lg md:text-7xl font-extrabold leading-20">
+      <p className="flex flex-wrap text-lg sm:text-2xl md:text-5xl lg:text-7xl font-extrabold leading-snug sm:leading-normal md:leading-16 lg:leading-20">
         {words.map((word, index) => (
-          <span className="inline-block word mr-3 mt-2" key={index}>
+          <span className="inline-block word mr-1.5 sm:mr-2 md:mr-3 mt-1 sm:mt-1.5 md:mt-2" key={index}>
             <span className="animated-text" style={{ color: "rgba(255, 255, 255, 0.4)" }}>
               {word}
             </span>

@@ -35,14 +35,14 @@ export default function WorkStreamora() {
       <Navbar />
 
       {/* Project Header */}
-      <section className="pt-30 pb-25 px-0 md:px-0 max-w-368 mx-auto">
-        <h1 className="text-[15vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
+      <section className="pt-20 md:pt-30 pb-12 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
+        <h1 className="text-[12vw] sm:text-[14vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
           streamora
         </h1>
       </section>
 
       {/* Main Project Image with Icons */}
-      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <CardCurtainReveal className="w-full rounded-[12px]">
           <img
             src={streamoraMain}
@@ -78,9 +78,9 @@ export default function WorkStreamora() {
       </section>
 
       {/* Project Overview */}
-      <section className="pb-16 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <p className="text-white/65 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
-        <h2 className="text-2xl md:text-4xl font-bold leading-tight lowercase max-w-max">
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold leading-tight lowercase max-w-max">
           streamora isn't just a video app- it's my deep dive into real backend arcjitecture. I built it to understand how production systems actually work: layered express structure, JWT auth flows, secure middleware, upload pipelines, and clean API contracts. The React frontend isn't just UI - it mirrors real-world patterns with service layers, Zustand state, and infinite feeds. From Cloudinary uploads to rate limiting and global error handling, this project forced me to think like a backend engineer, not just a coder. 
           <br />
           <br />
@@ -88,28 +88,28 @@ export default function WorkStreamora() {
         </h2>
 
         {/* Project Metadata */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-60 mt-13 text-sm md:text-base">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-60 mt-8 md:mt-13 text-sm md:text-base">
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">project type</p>
-            <p className="font-semibold text-2xl lowercase">web application</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">project type</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">web application</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">year</p>
-            <p className="font-semibold text-2xl lowercase">11/25</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">year</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">11/25</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">role</p>
-            <p className="font-semibold text-2xl lowercase">full-stack developer</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">role</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">full-stack developer</p>
           </div>
           <div>
-            <p className="text-white/65 lowercase mb-1 font-semibold text-xl">Context</p>
-            <p className="font-semibold text-2xl lowercase">personal project</p>
+            <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">Context</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">personal project</p>
           </div>
         </div>
       </section>
 
       {/* Additional Project Images - Gallery */}
-      <section className="pb-20 px-0 md:px-0 max-w-368 mx-auto">
+      <section className="pb-12 md:pb-20 px-3 md:px-0 max-w-368 mx-auto">
         <ImageGallery
           images={[
             { title: "streamora screenshot 1", url: streamora1 },
@@ -120,8 +120,8 @@ export default function WorkStreamora() {
       </section>
 
       {/* Other Projects Section */}
-      <section className="pb-25 px-0 md:px-0 max-w-368 mx-auto">
-        <h2 className="text-[10vw] md:text-[6rem] leading-[1] font-black tracking-tighter lowercase mb-15">
+      <section className="pb-14 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
+        <h2 className="text-[8vw] sm:text-[9vw] md:text-[6rem] leading-[1] font-black tracking-tighter lowercase mb-8 md:mb-15">
           other projects
         </h2>
         <ExpandCards projects={otherProjects} />

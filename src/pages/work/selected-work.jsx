@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -68,6 +67,9 @@ const StickyProjects = ({ projects }) => {
 
   useGSAP(
     () => {
+      // Skip sticky animation on mobile
+      if (window.innerWidth < 768) return;
+
       gsap.registerPlugin(ScrollTrigger);
 
       const cardElements = cardRefs.current;
@@ -139,49 +141,72 @@ const StickyProjects = ({ projects }) => {
   );
 
   return (
-    <div className="relative h-full w-full" ref={container}>
-      <div className="sticky-cards relative flex h-[100vh] w-full items-center justify-center pt-20 pb-10 px-3 lg:px-8">
-        <div className="relative h-[600px] sm:h-[650px] md:h-[700px] lg:h-[770px] w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-6xl xl:max-w-7xl">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="absolute h-full w-full bg-[#1f1f1f] rounded-[20px] shadow-2xl border border-white/10 p-4 md:p-6"
-              ref={(el) => {
-                cardRefs.current[index] = el;
-              }}
-            >
-              <a to={project.route} className="block h-full w-full">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                  className="flex flex-col gap-4 group cursor-pointer h-full w-full"
-                >
-                  {/* Image Container */}
-                  <div className="relative w-full h-[75%] md:h-[80%] overflow-hidden rounded-[15px]">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="flex flex-col px-2 mt-2">
-                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight lowercase">
-                      {project.title}
-                    </h3>
-                    <p className="text-white/50 text-base md:text-lg font-semibold lowercase">
-                      {project.category}
-                    </p>
-                  </div>
-                </motion.div>
-              </a>
+    <>
+      {/* Mobile: simple stacked list */}
+      <div className="md:hidden flex flex-col gap-6 px-3">
+        {projects.map((project, index) => (
+          <a key={project.title} href={project.route} className="block">
+            <div className="flex flex-col gap-3 group cursor-pointer">
+              <div className="relative w-full h-55 sm:h-70 overflow-hidden rounded-2xl bg-[#1f1f1f] border border-white/10">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-col px-1">
+                <h3 className="text-xl font-bold tracking-tight lowercase">
+                  {project.title}
+                </h3>
+                <p className="text-white/50 text-sm font-semibold lowercase">
+                  {project.category}
+                </p>
+              </div>
             </div>
-          ))}
+          </a>
+        ))}
+      </div>
+
+      {/* Desktop: sticky card animation */}
+      <div className="hidden md:block relative h-full w-full" ref={container}>
+        <div className="sticky-cards relative flex h-screen w-full items-center justify-center pt-20 pb-10 px-3 lg:px-8">
+          <div className="relative h-175 lg:h-192.5 w-full max-w-3xl lg:max-w-6xl xl:max-w-7xl">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className="absolute h-full w-full bg-[#1f1f1f] rounded-[20px] shadow-2xl border border-white/10 p-4 md:p-6"
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+              >
+                <a href={project.route} className="block h-full w-full">
+                  <div className="flex flex-col gap-4 group cursor-pointer h-full w-full">
+                    {/* Image Container */}
+                    <div className="relative w-full h-[80%] overflow-hidden rounded-2xl">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Project Info */}
+                    <div className="flex flex-col px-2 mt-2">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight lowercase">
+                        {project.title}
+                      </h3>
+                      <p className="text-white/50 text-base md:text-lg font-semibold lowercase">
+                        {project.category}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -195,9 +220,9 @@ export default function SelectedWork() {
       <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
         <Navbar />
 
-        <section className="pt-15 pb-30 px-0 md:px-0 max-w-368 mx-auto">
+        <section className="pt-12 md:pt-15 pb-16 md:pb-30 px-3 md:px-0 max-w-368 mx-auto">
           {/* Header */}
-          <h1 className="text-[12vw] md:text-[15rem] leading-[0.9] font-black mb-20 tracking-tighter lowercase text-center">
+          <h1 className="text-[10vw] sm:text-[11vw] md:text-[15rem] leading-[0.9] font-black mb-10 md:mb-20 tracking-tighter lowercase text-center">
             selected work
           </h1>
 
