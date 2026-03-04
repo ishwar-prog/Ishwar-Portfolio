@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../../components/Navbar";
 import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
 import ishwar from "../../assets/ishwar.png";
 import TiltedCard from "../../components/ui/TiltedCard";
 import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
-import { TextSpotlight } from "../../components/ui/TextSpotlight";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
 import kcecellImg from "../../assets/ecelllogo.jpg";
 import googleImg from "../../assets/google.svg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
@@ -42,6 +44,49 @@ const experiences = [
     image: googleImg
   }
 ];
+
+const ScrollRevealText = ({ text, className }) => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const words = el.querySelectorAll('.scroll-word');
+    
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        words,
+        { color: "rgba(255, 255, 255, 0.2)" }, // greyish color
+        {
+          color: "#ffffff", // white
+          ease: "none",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            end: "bottom 50%",
+            scrub: true,
+          }
+        }
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, [text]);
+
+  const words = text.split(" ");
+
+  return (
+    <p ref={containerRef} className={className}>
+      {words.map((word, i) => (
+        <span key={i} className="scroll-word inline-block mr-[0.25em]" style={{ color: "rgba(255, 255, 255, 0.2)" }}>
+          {word}
+        </span>
+      ))}
+    </p>
+  );
+};
 
 export default function AboutMe() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -132,22 +177,19 @@ export default function AboutMe() {
 
           {/* Text Column - shown second on mobile */}
           <div className="flex flex-col gap-6 md:gap-8 max-w-[600px] order-last md:order-first">
-            <TextSpotlight
+            <ScrollRevealText
               text="i'm a full stack developer based in mumbai, india, specializing in building dynamic web apps and writing clean code."
-              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
+              className="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase flex flex-wrap"
             />
             
-            <TextSpotlight
+            <ScrollRevealText
               text="i'm currently in second year of computer engineering from kc college of engineering (thane), mumbai university with a deep interest in developement and agentic ai. i have build multiple projects which you can check."
-              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
+              className="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase flex flex-wrap"
             />
             
-            <TextSpotlight
+            <ScrollRevealText
               text="when i'm not behind a computer screen, i'm usually making videos, learning japanese, making music and playing games."
-              textClassName="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase"
-              animateOnPhone={true}
+              className="text-lg sm:text-xl md:text-2xl leading-snug font-bold lowercase flex flex-wrap"
             />
           </div>
         </div>
@@ -198,18 +240,18 @@ export default function AboutMe() {
               )}
               
               <div className="flex flex-col gap-1 md:gap-2 z-10">
-                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-inherit" : ""} md:group-hover:text-black`}>{exp.role}</h3>
-                <p className={`text-sm sm:text-base md:text-xl text-white/50 uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 md:text-white/50" : ""} md:group-hover:text-black/70`}>{exp.org}</p>
+                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-white" : "text-white"} md:group-hover:text-black`}>{exp.role}</h3>
+                <p className={`text-sm sm:text-base md:text-xl uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 md:text-white/50" : "text-white/50"} md:group-hover:text-black/70`}>{exp.org}</p>
               </div>
 
               <div className="z-10">
-                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl text-white/70 leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 md:text-white/70" : ""} md:group-hover:text-black/80`}>
+                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 md:text-white/70" : "text-white/70"} md:group-hover:text-black/80`}>
                   {exp.desc}
                 </p>
               </div>
 
               <div className="flex md:justify-end z-10">
-                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-inherit" : ""} md:group-hover:text-black`}>{exp.date}</p>
+                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-white" : "text-white"} md:group-hover:text-black`}>{exp.date}</p>
               </div>
 
             </div>
