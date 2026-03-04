@@ -27,7 +27,7 @@ export function CardCurtain({ className, ...props }) {
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 z-10 bg-black/40 backdrop-blur-md",
+        "hidden md:block absolute inset-0 z-10 bg-black/40 backdrop-blur-md",
         className
       )}
       initial={{ scaleY: 0 }}
@@ -45,7 +45,7 @@ export function CardCurtainRevealFooter({ children, className, ...props }) {
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 z-20 flex items-center justify-center gap-6",
+        "hidden md:flex absolute inset-0 z-20 items-center justify-center gap-6",
         className
       )}
       initial={{ opacity: 0, y: 10 }}
