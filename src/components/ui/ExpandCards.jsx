@@ -23,9 +23,9 @@ const ExpandCards = ({ projects }) => {
       <div className="hidden md:block w-full overflow-x-auto">
         <div className="flex items-stretch justify-center gap-2.5 min-w-0">
           {projects.map((project, idx) => (
-            <a
+            <div
               key={project.title}
-              href={project.route}
+              onClick={() => { window.location.href = project.route; }}
               className="relative cursor-pointer overflow-hidden rounded-[20px] shrink-0 block border border-white/60"
               style={{
                 width: expandedIndex === idx ? "56rem" : "8rem",
@@ -83,7 +83,7 @@ const ExpandCards = ({ projects }) => {
                   )}
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
