@@ -126,9 +126,10 @@ export default function TransitionWrapper({ children }) {
           gsap.set(elements, { opacity: 0, visibility: 'visible' });
 
           gsap.to(elements, {
-            opacity: 1,
-            duration: 0.1, 
-            ease: "power1.inOut",
+            keyframes: [
+              { opacity: 0.18, duration: 0.18, ease: "power1.in" },
+              { opacity: 1,    duration: 0.18, ease: "power1.out" }
+            ],
             stagger: {
               amount: 0.8,
               grid: "auto",
@@ -194,9 +195,10 @@ export default function TransitionWrapper({ children }) {
         gsap.killTweensOf(blocks);
 
         gsap.to(blocks, {
-           opacity: 0,
-           duration: 0.1,
-           ease: "power2.inOut", 
+           keyframes: [
+             { opacity: 0.18, duration: 0.18, ease: "power1.in" },
+             { opacity: 0,    duration: 0.18, ease: "power1.out" }
+           ],
            stagger: {
              amount: 0.9, 
              grid: "auto",
