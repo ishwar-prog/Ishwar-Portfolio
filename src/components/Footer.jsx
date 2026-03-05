@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 md:mt-10 overflow-hidden">
-          <h2 className="text-[15vw] sm:text-[18vw] md:text-[20vw] lg:text-[16rem] font-black leading-none tracking-tighter text-center whitespace-nowrap text-[#f6f4f0]">
+          <h2 className="text-[15vw] sm:text-[20vw] md:text-[17vw] lg:text-[16rem] font-black leading-none tracking-tighter text-center whitespace-nowrap text-[#f6f4f0]">
             ishwar suthar
           </h2>
         </div>
