@@ -4,7 +4,7 @@ import { Highlighter } from "./ui/Highlighter";
 
 export default function Hero() {
   return (
-    <section className="pt-16 md:pt-20 pb-0 text-center px-2">
+    <section className="pt-16 md:pt-20 pb-0 text-center px-3 md:px-4 lg:px-2">
       <div className="w-full">
         <div 
           className="select-none pointer-events-none overflow-hidden"

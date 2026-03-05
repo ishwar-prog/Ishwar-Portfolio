@@ -174,22 +174,20 @@ export default function TechStack() {
 
         <div className="w-full h-px bg-white/10 mb-8 md:mb-12" />
 
-        {/* Tablet: 8-column grid (md to lg) */}
-        <div
-          className="hidden md:grid lg:hidden gap-3 mb-15"
-          style={{ gridTemplateColumns: "repeat(8, minmax(0, 1fr))" }}
-        >
-          {row1.map((skill) => (
-            <SkillIcon key={skill.name} skill={skill} />
-          ))}
-        </div>
-
-        <div
-          className="hidden md:grid lg:hidden gap-3"
-          style={{ gridTemplateColumns: "repeat(8, minmax(0, 1fr))" }}
-        >
-          {[...row1.slice(8), ...row2].map((skill) => (
-            <SkillIcon key={skill.name} skill={skill} />
+        {/* Tablet: 6-column grid, 4 rows (md to lg) */}
+        <div className="hidden md:flex lg:hidden flex-col gap-3">
+          {Array.from({ length: 4 }, (_, rowIdx) =>
+            skills.slice(rowIdx * 6, rowIdx * 6 + 6)
+          ).map((row, rowIdx) => (
+            <div
+              key={rowIdx}
+              className="grid gap-3"
+              style={{ gridTemplateColumns: "repeat(6, minmax(0, 1fr))" }}
+            >
+              {row.map((skill) => (
+                <SkillIcon key={skill.name} skill={skill} />
+              ))}
+            </div>
           ))}
         </div>
 

@@ -25,7 +25,7 @@ export default function CallToAction() {
   return (
     <section
       id="contact"
-      className="py-12 md:py-20 px-3 md:px-0 bg-[#1f1f1f] flex justify-center items-center min-h-[30vh] md:min-h-[40vh] text-[#f6f4f0]"
+      className="py-12 md:py-16 lg:py-20 px-3 md:px-4 lg:px-0 bg-[#1f1f1f] flex justify-center items-center min-h-[30vh] md:min-h-[50vh] lg:min-h-[40vh] text-[#f6f4f0]"
     >
       <a 
         href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"
@@ -35,12 +35,12 @@ export default function CallToAction() {
       >
         {/* Mobile: image first, then text */}
         {/* Desktop: get in [image] touch */}
-        <h2 className="hidden md:block text-[8vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
+        <h2 className="hidden md:block text-[9vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
           get in
         </h2>
 
         {/* Image container - shown first on mobile */}
-        <div className="order-first md:order-none w-[70vw] h-[45vw] sm:w-[50vw] sm:h-[35vw] md:w-[22vw] md:h-[16vw] lg:w-95 lg:h-75 rounded-[2rem] md:rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
+        <div className="order-first md:order-none w-[70vw] h-[45vw] sm:w-[50vw] sm:h-[35vw] md:w-[25vw] md:h-[18vw] lg:w-95 lg:h-75 rounded-[2rem] md:rounded-[3rem] lg:rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
           <AnimatePresence mode="popLayout">
             <motion.img
               key={currentIndex}
@@ -58,7 +58,7 @@ export default function CallToAction() {
           </h2>
         </div>
 
-        <h2 className="hidden md:block text-[8vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
+        <h2 className="hidden md:block text-[9vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
           touch
         </h2>
       </a>

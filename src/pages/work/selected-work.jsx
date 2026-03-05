@@ -169,8 +169,8 @@ const StickyProjects = ({ projects }) => {
 
       {/* Desktop: sticky card animation */}
       <div className="hidden md:block relative h-full w-full" ref={container}>
-        <div className="sticky-cards relative flex h-screen w-full items-center justify-center pt-20 pb-10 px-3 lg:px-8">
-          <div className="relative h-175 lg:h-192.5 w-full max-w-3xl lg:max-w-6xl xl:max-w-7xl">
+        <div className="sticky-cards relative flex h-screen w-full items-center justify-center pt-10 md:pt-14 lg:pt-20 pb-10 px-3 lg:px-8">
+          <div className="relative h-[55vh] md:h-[60vh] lg:h-192.5 w-full max-w-3xl lg:max-w-6xl xl:max-w-7xl overflow-hidden">
             {projects.map((project, index) => (
               <div
                 key={project.title}
@@ -220,9 +220,9 @@ export default function SelectedWork() {
       <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
         <Navbar />
 
-        <section className="pt-12 md:pt-15 pb-16 md:pb-30 px-3 md:px-0 max-w-368 mx-auto">
+        <section className="pt-12 md:pt-15 pb-16 md:pb-20 px-3 md:px-4 lg:px-0 max-w-368 mx-auto">
           {/* Header */}
-          <h1 className="text-[10vw] sm:text-[11vw] md:text-[18vw] lg:text-[15rem] leading-[0.9] font-black mb-10 md:mb-16 lg:mb-20 tracking-tighter lowercase text-center">
+          <h1 className="text-[10vw] sm:text-[11vw] md:text-[14vw] lg:text-[15rem] leading-[0.9] font-black mb-6 md:mb-8 lg:mb-20 tracking-tighter lowercase text-center whitespace-nowrap">
             selected work
           </h1>
 

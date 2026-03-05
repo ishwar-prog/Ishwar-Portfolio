@@ -62,15 +62,15 @@ export default function AboutPreview() {
   };
 
   return (
-    <section className="py-10 md:py-20 px-3 md:px-0 bg-[#1f1f1f]" id="about">
+    <section className="py-10 md:py-20 px-3 md:px-4 lg:px-0 bg-[#1f1f1f]" id="about">
       <div className="max-w-[92rem] mx-auto">
         {/* Text Reveal Section */}
         <TextReveal text={revealText} className="mb-10 md:mb-20" />
 
         {/* Three Column Section - mobile: image first, then text stacked */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-10 mt-14 md:mt-16 lg:mt-28 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mt-14 md:mt-10 lg:mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-full lg:w-[460px] h-[350px] sm:h-[420px] md:h-[440px] lg:h-[500px] bg-[#f6f4f0] rounded-[20px] md:rounded-[30px] overflow-hidden">
+          <div className="w-full h-[350px] sm:h-[420px] md:h-[380px] lg:h-[500px] bg-[#f6f4f0] rounded-[20px] md:rounded-[30px] overflow-hidden">
             <div
               ref={rootRef}
               className="chroma-grid"
@@ -96,9 +96,9 @@ export default function AboutPreview() {
           </div>
 
           {/* Column 2: Why Work With Me */}
-          <div className="flex flex-col gap-1 mt-4 md:mt-18">
-            <p className="text-sm md:text-1xl text-white/40 font-bold">why work with me</p>
-            <p className="text-lg sm:text-xl md:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
+          <div className="flex flex-col gap-1 mt-4 md:mt-6 lg:mt-18">
+            <p className="text-sm text-white/40 font-bold">why work with me</p>
+            <p className="text-lg sm:text-xl md:text-base lg:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               I build under pressure and ship on time. hackathons taught me
               speed, focus, and ruthless prioritization-projects taught me how
               real systems break and how to fix them. I'm full-stack by default,
@@ -111,11 +111,11 @@ export default function AboutPreview() {
           </div>
 
           {/* Column 3: When I'm Not Building */}
-          <div className="flex flex-col gap-1 mt-4 md:mt-18">
-            <p className="text-sm md:text-balance text-white/40 font-bold">
+          <div className="flex flex-col gap-1 mt-4 md:mt-6 lg:mt-18">
+            <p className="text-sm text-white/40 font-bold">
               when I'm not building
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
+            <p className="text-lg sm:text-xl md:text-base lg:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               you'll find me exploring music - more into rap, making short
               videos, managing events, watching anime, playing sports physically
               and virtually. hanging out with friends and building something

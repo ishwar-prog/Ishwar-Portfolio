@@ -134,7 +134,7 @@ export default function AboutMe() {
     <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
-      <section className="pt-20 md:pt-32 pb-20 md:pb-40 px-0 md:px-0 mx-auto overflow-hidden">
+      <section className="pt-20 md:pt-24 lg:pt-32 pb-10 md:pb-16 lg:pb-40 px-0 mx-auto overflow-hidden">
         
         {/* Header - Loop Text Animation */}
         <div className="mb-16 md:mb-33 -ml-4 -mr-4 flex flex-col gap-2 md:gap-4 origin-center rotate-[-2deg] scale-[1.05]">
@@ -209,8 +209,8 @@ export default function AboutMe() {
       </div>
 
       {/* Experience Section */}
-      <section className="pb-16 md:pb-30 px-0 md:px-0 max-w-[100rem] mx-auto w-full relative">
-        <h2 className="text-[3rem] sm:text-[5rem] md:text-[8rem] leading-[0.8] font-bold mb-8 md:mb-16 tracking-tighter lowercase px-4 md:px-8">
+      <section className="pb-10 md:pb-14 lg:pb-30 px-0 max-w-[100rem] mx-auto w-full relative">
+        <h2 className="text-[3rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] leading-[0.8] font-bold mb-8 md:mb-12 lg:mb-16 tracking-tighter lowercase px-4 md:px-8">
           my experience
         </h2>
         
@@ -224,9 +224,9 @@ export default function AboutMe() {
               key={index} 
               onMouseEnter={() => handleMouseEnter(index)}
               onClick={() => handleTap(index)}
-              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer ${
-                tappedIndex === index ? "bg-[#D3FD50] md:bg-transparent" : ""
-              } md:hover:bg-[#D3FD50]`}
+              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer ${
+                tappedIndex === index ? "bg-[#D3FD50] lg:bg-transparent" : ""
+              } lg:hover:bg-[#D3FD50]`}
             >
               {/* Mobile: show experience image when tapped */}
               {tappedIndex === index && (
@@ -240,18 +240,18 @@ export default function AboutMe() {
               )}
               
               <div className="flex flex-col gap-1 md:gap-2 z-10">
-                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-white" : "text-white"} md:group-hover:text-black`}>{exp.role}</h3>
-                <p className={`text-sm sm:text-base md:text-xl uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 md:text-white/50" : "text-white/50"} md:group-hover:text-black/70`}>{exp.org}</p>
+                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black lg:text-white" : "text-white"} lg:group-hover:text-black`}>{exp.role}</h3>
+                <p className={`text-sm sm:text-base md:text-xl uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 lg:text-white/50" : "text-white/50"} lg:group-hover:text-black/70`}>{exp.org}</p>
               </div>
 
               <div className="z-10">
-                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 md:text-white/70" : "text-white/70"} md:group-hover:text-black/80`}>
+                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 lg:text-white/70" : "text-white/70"} lg:group-hover:text-black/80`}>
                   {exp.desc}
                 </p>
               </div>
 
               <div className="flex md:justify-end z-10">
-                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black md:text-white" : "text-white"} md:group-hover:text-black`}>{exp.date}</p>
+                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black lg:text-white" : "text-white"} lg:group-hover:text-black`}>{exp.date}</p>
               </div>
 
             </div>
