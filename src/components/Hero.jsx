@@ -15,6 +15,7 @@ export default function Hero() {
           <VideoText
             src={galaxyVideo}
             fontSize={18}
+            mobileFontSize={18}
             fontWeight="900"
             fontFamily="'Funnel Sans', sans-serif"
             textAnchor="start"

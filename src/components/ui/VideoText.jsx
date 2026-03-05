@@ -12,6 +12,7 @@ export function VideoText({
   loop = true,
   preload = "auto",
   fontSize = 20,
+  mobileFontSize = null,
   fontWeight = "800",
   textAnchor = "middle",
   dominantBaseline = "middle",
@@ -23,8 +24,10 @@ export function VideoText({
 
   useEffect(() => {
     const updateSvgMask = () => {
+      const isMobile = window.innerWidth < 768
+      const activeFontSize = isMobile && mobileFontSize != null ? mobileFontSize : fontSize
       const responsiveFontSize = 
-        typeof fontSize === "number" ? `${fontSize}vw` : fontSize 
+        typeof activeFontSize === "number" ? `${activeFontSize}vw` : activeFontSize 
       
       const xPos = textAnchor === "start" ? "0%" : textAnchor === "end" ? "100%" : "50%"
       
@@ -37,7 +40,7 @@ export function VideoText({
     updateSvgMask()
     window.addEventListener("resize", updateSvgMask)
     return () => window.removeEventListener("resize", updateSvgMask)
-  }, [content, fontSize, fontWeight, textAnchor, dominantBaseline, fontFamily])
+  }, [content, fontSize, mobileFontSize, fontWeight, textAnchor, dominantBaseline, fontFamily])
   
   const dataUrlMask = `url("data:image/svg+xml;utf8,${encodeURIComponent(svgMask)}")`;
 
@@ -72,7 +75,7 @@ export function VideoText({
       <span className="sr-only">{content}</span>
       
       <div aria-hidden="true" className="opacity-0 select-none pointer-events-none whitespace-nowrap" style={{ 
-          fontSize: typeof fontSize === 'number' ? `${fontSize}vw` : fontSize,
+          fontSize: typeof fontSize === 'number' ? `${fontSize}vw` : fontSize, // placeholder sizing
           fontWeight: fontWeight,
           fontFamily: fontFamily,
           lineHeight: 0.9,

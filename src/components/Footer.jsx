@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 md:mt-10">
-          <h2 className="text-[15vw] sm:text-[18vw] md:text-[16rem] font-extrabold leading-none tracking-tighter text-left md:text-center">
+          <h2 className="text-[17vw] sm:text-[18vw] md:text-[16rem] font-black leading-none tracking-tighter text-center">
             ishwar suthar
           </h2>
         </div>
