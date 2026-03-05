@@ -68,9 +68,9 @@ export default function AboutPreview() {
         <TextReveal text={revealText} className="mb-10 md:mb-20" />
 
         {/* Three Column Section - mobile: image first, then text stacked */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-14 md:mt-28 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-10 mt-14 md:mt-16 lg:mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-full md:w-[460px] h-[350px] sm:h-[420px] md:h-[500px] bg-[#f6f4f0] rounded-[20px] md:rounded-[30px] overflow-hidden">
+          <div className="w-full lg:w-[460px] h-[350px] sm:h-[420px] md:h-[440px] lg:h-[500px] bg-[#f6f4f0] rounded-[20px] md:rounded-[30px] overflow-hidden">
             <div
               ref={rootRef}
               className="chroma-grid"

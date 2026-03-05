@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="font-normal text-[#f6f4f0] px-3 md:px-0 pt-10 md:pt-12 pb-6">
       <div className="max-w-[92rem] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-0">
-          <div className="flex flex-col gap-2 text-sm md:text-xl">
+          <div className="flex flex-col gap-2 text-sm md:text-base lg:text-xl">
             <p className="flex items-center gap-1">
               email:{" "}
               <Hyperlink
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Right Column - Pages & Socials */}
-          <div className="flex gap-12 sm:gap-16 text-sm md:text-xl">
+          <div className="flex gap-12 sm:gap-16 text-sm md:text-base lg:text-xl">
             {/* Pages */}
             <div className="flex flex-col gap-1">
               <p className="text-white/65 mb-1 text-base md:text-lg">pages</p>
@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 md:mt-10">
-          <h2 className="text-[17vw] sm:text-[18vw] md:text-[16rem] font-black leading-none tracking-tighter text-center">
+          <h2 className="text-[15vw] sm:text-[18vw] md:text-[20vw] lg:text-[16rem] font-extrabold leading-none tracking-tighter text-center">
             ishwar suthar
           </h2>
         </div>

@@ -222,7 +222,7 @@ export default function SelectedWork() {
 
         <section className="pt-12 md:pt-15 pb-16 md:pb-30 px-3 md:px-0 max-w-368 mx-auto">
           {/* Header */}
-          <h1 className="text-[10vw] sm:text-[11vw] md:text-[15rem] leading-[0.9] font-black mb-10 md:mb-20 tracking-tighter lowercase text-center">
+          <h1 className="text-[10vw] sm:text-[11vw] md:text-[18vw] lg:text-[15rem] leading-[0.9] font-black mb-10 md:mb-16 lg:mb-20 tracking-tighter lowercase text-center">
             selected work
           </h1>
 

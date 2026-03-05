@@ -174,9 +174,28 @@ export default function TechStack() {
 
         <div className="w-full h-px bg-white/10 mb-8 md:mb-12" />
 
-        {/* Desktop: 11-column grid (hidden on mobile) */}
+        {/* Tablet: 8-column grid (md to lg) */}
         <div
-          className="hidden md:grid gap-3 mb-15"
+          className="hidden md:grid lg:hidden gap-3 mb-15"
+          style={{ gridTemplateColumns: "repeat(8, minmax(0, 1fr))" }}
+        >
+          {row1.map((skill) => (
+            <SkillIcon key={skill.name} skill={skill} />
+          ))}
+        </div>
+
+        <div
+          className="hidden md:grid lg:hidden gap-3"
+          style={{ gridTemplateColumns: "repeat(8, minmax(0, 1fr))" }}
+        >
+          {[...row1.slice(8), ...row2].map((skill) => (
+            <SkillIcon key={skill.name} skill={skill} />
+          ))}
+        </div>
+
+        {/* Desktop: 11-column grid (lg+) */}
+        <div
+          className="hidden lg:grid gap-3 mb-15"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
         >
           {row1.map((skill) => (
@@ -185,7 +204,7 @@ export default function TechStack() {
         </div>
 
         <div
-          className="hidden md:grid gap-3"
+          className="hidden lg:grid gap-3"
           style={{ gridTemplateColumns: "repeat(11, minmax(0, 1fr))" }}
         >
           {row2.map((skill) => (

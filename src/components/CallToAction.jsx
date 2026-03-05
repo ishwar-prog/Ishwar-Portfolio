@@ -35,12 +35,12 @@ export default function CallToAction() {
       >
         {/* Mobile: image first, then text */}
         {/* Desktop: get in [image] touch */}
-        <h2 className="hidden md:block text-[12rem] font-extrabold leading-none tracking-tighter">
+        <h2 className="hidden md:block text-[8vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
           get in
         </h2>
 
         {/* Image container - shown first on mobile */}
-        <div className="order-first md:order-none w-[70vw] h-[45vw] sm:w-[50vw] sm:h-[35vw] md:w-95 md:h-75 rounded-[2rem] md:rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
+        <div className="order-first md:order-none w-[70vw] h-[45vw] sm:w-[50vw] sm:h-[35vw] md:w-[22vw] md:h-[16vw] lg:w-95 lg:h-75 rounded-[2rem] md:rounded-[4rem] overflow-hidden relative flex items-center justify-center bg-transparent">
           <AnimatePresence mode="popLayout">
             <motion.img
               key={currentIndex}
@@ -58,7 +58,7 @@ export default function CallToAction() {
           </h2>
         </div>
 
-        <h2 className="hidden md:block text-[12rem] font-extrabold leading-none tracking-tighter">
+        <h2 className="hidden md:block text-[8vw] lg:text-[12rem] font-extrabold leading-none tracking-tighter">
           touch
         </h2>
       </a>
