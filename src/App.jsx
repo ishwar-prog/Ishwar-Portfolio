@@ -12,6 +12,7 @@ import AboutMe from "./pages/About-Me/About-Me";
 import SelectedWork from "./pages/work/selected-work";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
 import LoadingScreen from "./components/ui/LoadingScreen";
+import TubesCursor from "./components/ui/TubesCursor";
 
 
 // Project pages
@@ -41,6 +42,7 @@ export default function App() {
 
   return (
     <>
+      <TubesCursor />
       <LoadingScreen />
       <div id="ishwar-app-content">
         <Router>

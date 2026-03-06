@@ -10,7 +10,12 @@
 
 body{
   @apply min-h-screen;
-  background-color: #1f1f1f
+  background-color: #1f1f1f;
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
 }
 
 *{
