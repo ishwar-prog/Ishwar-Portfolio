@@ -6,22 +6,49 @@ export default function Hero() {
   return (
     <section className="pt-16 md:pt-20 pb-0 text-center px-3 md:px-4 lg:px-2">
       <div className="w-full">
-        <div 
-          className="select-none pointer-events-none overflow-hidden"
+        <div
           aria-label="ishwar suthar"
           role="heading"
           aria-level={1}
         >
-          <VideoText
-            src={galaxyVideo}
-            fontSize={18}
-            mobileFontSize={18}
-            fontWeight="900"
-            fontFamily="'Funnel Sans', sans-serif"
-            textAnchor="start"
-          >
-            ishwar suthar
-          </VideoText>
+          {/* Desktop: single line */}
+          <div className="hidden md:block select-none pointer-events-none overflow-hidden">
+            <VideoText
+              src={galaxyVideo}
+              fontSize={18}
+              fontWeight="900"
+              fontFamily="'Funnel Sans', sans-serif"
+              textAnchor="start"
+            >
+              ishwar suthar
+            </VideoText>
+          </div>
+
+          {/* Mobile: "ishwar" above, "suthar" below, bigger */}
+          <div className="flex md:hidden flex-col select-none pointer-events-none">
+            <div className="overflow-hidden">
+              <VideoText
+                src={galaxyVideo}
+                fontSize={38}
+                fontWeight="900"
+                fontFamily="'Funnel Sans', sans-serif"
+                textAnchor="start"
+              >
+                ishwar
+              </VideoText>
+            </div>
+            <div className="overflow-hidden -mt-2">
+              <VideoText
+                src={galaxyVideo}
+                fontSize={38}
+                fontWeight="900"
+                fontFamily="'Funnel Sans', sans-serif"
+                textAnchor="start"
+              >
+                suthar
+              </VideoText>
+            </div>
+          </div>
         </div>
         
         <div className="flex justify-end mt-3 md:mt-5 px-2">

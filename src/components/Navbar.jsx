@@ -15,12 +15,19 @@ export default function Navbar() {
     { label: "start a project", href: "/#contact" },
   ];
 
+  const isWorkActive =
+    location.pathname === "/work" ||
+    location.pathname.startsWith("/projects/");
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
       {/* Desktop nav */}
       <div className="mx-auto max-w-[92rem] px-4 py-2 hidden md:flex items-center justify-between text-white text-xl font-bold">
         {navItems.map((item, index) => {
-          const isActive = location.pathname === item.href;
+          const isActive =
+            item.href === "/work"
+              ? isWorkActive
+              : location.pathname === item.href;
           return (
             <Hyperlink
               key={index}
@@ -43,7 +50,7 @@ export default function Navbar() {
 
       {/* Mobile nav bar */}
       <div className="flex md:hidden items-start justify-between px-4 py-3 text-white">
-        <Hyperlink href="/" className="text-lg font-bold" underlineClassName="bg-[#D3FD50]">
+        <Hyperlink href="/" isActive={location.pathname === "/"} className="text-lg font-bold" underlineClassName="bg-[#D3FD50]">
           ishwar suthar
         </Hyperlink>
         <div className="fixed top-2 right-4 z-[60]">
