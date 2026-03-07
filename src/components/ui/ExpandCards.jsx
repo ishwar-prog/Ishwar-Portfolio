@@ -23,9 +23,9 @@ const ExpandCards = ({ projects }) => {
       <div className="hidden md:block w-full overflow-x-auto">
         <div className="flex items-stretch justify-center gap-2.5 min-w-0">
           {projects.map((project, idx) => (
-            <div
+            <a
               key={project.title}
-              onClick={() => { window.location.href = project.route; }}
+              href={project.route}
               className="relative cursor-pointer overflow-hidden rounded-[20px] shrink-0 block border border-white/60"
               style={{
                 width: expandedIndex === idx ? "56rem" : "8rem",
@@ -55,11 +55,11 @@ const ExpandCards = ({ projects }) => {
                       {project.category}
                     </p>
                   </div>
-                  {(project.github || project.liveUrl) && (
+                  {("github" in project || "liveUrl" in project) && (
                     <div className="flex gap-2" onClick={(e) => e.preventDefault()}>
-                      {project.github && (
+                      {"github" in project && (
                         <a
-                          href={project.github}
+                          href={project.github || undefined}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
@@ -68,9 +68,9 @@ const ExpandCards = ({ projects }) => {
                           <GithubIcon />
                         </a>
                       )}
-                      {project.liveUrl && (
+                      {"liveUrl" in project && (
                         <a
-                          href={project.liveUrl}
+                          href={project.liveUrl || undefined}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
@@ -83,7 +83,7 @@ const ExpandCards = ({ projects }) => {
                   )}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -108,11 +108,11 @@ const ExpandCards = ({ projects }) => {
               </div>
             </a>
             {/* GitHub & Live icons pinned to bottom-right */}
-            {(project.github || project.liveUrl) && (
-              <div className="absolute bottom-3 right-3 flex gap-2 z-10">
-                {project.github && (
+            {("github" in project || "liveUrl" in project) && (
+              <div className="absolute bottom-3 right-3 flex gap-2 z-30">
+                {"github" in project && (
                   <a
-                    href={project.github}
+                    href={project.github || undefined}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center active:bg-black/70 transition-colors text-white"
@@ -120,9 +120,9 @@ const ExpandCards = ({ projects }) => {
                     <GithubIcon />
                   </a>
                 )}
-                {project.liveUrl && (
+                {"liveUrl" in project && (
                   <a
-                    href={project.liveUrl}
+                    href={project.liveUrl || undefined}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center active:bg-black/70 transition-colors text-white"
