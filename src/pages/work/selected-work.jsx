@@ -174,13 +174,13 @@ const StickyProjects = ({ projects }) => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="absolute h-full w-full bg-[#1f1f1f] rounded-[20px] shadow-2xl border border-white/10 p-4 md:p-6"
+                className="absolute h-full w-full bg-[#1f1f1f] rounded-[20px] shadow-2xl border border-white/10 p-4 md:p-3"
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
               >
                 <a href={project.route} className="block h-full w-full">
-                  <div className="flex flex-col gap-4 group cursor-pointer h-full w-full">
+                  <div className="flex flex-col gap-1 group cursor-pointer h-full w-full">
                     {/* Image Container */}
                     <div className="relative w-full h-[80%] overflow-hidden rounded-2xl">
                       <img
