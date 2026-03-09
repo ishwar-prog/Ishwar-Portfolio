@@ -91,7 +91,7 @@ export default function CustomCursor() {
         width:  hovered ? 130 : 50,
         height: hovered ? 130 : 50,
         // Semi-transparent tint — content shows through (not solid)
-        backgroundColor: hovered ? "rgba(211,253,80,0.10)" : "#ffffff",
+        backgroundColor: hovered ? "rgba(0,0,0,0)" : "#ffffff",
       }}
       transition={SCALE_SPRING}
     >
