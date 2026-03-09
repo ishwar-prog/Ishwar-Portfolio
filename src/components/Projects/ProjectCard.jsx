@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { PixelImage } from "../ui/PixelImage";
 
 export default function ProjectCard({ title, category, image, className, route }) {
+  const isMobile = window.innerWidth < 768;
+
   return (
     <a href={route} className={`flex flex-col gap-3 ${className} cursor-pointer`}>
       <div className="relative w-full flex-1 overflow-hidden rounded-2xl group">
@@ -9,11 +11,11 @@ export default function ProjectCard({ title, category, image, className, route }
           <PixelImage
             src={image}
             className="w-full h-full"
-            grid="8x4"
-            grayscaleAnimation={true}
-            pixelFadeInDuration={1000}
-            colorRevealDelay={500}
-            maxAnimationDelay={800}
+            grid={isMobile ? "4x3" : "8x4"}
+            grayscaleAnimation={!isMobile}
+            pixelFadeInDuration={isMobile ? 400 : 1000}
+            colorRevealDelay={isMobile ? 150 : 500}
+            maxAnimationDelay={isMobile ? 300 : 800}
           />
         </div>
       </div>

@@ -14,21 +14,31 @@ export function useLenis() {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
-    
-    window.lenis = lenis; 
+
+    window.lenis = lenis;
 
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
+    // Keep a stable reference so the cleanup can remove the exact same function
+    const ticker = (time) => lenis.raf(time * 1000);
+    gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
+
+    // Pause smooth-scroll when the tab is hidden to save CPU/GPU
+    const handleVisibility = () => {
+      if (document.hidden) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      gsap.ticker.remove(ticker);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 }

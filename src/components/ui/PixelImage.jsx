@@ -10,6 +10,7 @@ const DEFAULT_GRIDS = {
   "8x3": { rows: 3, cols: 8 },
   "4x6": { rows: 6, cols: 4 },
   "3x8": { rows: 8, cols: 3 },
+  "4x3": { rows: 3, cols: 4 },
 }
 
 export const PixelImage = ({
