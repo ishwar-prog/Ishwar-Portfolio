@@ -18,6 +18,13 @@ a, button, [role="button"] {
   cursor: pointer;
 }
 
+/* Hide native cursor on mouse/trackpad devices — CustomCursor replaces it */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 *{
   font-family: "Funnel Sans" , "sans-serif";
 }

@@ -10,6 +10,7 @@ import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
 import LoadingScreen from "./components/ui/LoadingScreen";
+import CustomCursor from "./components/ui/CustomCursor";
 
 // Lazy-loaded page routes — only downloaded when the user navigates there
 const AboutMe = lazy(() => import("./pages/About-Me/About-Me"));
@@ -40,6 +41,7 @@ export default function App() {
 
   return (
     <>
+      <CustomCursor />
       <LoadingScreen />
       <div id="ishwar-app-content">
         <Router>
