@@ -200,7 +200,7 @@ export default function TransitionWrapper({ children }) {
              { opacity: 0,    duration: 0.18, ease: "power1.out" }
            ],
            stagger: {
-             amount: 0.9, 
+             amount: 0.9,
              grid: "auto",
              from: "random"
            },
