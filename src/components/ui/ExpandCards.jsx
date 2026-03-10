@@ -21,7 +21,7 @@ const ExpandCards = ({ projects }) => {
     <>
       {/* Desktop: horizontal expand cards */}
       <div className="hidden md:block w-full overflow-x-auto">
-        <div className="flex items-stretch justify-center gap-2.5 min-w-0">
+        <div className="flex items-stretch justify-center gap-2.5 min-w-0" onMouseLeave={() => setExpandedIndex(0)}>
           {projects.map((project, idx) => (
             <a
               key={project.title}
