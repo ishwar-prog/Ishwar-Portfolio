@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
@@ -6,13 +6,49 @@ const CurtainContext = createContext({ isHovered: false });
 
 export function CardCurtainReveal({ children, className, ...props }) {
   const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef(null);
+  const isHoveredRef = useRef(false);
+  const mouseX = useRef(-9999);
+  const mouseY = useRef(-9999);
+
+  useEffect(() => {
+    const onMove = (e) => {
+      mouseX.current = e.clientX;
+      mouseY.current = e.clientY;
+    };
+
+    window.addEventListener("mousemove", onMove);
+
+    let rafId;
+    const poll = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const inside =
+          mouseX.current >= rect.left &&
+          mouseX.current <= rect.right &&
+          mouseY.current >= rect.top &&
+          mouseY.current <= rect.bottom;
+
+        if (inside !== isHoveredRef.current) {
+          isHoveredRef.current = inside;
+          setIsHovered(inside);
+        }
+      }
+      rafId = requestAnimationFrame(poll);
+    };
+    rafId = requestAnimationFrame(poll);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
     <CurtainContext.Provider value={{ isHovered }}>
       <div
+        ref={containerRef}
         className={cn("relative overflow-hidden", className)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         {...props}
       >
         {children}
