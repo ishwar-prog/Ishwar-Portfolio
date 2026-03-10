@@ -6,7 +6,7 @@ export default function ProjectCard({ title, category, image, className, route }
 
   return (
     <a href={route} className={`flex flex-col gap-3 ${className} cursor-pointer project-hover`}>
-      <div className="relative w-full flex-1 overflow-hidden rounded-2xl group">
+      <div className="relative w-full flex-1 overflow-hidden rounded-4xl group">
         <div className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-500">
           <PixelImage
             src={image}

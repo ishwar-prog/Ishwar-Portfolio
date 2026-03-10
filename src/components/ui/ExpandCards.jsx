@@ -26,7 +26,7 @@ const ExpandCards = ({ projects }) => {
             <a
               key={project.title}
               href={project.route}
-              className="relative cursor-pointer overflow-hidden rounded-[20px] shrink-0 block border border-white/60"
+              className="relative cursor-pointer overflow-hidden rounded-[40px] shrink-0 block border border-white/60"
               style={{
                 width: expandedIndex === idx ? "56rem" : "8rem",
                 height: "27rem",
@@ -91,7 +91,7 @@ const ExpandCards = ({ projects }) => {
       {/* Mobile: vertical stacked cards */}
       <div className="md:hidden flex flex-col gap-4">
         {projects.map((project) => (
-          <div key={project.title} className="relative overflow-hidden rounded-[16px] border border-white/60">
+          <div key={project.title} className="relative overflow-hidden rounded-[40px] border border-white/60">
             <a href={project.route} className="block">
               <img
                 className="w-full h-[200px] sm:h-[260px] object-cover"

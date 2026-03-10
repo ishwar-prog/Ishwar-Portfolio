@@ -147,7 +147,7 @@ const StickyProjects = ({ projects }) => {
         {projects.map((project, index) => (
           <a key={project.title} href={project.route} className="block">
             <div className="flex flex-col gap-3 group cursor-pointer">
-              <div className="relative w-full overflow-hidden rounded-2xl bg-[#1f1f1f] border border-white/10">
+              <div className="relative w-full overflow-hidden rounded-4xl bg-[#1f1f1f] border border-white/10">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -182,7 +182,7 @@ const StickyProjects = ({ projects }) => {
                 <a href={project.route} className="block h-full w-full">
                   <div className="flex flex-col gap-1 group cursor-pointer h-full w-full">
                     {/* Image Container */}
-                    <div className="relative w-full h-[80%] overflow-hidden rounded-2xl">
+                    <div className="relative w-full h-[80%] overflow-hidden rounded-4xl">
                       <img
                         src={project.image}
                         alt={project.title}

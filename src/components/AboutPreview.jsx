@@ -70,7 +70,7 @@ export default function AboutPreview() {
         {/* Three Column Section - mobile: image first, then text stacked */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mt-14 md:mt-10 lg:mt-28 items-start">
           {/* Column 1: Image */}
-          <div className="w-full h-[350px] sm:h-[420px] md:h-[380px] lg:h-[500px] bg-[#f6f4f0] rounded-[20px] md:rounded-[30px] overflow-hidden">
+          <div className="w-full h-[350px] sm:h-[420px] md:h-[380px] lg:h-[500px] bg-[#f6f4f0] rounded-[60px] md:rounded-[80px] overflow-hidden">
             <div
               ref={rootRef}
               className="chroma-grid"

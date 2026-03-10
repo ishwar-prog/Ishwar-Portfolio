@@ -215,7 +215,7 @@ export default function AboutMe() {
         </h2>
         
         <div 
-          className="flex flex-col w-full border-t border-white/20"
+          className="flex flex-col w-full border-t border-white/20 rounded-4xl"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -224,9 +224,9 @@ export default function AboutMe() {
               key={index} 
               onMouseEnter={() => handleMouseEnter(index)}
               onClick={() => handleTap(index)}
-              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer ${
+              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer  ${
                 tappedIndex === index ? "bg-[#D3FD50] lg:bg-transparent" : ""
-              } lg:hover:bg-[#D3FD50]`}
+              } lg:hover:bg-[#D3FD50] rounded-4xl`}
             >
               {/* Mobile: show experience image when tapped */}
               {tappedIndex === index && (
@@ -234,7 +234,7 @@ export default function AboutMe() {
                   <img 
                     src={exp.image} 
                     alt={exp.org}
-                    className="w-24 h-24 object-contain rounded-lg"
+                    className="w-24 h-24 object-contain rounded-4xl"
                   />
                 </div>
               )}

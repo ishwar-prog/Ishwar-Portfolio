@@ -43,7 +43,7 @@ export default function WorkMediaSearch() {
 
       {/* Main Project Image with Icons */}
       <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
-        <CardCurtainReveal className="w-full rounded-[12px]">
+        <CardCurtainReveal className="w-full rounded-[40px]">
           <img
             src={mediaSearchMain}
             alt="media search main"
