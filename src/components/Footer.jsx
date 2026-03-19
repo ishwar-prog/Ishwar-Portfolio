@@ -1,5 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { Hyperlink } from "./ui/Hyperlink";
+import ScrollVelocityText from "./ui/ScrollVelocityText";
+import eyes1 from "../assets/eyes1.png";
+import eyes2 from "../assets/eyes2.png";
+import eyes3 from "../assets/eyes3.png";
+import eyes4 from "../assets/eyes4.png";
 
 export default function Footer() {
   const location = useLocation();
@@ -105,9 +110,26 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 md:mt-10 overflow-hidden">
-          <h2 className="text-[15vw] sm:text-[20vw] md:text-[17vw] lg:text-[16rem] font-black leading-none tracking-tighter text-center whitespace-nowrap text-[#f6f4f0]">
-            ishwar suthar
-          </h2>
+          <ScrollVelocityText baseVelocity={3} spanClassName="block" className="text-[15vw] sm:text-[20vw] md:text-[17vw] lg:text-[16rem] font-black leading-none tracking-tighter text-[#f6f4f0]">
+            <div className="flex items-center gap-[4vw] md:gap-[3vw] lg:gap-12 pr-[4vw] md:pr-[3vw] lg:pr-12">
+              <span>ishwar</span>
+              <div className="relative w-[16vw] h-[7vw] sm:w-[18vw] sm:h-[8vw] lg:w-[18rem] lg:h-[8rem] flex items-center justify-center overflow-hidden rounded-full shrink-0 translate-y-[1.5vw] sm:translate-y-[1vw] lg:translate-y-[1rem]">
+                <img src={eyes1} alt="eyes" className="absolute w-[7vw] h-[16vw] sm:w-[8vw] sm:h-[18vw] lg:w-[8rem] lg:h-[18rem] max-w-none object-cover -rotate-270" />
+              </div>
+              <span>suthar</span>
+              <div className="relative w-[16vw] h-[7vw] sm:w-[18vw] sm:h-[8vw] lg:w-[18rem] lg:h-[8rem] flex items-center justify-center overflow-hidden rounded-full shrink-0 translate-y-[1.5vw] sm:translate-y-[1vw] lg:translate-y-[1rem]">
+                <img src={eyes2} alt="eyes" className="absolute w-[7vw] h-[16vw] sm:w-[8vw] sm:h-[18vw] lg:w-[8rem] lg:h-[18rem] max-w-none object-cover -rotate-90" />
+              </div>
+              <span>ishwar</span>
+              <div className="relative w-[16vw] h-[7vw] sm:w-[18vw] sm:h-[8vw] lg:w-[18rem] lg:h-[8rem] flex items-center justify-center overflow-hidden rounded-full shrink-0 translate-y-[1.5vw] sm:translate-y-[1vw] lg:translate-y-[1rem]">
+                <img src={eyes3} alt="eyes" className="absolute w-[7vw] h-[16vw] sm:w-[8vw] sm:h-[18vw] lg:w-[8rem] lg:h-[18rem] max-w-none object-cover -rotate-90" />
+              </div>
+              <span>suthar</span>
+              <div className="relative w-[16vw] h-[7vw] sm:w-[18vw] sm:h-[8vw] lg:w-[18rem] lg:h-[8rem] flex items-center justify-center overflow-hidden rounded-full shrink-0 translate-y-[1.5vw] sm:translate-y-[1vw] lg:translate-y-[1rem]">
+                <img src={eyes4} alt="eyes" className="absolute w-[7vw] h-[16vw] sm:w-[8vw] sm:h-[18vw] lg:w-[10rem] lg:h-[18rem] max-w-none object-cover -rotate-90" />
+              </div>
+            </div>
+          </ScrollVelocityText>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center font-medium mt-4 md:mt-6 pt-4 md:pt-6 border-t border-white/10 text-white/70 text-xs md:text-base">

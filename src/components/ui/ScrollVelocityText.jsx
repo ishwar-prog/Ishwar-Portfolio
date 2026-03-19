@@ -10,7 +10,7 @@ import {
   wrap
 } from "framer-motion";
 
-export default function ScrollVelocityText({ children, baseVelocity = 3, className = "", style }) {
+export default function ScrollVelocityText({ children, baseVelocity = 3, className = "", spanClassName = "block pr-8", style }) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -52,10 +52,10 @@ export default function ScrollVelocityText({ children, baseVelocity = 3, classNa
         style={{ x }}
         {...(style && { style: { ...style, x } })}
       >
-        <span className="block pr-8">{children}</span>
-        <span className="block pr-8">{children}</span>
-        <span className="block pr-8">{children}</span>
-        <span className="block pr-8">{children}</span>
+        <span className={spanClassName}>{children}</span>
+        <span className={spanClassName}>{children}</span>
+        <span className={spanClassName}>{children}</span>
+        <span className={spanClassName}>{children}</span>
       </motion.div>
     </div>
   );
