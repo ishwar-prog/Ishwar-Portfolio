@@ -13,6 +13,8 @@ import LoadingScreen from "./components/ui/LoadingScreen";
 import CustomCursor from "./components/ui/CustomCursor";
 
 import { GitHubCalendar } from "react-github-calendar";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 // Lazy-loaded page routes — only downloaded when the user navigates there
 const AboutMe = lazy(() => import("./pages/About-Me/About-Me"));
@@ -31,13 +33,22 @@ function Home() {
       <Hero />
       
       <section className="w-full flex justify-center items-center py-12 px-4 md:px-8">
-        <GitHubCalendar
-          username="ishwar-prog"
-          theme={{
-            dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-          }}
-          colorScheme="dark"
-        />
+        <div style={{ color: "#f8f9fa", padding: "20px", borderRadius: "12px", background: "#1a1a1a", border: "1px solid #333" }}>
+          <GitHubCalendar
+            username="ishwar-prog"
+            theme={{
+              dark: ["#2d2b45", "#3d368d", "#4d45c0", "#5c54f9", "#8d88fa"],
+            }}
+            colorScheme="dark"
+            renderBlock={(block, activity) =>
+              React.cloneElement(block, {
+                "data-tooltip-id": "react-tooltip",
+                "data-tooltip-html": `${activity.count} contributions on ${activity.date}`,
+              })
+            }
+          />
+          <ReactTooltip id="react-tooltip" variant="dark" />
+        </div>
       </section>
 
       <Projects />
