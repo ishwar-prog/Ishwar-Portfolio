@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useLenis } from "./lib/useLenis";
 import Navbar from "./components/Navbar";
@@ -27,15 +27,43 @@ const WorkDisasterIQ = lazy(() => import("./pages/work/work-disasteriq"));
 const WorkJellmo = lazy(() => import("./pages/work/work-jellmo"));
 
 function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [visibleDays, setVisibleDays] = useState(365);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      
+      // Calculate how many days can fit visually based on screen width.
+      // Default block size + margin is roughly ~15px per week.
+      // Subtracting horizontal padding and container margins.
+      if (width < 768) {
+        const padding = 80; // container padding and safe space
+        const weekColumns = Math.floor((width - padding) / 15);
+        setVisibleDays(weekColumns * 7);
+      } else {
+        setVisibleDays(365);
+      }
+    };
+    
+    // Set initial value
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <main className="bg-[#1f1f1f] min-h-screen w-full">
       <Navbar />
       <Hero />
       
       <section className="w-full flex justify-center items-center py-12 px-4 md:px-8">
-        <div style={{ color: "#f8f9fa", padding: "20px", borderRadius: "12px", background: "#1a1a1a", border: "1px solid #333" }}>
+        <div style={{ color: "#f8f9fa", padding: "20px", borderRadius: "12px", background: "#1a1a1a", border: "1px solid #333", overflowX: "hidden", maxWidth: "100%" }}>
           <GitHubCalendar
             username="ishwar-prog"
+            transformData={(data) => (isMobile ? data.slice(-visibleDays) : data)}
+            hideTotalCount={isMobile}
             theme={{
               dark: ["#2d2b45", "#3d368d", "#4d45c0", "#5c54f9", "#8d88fa"],
             }}
