@@ -12,6 +12,8 @@ import TransitionWrapper from "./components/ui/TransitionWrapper";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import CustomCursor from "./components/ui/CustomCursor";
 
+import { GitHubCalendar } from "react-github-calendar";
+
 // Lazy-loaded page routes — only downloaded when the user navigates there
 const AboutMe = lazy(() => import("./pages/About-Me/About-Me"));
 const SelectedWork = lazy(() => import("./pages/work/selected-work"));
@@ -27,6 +29,17 @@ function Home() {
     <main className="bg-[#1f1f1f] min-h-screen w-full">
       <Navbar />
       <Hero />
+      
+      <section className="w-full flex justify-center items-center py-12 px-4 md:px-8">
+        <GitHubCalendar
+          username="ishwar-prog"
+          theme={{
+            dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+          }}
+          colorScheme="dark"
+        />
+      </section>
+
       <Projects />
       <AboutPreview />
       <TechStack />

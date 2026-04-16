@@ -5,10 +5,10 @@ const MOVE_SPRING  = { damping: 28, stiffness: 280, mass: 0.5 };
 const SCALE_SPRING = { type: "spring", damping: 20, stiffness: 240, mass: 0.8 };
 
 export default function CustomCursor() {
-  // Bail out on touch / coarse-pointer devices (phones, tablets)
+  // Bail out only on small screens that have coarse pointers (pure mobile devices)
   const isTouch =
     typeof window !== "undefined" &&
-    window.matchMedia("(pointer: coarse)").matches;
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
   // Raw motion values — updated via event listener (no re-renders on mouse move)
   const rawX = useMotionValue(-200);
