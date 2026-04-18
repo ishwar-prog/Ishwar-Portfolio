@@ -95,6 +95,7 @@ export default function AboutMe() {
   
   const xTo = useRef(null);
   const yTo = useRef(null);
+  const mousePos = useRef({ x: -1000, y: -1000 }); // Store mouse position for scroll events
 
   useEffect(() => {
      window.scrollTo(0, 0);
@@ -103,6 +104,43 @@ export default function AboutMe() {
         yTo.current = gsap.quickTo(imageContainerRef.current, "y", { duration: 0.8, ease: "power3" });
      }
   }, []);
+
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      mousePos.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const handleScroll = () => {
+      // Only apply hover effects on scroll for desktop (where floating image is used)
+      if (window.innerWidth < 768) return; 
+
+      const { x, y } = mousePos.current;
+      const elementUnderCursor = document.elementFromPoint(x, y);
+
+      if (!elementUnderCursor) return;
+
+      const row = elementUnderCursor.closest('[data-exp-index]');
+      const container = elementUnderCursor.closest('.experience-container');
+
+      if (row) {
+        const index = parseInt(row.getAttribute('data-exp-index'), 10);
+        if (hoveredIndex !== index) {
+          handleMouseEnter(index);
+        }
+      } else if (!container && hoveredIndex !== null) {
+        handleMouseLeave();
+        setHoveredIndex(null);
+      }
+    };
+
+    window.addEventListener("mousemove", handleGlobalMouseMove);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [hoveredIndex]);
 
   const handleMouseMove = (e) => {
     if (xTo.current && yTo.current && imageContainerRef.current) {
@@ -215,13 +253,14 @@ export default function AboutMe() {
         </h2>
         
         <div 
-          className="flex flex-col w-full border-t border-white/20 rounded-4xl"
+          className="flex flex-col w-full border-t border-white/20 rounded-4xl experience-container"
           onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+          onMouseLeave={() => { handleMouseLeave(); setHoveredIndex(null); }}
         >
           {experiences.map((exp, index) => (
             <div 
               key={index} 
+              data-exp-index={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onClick={() => handleTap(index)}
               className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer  ${
