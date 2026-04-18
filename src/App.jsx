@@ -59,24 +59,32 @@ function Home() {
       <Hero />
       
       <section className="w-full flex justify-center items-center py-12 px-4 md:px-8">
-        <div style={{ color: "#f8f9fa", padding: "20px", borderRadius: "12px", background: "#1a1a1a", border: "1px solid #333", overflowX: "hidden", maxWidth: "100%" }}>
-          <GitHubCalendar
-            username="ishwar-prog"
-            transformData={(data) => (isMobile ? data.slice(-visibleDays) : data)}
-            hideTotalCount={isMobile}
-            theme={{
-              dark: ["#2d2b45", "#3d368d", "#4d45c0", "#5c54f9", "#8d88fa"],
-            }}
-            colorScheme="dark"
-            renderBlock={(block, activity) =>
-              React.cloneElement(block, {
-                "data-tooltip-id": "react-tooltip",
-                "data-tooltip-html": `${activity.count} contributions on ${activity.date}`,
-              })
-            }
-          />
-          <ReactTooltip id="react-tooltip" variant="dark" />
-        </div>
+        <a 
+          href="https://github.com/ishwar-prog" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="block transition-transform hover:scale-[1.01] duration-300"
+          title="Visit my GitHub profile"
+        >
+          <div style={{ color: "#f8f9fa", padding: "20px", borderRadius: "12px", background: "#1a1a1a", border: "1px solid #333", overflowX: "hidden", maxWidth: "100%" }}>
+            <GitHubCalendar
+              username="ishwar-prog"
+              transformData={(data) => (isMobile ? data.slice(-visibleDays) : data)}
+              hideTotalCount={isMobile}
+              theme={{
+                dark: ["#2d2b45", "#3d368d", "#4d45c0", "#5c54f9", "#8d88fa"],
+              }}
+              colorScheme="dark"
+              renderBlock={(block, activity) =>
+                React.cloneElement(block, {
+                  "data-tooltip-id": "react-tooltip",
+                  "data-tooltip-html": `${activity.count} contributions on ${activity.date}`,
+                })
+              }
+            />
+            <ReactTooltip id="react-tooltip" variant="dark" />
+          </div>
+        </a>
       </section>
 
       <Projects />
