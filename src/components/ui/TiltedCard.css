@@ -44,7 +44,8 @@
 }
 
 /* Hover effect for grayscale */
-.tilted-card-figure:hover .tilted-card-img {
+.tilted-card-figure:hover .tilted-card-img,
+.tilted-card-figure.is-hovered .tilted-card-img {
   filter: grayscale(0%);
 }
 

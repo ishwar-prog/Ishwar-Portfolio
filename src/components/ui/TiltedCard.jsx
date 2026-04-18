@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
@@ -38,6 +38,57 @@ export default function TiltedCard({
   });
 
   const [lastY, setLastY] = useState(0);
+  const isHoveredRef = useRef(false);
+  const mousePosRef = useRef({ x: -1000, y: -1000 });
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let rafId;
+
+    const onGlobalMouseMove = (e) => {
+      mousePosRef.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const pollHover = () => {
+      const { x: clientX, y: clientY } = mousePosRef.current;
+      
+      if (clientX >= 0 && clientY >= 0 && ref.current && window.innerWidth >= 768) {
+        const rect = ref.current.getBoundingClientRect();
+        
+        // Check if mouse is hovering within bounds
+        const isHoveringNow =
+          clientX >= rect.left &&
+          clientX <= rect.right &&
+          clientY >= rect.top &&
+          clientY <= rect.bottom;
+
+        if (isHoveringNow !== isHoveredRef.current) {
+          isHoveredRef.current = isHoveringNow;
+          setIsHovered(isHoveringNow);
+          if (isHoveringNow) {
+            handleMouseEnter();
+          } else {
+            handleMouseLeave();
+          }
+        }
+        
+        if (isHoveringNow) {
+          handleMouse({ clientX, clientY });
+        }
+      }
+      
+      rafId = requestAnimationFrame(pollHover);
+    };
+
+    window.addEventListener('mousemove', onGlobalMouseMove);
+    rafId = requestAnimationFrame(pollHover);
+
+    return () => {
+      window.removeEventListener('mousemove', onGlobalMouseMove);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   function handleMouse(e) {
     if (!ref.current) return;
@@ -61,11 +112,13 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
+    setIsHovered(true);
     scale.set(scaleOnHover);
     opacity.set(1);
   }
 
   function handleMouseLeave() {
+    setIsHovered(false);
     opacity.set(0);
     scale.set(1);
     rotateX.set(0);
@@ -76,7 +129,7 @@ export default function TiltedCard({
   return (
     <figure
       ref={ref}
-      className="tilted-card-figure"
+      className={`tilted-card-figure ${isHovered ? 'is-hovered' : ''}`}
       style={{
         height: containerHeight,
         width: containerWidth

@@ -92,6 +92,7 @@ export default function AboutMe() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [tappedIndex, setTappedIndex] = useState(null);
   const imageContainerRef = useRef(null);
+  const lastHoveredIndex = useRef(0); // Add this to remember last image
   
   const xTo = useRef(null);
   const yTo = useRef(null);
@@ -105,43 +106,6 @@ export default function AboutMe() {
      }
   }, []);
 
-  useEffect(() => {
-    const handleGlobalMouseMove = (e) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
-    };
-
-    const handleScroll = () => {
-      // Only apply hover effects on scroll for desktop (where floating image is used)
-      if (window.innerWidth < 768) return; 
-
-      const { x, y } = mousePos.current;
-      const elementUnderCursor = document.elementFromPoint(x, y);
-
-      if (!elementUnderCursor) return;
-
-      const row = elementUnderCursor.closest('[data-exp-index]');
-      const container = elementUnderCursor.closest('.experience-container');
-
-      if (row) {
-        const index = parseInt(row.getAttribute('data-exp-index'), 10);
-        if (hoveredIndex !== index) {
-          handleMouseEnter(index);
-        }
-      } else if (!container && hoveredIndex !== null) {
-        handleMouseLeave();
-        setHoveredIndex(null);
-      }
-    };
-
-    window.addEventListener("mousemove", handleGlobalMouseMove);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("mousemove", handleGlobalMouseMove);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [hoveredIndex]);
-
   const handleMouseMove = (e) => {
     if (xTo.current && yTo.current && imageContainerRef.current) {
       const imgWidth = 250;
@@ -153,16 +117,66 @@ export default function AboutMe() {
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
+    lastHoveredIndex.current = index;
     if (imageContainerRef.current) {
-      gsap.to(imageContainerRef.current, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out" });
+      gsap.to(imageContainerRef.current, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out", overwrite: "auto" });
     }
   };
 
   const handleMouseLeave = () => {
     if (imageContainerRef.current) {
-      gsap.to(imageContainerRef.current, { scale: 0.5, opacity: 0, duration: 0.4, ease: "power3.in" });
+      gsap.to(imageContainerRef.current, { scale: 0.5, opacity: 0, duration: 0.4, ease: "power3.in", overwrite: "auto" });
     }
   };
+
+  const lastHoveredIndexRef = useRef(null);
+
+  useEffect(() => {
+    let rafId;
+
+    const handleGlobalMouseMove = (e) => {
+      mousePos.current = { x: e.clientX, y: e.clientY };
+      handleMouseMove(e); // Sync floating image position natively
+    };
+
+    const pollHover = () => {
+      // Only apply hover effects on scroll for desktop
+      if (window.innerWidth >= 768) {
+        const { x, y } = mousePos.current;
+        
+        // Avoid error if mouse is outside viewport
+        if (x >= 0 && y >= 0) {
+          const elementUnderCursor = document.elementFromPoint(x, y);
+
+          if (elementUnderCursor) {
+            const row = elementUnderCursor.closest('[data-exp-index]');
+            const container = elementUnderCursor.closest('.experience-container');
+
+            if (row) {
+              const index = parseInt(row.getAttribute('data-exp-index'), 10);
+              if (lastHoveredIndexRef.current !== index) {
+                lastHoveredIndexRef.current = index;
+                handleMouseEnter(index);
+              }
+            } else if (!container && lastHoveredIndexRef.current !== null) {
+              lastHoveredIndexRef.current = null;
+              handleMouseLeave();
+              setHoveredIndex(null);
+            }
+          }
+        }
+      }
+      rafId = requestAnimationFrame(pollHover);
+    };
+
+    window.addEventListener("mousemove", handleGlobalMouseMove);
+    rafId = requestAnimationFrame(pollHover);
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   const handleTap = (index) => {
     setTappedIndex(tappedIndex === index ? null : index);
@@ -240,8 +254,8 @@ export default function AboutMe() {
         className="fixed top-0 left-0 pointer-events-none z-50 overflow-visible w-[250px] aspect-[1/1] opacity-0 scale-50 hidden md:block"
       >
         <img 
-          src={hoveredIndex !== null ? experiences[hoveredIndex].image : experiences[0].image} 
-          className="w-full h-full object-contain drop-shadow-2xl" 
+          src={hoveredIndex !== null ? experiences[hoveredIndex].image : experiences[lastHoveredIndex.current].image} 
+          className="w-full h-full object-contain drop-shadow-2xl transition-all duration-300"
           alt="Experience visual" 
         />
       </div>
@@ -254,47 +268,57 @@ export default function AboutMe() {
         
         <div 
           className="flex flex-col w-full border-t border-white/20 rounded-4xl experience-container"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={() => { handleMouseLeave(); setHoveredIndex(null); }}
         >
-          {experiences.map((exp, index) => (
-            <div 
-              key={index} 
-              data-exp-index={index}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onClick={() => handleTap(index)}
-              className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer  ${
-                tappedIndex === index ? "bg-[#D3FD50] lg:bg-transparent" : ""
-              } lg:hover:bg-[#D3FD50] rounded-4xl`}
-            >
-              {/* Mobile: show experience image when tapped */}
-              {tappedIndex === index && (
-                <div className="md:hidden w-full flex justify-center mb-3">
-                  <img 
-                    src={exp.image} 
-                    alt={exp.org}
-                    className="w-24 h-24 object-contain rounded-4xl"
-                  />
+          {experiences.map((exp, index) => {
+            const isHovered = hoveredIndex === index;
+            const isTapped = tappedIndex === index;
+            
+            return (
+              <div 
+                key={index} 
+                data-exp-index={index}
+                onClick={() => handleTap(index)}
+                className={`group grid grid-cols-1 md:grid-cols-[1.5fr_2fr_1fr] gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4 py-6 md:py-8 lg:py-12 px-4 md:px-8 border-b border-white/20 items-start md:items-center transition-all duration-300 cursor-pointer ${
+                  isTapped ? "bg-[#D3FD50] lg:bg-transparent" : ""
+                } ${isHovered ? "lg:bg-[#D3FD50]" : ""} rounded-4xl`}
+              >
+                {/* Mobile: show experience image when tapped */}
+                {isTapped && (
+                  <div className="md:hidden w-full flex justify-center mb-3">
+                    <img 
+                      src={exp.image} 
+                      alt={exp.org}
+                      className="w-24 h-24 object-contain rounded-4xl"
+                    />
+                  </div>
+                )}
+                
+                <div className="flex flex-col gap-1 md:gap-2 z-10">
+                  <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${
+                    isTapped ? "text-black lg:text-white" : isHovered ? "lg:text-black text-white" : "text-white"
+                  }`}>{exp.role}</h3>
+                  <p className={`text-sm sm:text-base md:text-xl uppercase transition-colors duration-300 ${
+                    isTapped ? "text-black/70 lg:text-white/50" : isHovered ? "lg:text-black/70 text-white/50" : "text-white/50"
+                  }`}>{exp.org}</p>
                 </div>
-              )}
-              
-              <div className="flex flex-col gap-1 md:gap-2 z-10">
-                <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black lg:text-white" : "text-white"} lg:group-hover:text-black`}>{exp.role}</h3>
-                <p className={`text-sm sm:text-base md:text-xl uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black/70 lg:text-white/50" : "text-white/50"} lg:group-hover:text-black/70`}>{exp.org}</p>
-              </div>
 
-              <div className="z-10">
-                <p className={`text-sm sm:text-base md:text-xl lg:text-2xl leading-snug lowercase font-medium transition-colors duration-300 ${tappedIndex === index ? "text-black/80 lg:text-white/70" : "text-white/70"} lg:group-hover:text-black/80`}>
-                  {exp.desc}
-                </p>
-              </div>
+                <div className="z-10">
+                  <p className={`text-sm sm:text-base md:text-xl lg:text-2xl leading-snug lowercase font-medium transition-colors duration-300 ${
+                    isTapped ? "text-black/80 lg:text-white/70" : isHovered ? "lg:text-black/80 text-white/70" : "text-white/70"
+                  }`}>
+                    {exp.desc}
+                  </p>
+                </div>
 
-              <div className="flex md:justify-end z-10">
-                <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${tappedIndex === index ? "text-black lg:text-white" : "text-white"} lg:group-hover:text-black`}>{exp.date}</p>
-              </div>
+                <div className="flex md:justify-end z-10">
+                  <p className={`text-base sm:text-lg md:text-2xl font-bold uppercase transition-colors duration-300 ${
+                    isTapped ? "text-black lg:text-white" : isHovered ? "lg:text-black text-white" : "text-white"
+                  }`}>{exp.date}</p>
+                </div>
 
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </section>
 
