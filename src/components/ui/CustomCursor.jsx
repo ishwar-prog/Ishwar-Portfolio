@@ -35,24 +35,30 @@ export default function CustomCursor() {
   const [hovered, setHovered] = useState(false);
   const hoveredElRef = useRef(null);
   const isHoveredRef = useRef(false);
-  const lastClientX = useRef(-200);
-  const lastClientY = useRef(-200);
+  
+  // Track last known mouse position without triggering re-renders
+  const lastClient = useRef({ x: -200, y: -200 });
 
   useEffect(() => {
     if (isTouch) return;
 
-    const onMove = (e) => {
-      lastClientX.current = e.clientX;
-      lastClientY.current = e.clientY;
-
-      const el = e.target.closest?.(".project-hover");
-      const nowHovering = !!el;
+    // Zero-cost hover detection
+    const handleHoverCheck = (clientX, clientY) => {
+      const el = document.elementFromPoint(clientX, clientY);
+      const card = el?.closest?.(".project-hover");
+      const nowHovering = !!card;
 
       if (nowHovering !== isHoveredRef.current) {
         isHoveredRef.current = nowHovering;
-        hoveredElRef.current = nowHovering ? el : null;
+        hoveredElRef.current = nowHovering ? card : null;
         setHovered(nowHovering);
       }
+    };
+
+    // Mouse movement: update coordinates and check hover natively
+    const onMove = (e) => {
+      lastClient.current = { x: e.clientX, y: e.clientY };
+      handleHoverCheck(e.clientX, e.clientY);
 
       let cx = e.clientX;
       let cy = e.clientY;
@@ -68,22 +74,12 @@ export default function CustomCursor() {
       rawY.set(cy);
     };
 
-    // RAF loop — runs every frame so Lenis scroll is always caught
-    let rafId;
-    const pollHover = () => {
-      const el = document.elementFromPoint(lastClientX.current, lastClientY.current);
-      const card = el?.closest?.(".project-hover");
-      const nowHovering = !!card;
-
-      if (nowHovering !== isHoveredRef.current) {
-        isHoveredRef.current = nowHovering;
-        hoveredElRef.current = nowHovering ? card : null;
-        setHovered(nowHovering);
-      }
-
-      rafId = requestAnimationFrame(pollHover);
+    // Scroll handler: Only runs when page scroll shifts elements under the stationary mouse
+    const onScroll = () => {
+      // Don't calculate if mouse hasn't entered the screen yet
+      if (lastClient.current.x === -200) return;
+      handleHoverCheck(lastClient.current.x, lastClient.current.y);
     };
-    rafId = requestAnimationFrame(pollHover);
 
     const onLeave = () => {
       isHoveredRef.current = false;
@@ -93,12 +89,32 @@ export default function CustomCursor() {
       rawY.set(-200);
     };
 
-    window.addEventListener("mousemove", onMove);
+    // Attach native events
+    window.addEventListener("mousemove", onMove, { passive: true });
     document.documentElement.addEventListener("mouseleave", onLeave);
+
+    // Give useLenis a tiny fraction of a second to initialize and attach to window
+    let lenisRef = null;
+    const scrollTimeout = setTimeout(() => {
+      if (window.lenis) {
+        lenisRef = window.lenis;
+        lenisRef.on('scroll', onScroll);
+      } else {
+        // Fallback directly to native scroll if Lenis is absent
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+    }, 100);
+
     return () => {
       window.removeEventListener("mousemove", onMove);
       document.documentElement.removeEventListener("mouseleave", onLeave);
-      cancelAnimationFrame(rafId);
+      clearTimeout(scrollTimeout);
+      
+      if (lenisRef) {
+        lenisRef.off('scroll', onScroll);
+      } else {
+        window.removeEventListener('scroll', onScroll);
+      }
     };
   }, [isTouch, rawX, rawY]);
 
