@@ -217,7 +217,7 @@ export default function SelectedWork() {
 
   return (
     <ReactLenis root>
-      <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
+      <main className="min-h-screen w-full overflow-hidden text-[#f6f4f0]">
         <Navbar />
 
         <section className="pt-12 md:pt-15 pb-16 md:pb-20 px-3 md:px-4 lg:px-0 max-w-368 mx-auto">

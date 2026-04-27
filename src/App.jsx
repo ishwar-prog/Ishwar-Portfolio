@@ -54,7 +54,7 @@ function Home() {
   }, []);
 
   return (
-    <main className="bg-[#1f1f1f] min-h-screen w-full">
+    <main className="min-h-screen w-full">
       <Navbar />
       <Hero />
       
@@ -103,7 +103,7 @@ export default function App() {
     <>
       <CustomCursor />
       <LoadingScreen />
-      <div id="ishwar-app-content">
+      <div id="ishwar-app-content" className="app-dotted-bg">
         <Router>
           <TransitionWrapper>
             <Suspense fallback={null}>

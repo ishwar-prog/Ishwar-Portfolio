@@ -183,7 +183,7 @@ export default function AboutMe() {
   };
 
   return (
-    <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
+    <main className="min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
       <section className="pt-20 md:pt-24 lg:pt-32 pb-10 md:pb-16 lg:pb-40 px-0 mx-auto overflow-hidden">

@@ -31,7 +31,7 @@ export default function WorkStreamora() {
   }, []);
 
   return (
-    <main className="bg-[#1f1f1f] min-h-screen w-full overflow-hidden text-[#f6f4f0]">
+    <main className="min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
 
       {/* Project Header */}
