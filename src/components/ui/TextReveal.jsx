@@ -47,51 +47,35 @@ export default function TextReveal({
       );
 
       const wordElements = el.querySelectorAll('.word');
-      const totalWords = wordElements.length;
+      const textSpans = el.querySelectorAll('.animated-text');
 
-      wordElements.forEach((word, i) => {
-        const staggerOffset = (i / totalWords) * 0.3; 
-        const wordStart = `top bottom-=${20 + staggerOffset * 100}%`;
-        const wordEnd = `top center+=${staggerOffset * 100}%`;
-
-        const textSpan = word.querySelector('.animated-text');
-
-        if (textSpan) {
-          gsap.fromTo(
-            textSpan,
-            { color: 'rgba(255, 255, 255, 0.4)' },
-            {
-              ease: 'none',
-              color: '#f6f4f0',
-              scrollTrigger: {
-                trigger: el,
-                ...scrollerConfig,
-                start: wordStart,
-                end: wordEnd,
-                scrub: true
-              }
-            }
-          );
-        }
-
-        if (enableBlur) {
-          gsap.fromTo(
-            word,
-            { filter: `blur(${blurStrength}px)` },
-            {
-              ease: 'none',
-              filter: 'blur(0px)',
-              scrollTrigger: {
-                trigger: el,
-                ...scrollerConfig,
-                start: wordStart,
-                end: wordEnd,
-                scrub: true
-              }
-            }
-          );
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: el,
+          ...scrollerConfig,
+          start: 'top bottom-=20%',
+          end: wordAnimationEnd,
+          scrub: true
         }
       });
+
+      if (textSpans.length > 0) {
+        tl.fromTo(
+          textSpans,
+          { color: 'rgba(255, 255, 255, 0.4)' },
+          { color: '#f6f4f0', stagger: 0.1, ease: 'none' },
+          0
+        );
+      }
+
+      if (enableBlur && wordElements.length > 0) {
+        tl.fromTo(
+          wordElements,
+          { filter: `blur(${blurStrength}px)` },
+          { filter: 'blur(0px)', stagger: 0.1, ease: 'none' },
+          0
+        );
+      }
     }, el);
 
     return () => ctx.revert();

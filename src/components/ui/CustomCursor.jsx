@@ -5,10 +5,23 @@ const MOVE_SPRING  = { damping: 28, stiffness: 280, mass: 0.5 };
 const SCALE_SPRING = { type: "spring", damping: 20, stiffness: 240, mass: 0.8 };
 
 export default function CustomCursor() {
-  // Bail out only on small screens that have coarse pointers (pure mobile devices)
-  const isTouch =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  // Bail out on small screens, touch devices, and mobile environments
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    const checkTouch = () => {
+      setIsTouch(
+        window.innerWidth < 768 ||
+        ("ontouchstart" in window) ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches
+      );
+    };
+    
+    checkTouch();
+    window.addEventListener("resize", checkTouch);
+    return () => window.removeEventListener("resize", checkTouch);
+  }, []);
 
   // Raw motion values — updated via event listener (no re-renders on mouse move)
   const rawX = useMotionValue(-200);
