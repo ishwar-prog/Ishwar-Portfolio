@@ -37,11 +37,11 @@ const projects = [
     route: "/projects/reboxed",
   },
   {
-    title: "disasterIQ",
-    category: "disaster intelligence system",
+    title: "chronotask",
+    category: "ai-based task manager",
     image: disasterIQ,
     className: "col-span-1 md:col-span-8",
-    route: "/projects/disasteriq",
+    route: "/projects/chronotask",
   },
   {
     title: "jellmo",

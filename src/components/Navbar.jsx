@@ -20,7 +20,7 @@ export default function Navbar() {
     location.pathname.startsWith("/projects/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full z-50 relative z-10 ">
       {/* Desktop nav */}
       <div className="mx-auto max-w-[92rem] px-4 py-2 hidden md:flex items-center justify-between text-white text-xl font-bold">
         {navItems.map((item, index) => {
