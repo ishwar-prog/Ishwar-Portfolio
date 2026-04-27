@@ -6,10 +6,10 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-import disasterIQMain from "../../assets/disasterIQ.png.png";
-import disaster1 from "../../assets/disaster-1.png";
-import disaster2 from "../../assets/disaster-2.png";
-import disaster3 from "../../assets/disaster-3.png";
+import chronotaskMain from "../../assets/chronotask.png";
+import chronotask1 from "../../assets/chronotask-1.png";
+import chronotask2 from "../../assets/chronotask-2.png";
+import chronotask3 from "../../assets/chronotask-3.png";
 
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
@@ -25,7 +25,7 @@ const otherProjects = [
   { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo", github: "https://github.com/omtawde09/jellmo", liveUrl: "" },
 ];
 
-export default function WorkDisasterIQ() {
+export default function WorkChronotask() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -37,7 +37,7 @@ export default function WorkDisasterIQ() {
       {/* Project Header */}
       <section className="pt-20 md:pt-30 pb-12 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
         <h1 className="text-[12vw] sm:text-[14vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
-          disasterIQ
+          chronotask
         </h1>
       </section>
 
@@ -45,14 +45,14 @@ export default function WorkDisasterIQ() {
       <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <CardCurtainReveal className="w-full rounded-[40px]">
           <img
-            src={disasterIQMain}
-            alt="disasterIQ main"
+            src={chronotaskMain}
+            alt="chronotask main"
             className="w-full h-auto object-cover"
           />
           <CardCurtain />
           <CardCurtainRevealFooter>
             <a
-              href="https://github.com/ishwar-prog/Singularity-Final"
+              href="https://github.com/ishwar-prog/Chrono-AiTask"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/35 hover:scale-110 transition-all duration-200 text-white"
@@ -77,7 +77,7 @@ export default function WorkDisasterIQ() {
           {/* Mobile: always-visible icons at bottom-right */}
           <div className="md:hidden absolute bottom-3 right-3 flex gap-2 z-30">
             <a
-              href="https://github.com/ishwar-prog/Singularity-Final"
+              href="https://github.com/ishwar-prog/Chrono-AiTask"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white"
@@ -85,7 +85,7 @@ export default function WorkDisasterIQ() {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
             <a
-              href="https://github.com/ishwar-prog/Chrono-AiTask"
+              href="https://chrono-ai-task.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white"
@@ -100,29 +100,29 @@ export default function WorkDisasterIQ() {
       <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <p className="text-white/50 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold leading-tight lowercase max-w-max">
-          Disaster Relief Resource Scout is an agentic AI system built during a hackathon to transform chaotic disaster reports into structured, actionable intelligence.
-I worked on building and integrating AI agents that analyze text, URLs, and images, normalize reports into structured JSON, and enable location-based alerts with verification layers. The system combines LLM-powered intake agents, geospatial intelligence, and real-time alert visualization to simulate a disaster-response workflow. It’s a practical exploration of multi-agent orchestration, not just an AI demo.
-<br /><br />
-This project models how autonomous agents can assist real-world emergency coordination.
+          Chronotask is an AI-powered productivity app built to turn scattered plans into focused execution.
+      I designed it as a smart task workflow where users can break goals into actionable steps, track progress, and stay organized with a clean, fast interface. The project combines practical product thinking with modern frontend architecture, making planning feel lighter and more motivating.
+      <br /><br />
+      It is a task manager built for consistency, clarity, and real daily use.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-60 mt-8 md:mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">project type</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Multi agent ai system with web interface</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">AI-based task management web app</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">year</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">1/26</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">4/26</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">role</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">ai engineer</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">full stack developer</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">client</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Hackathon Project</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">College Project</p>
           </div>
         </div>
       </section>
@@ -131,9 +131,9 @@ This project models how autonomous agents can assist real-world emergency coordi
       <section className="pb-12 md:pb-20 px-3 md:px-0 max-w-368 mx-auto">
         <ImageGallery
           images={[
-            { title: "disasterIQ screenshot 1", url: disaster1 },
-            { title: "disasterIQ screenshot 2", url: disaster2 },
-            { title: "disasterIQ screenshot 3", url: disaster3 },
+            { title: "chronotask screenshot 1", url: chronotask1 },
+            { title: "chronotask screenshot 2", url: chronotask2 },
+            { title: "chronotask screenshot 3", url: chronotask3 },
           ]}
         />
       </section>

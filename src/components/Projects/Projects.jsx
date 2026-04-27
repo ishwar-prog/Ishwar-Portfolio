@@ -4,7 +4,7 @@ import streamora from "../../assets/streamora.png.png";
 import gsap from "../../assets/gsap.png.png";
 import mediasearch from "../../assets/mediasearch.png.png";
 import reboxed from "../../assets/reboxed.png.png";
-import disasterIQ from "../../assets/disasterIQ.png.png";
+import chronotask from "../../assets/chronotask.png";
 import jellmo from "../../assets/jellmo.png.png";
 
 const projects = [
@@ -39,7 +39,7 @@ const projects = [
   {
     title: "chronotask",
     category: "ai-based task manager",
-    image: disasterIQ,
+    image: chronotask,
     className: "col-span-1 md:col-span-8",
     route: "/projects/chronotask",
   },

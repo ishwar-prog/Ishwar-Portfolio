@@ -13,7 +13,7 @@ import streamora from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import mediasearch from "../../assets/mediasearch.png.png";
 import reboxed from "../../assets/reboxed.png.png";
-import disasterIQ from "../../assets/disasterIQ.png.png";
+import chronotask from "../../assets/chronotask.png";
 import jellmo from "../../assets/jellmo.png.png";
 
 const projects = [
@@ -46,11 +46,11 @@ const projects = [
     route: "/projects/reboxed",
   },
   {
-    title: "disasterIQ",
-    category: "disaster intelligence agent",
+    title: "chronotask",
+    category: "ai-based task manager",
     tags: ["web app", "ai/ml"],
-    image: disasterIQ,
-    route: "/projects/disasteriq",
+    image: chronotask,
+    route: "/projects/chronotask",
   },
   {
     title: "jellmo",
@@ -144,7 +144,7 @@ const StickyProjects = ({ projects }) => {
     <>
       {/* Mobile: simple stacked list */}
       <div className="md:hidden flex flex-col gap-6 px-3">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <a key={project.title} href={project.route} className="block">
             <div className="flex flex-col gap-3 group cursor-pointer">
               <div className="relative w-full overflow-hidden rounded-4xl bg-[#1f1f1f] border border-white/10">

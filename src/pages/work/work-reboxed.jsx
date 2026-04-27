@@ -14,14 +14,14 @@ import reboxed3 from "../../assets/reboxed-3.png";
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import mediasearchImg from "../../assets/mediasearch.png.png";
-import disasterIQImg from "../../assets/disasterIQ.png.png";
+import chronotaskImg from "../../assets/chronotask.png";
 import jellmoImg from "../../assets/jellmo.png.png";
 
 const otherProjects = [
   { title: "streamora", category: "video streaming", image: streamoraImg, route: "/projects/streamora", github: "https://github.com/ishwar-prog/Grand-Backend", liveUrl: "https://streamoraa.onrender.com/" },
   { title: "vibelab", category: "gsap", image: gsapImg, route: "/projects/vibelab", github: "https://github.com/ishwar-prog/Gsap-Project", liveUrl: "https://gsap1-project.onrender.com/" },
   { title: "mediasearch", category: "search engine", image: mediasearchImg, route: "/projects/mediasearch", github: "https://github.com/ishwar-prog/Redux-Project", liveUrl: "https://modi-rahul.vercel.app/" },
-  { title: "disasterIQ", category: "disaster intelligence", image: disasterIQImg, route: "/projects/disasteriq", github: "https://github.com/ishwar-prog/Singularity-Final", liveUrl: "https://disasteriq.onrender.com/" },
+  { title: "chronotask", category: "ai-based task manager", image: chronotaskImg, route: "/projects/chronotask", github: "https://github.com/ishwar-prog/Chrono-AiTask", liveUrl: "https://chrono-ai-task.vercel.app/" },
   { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo", github: "https://github.com/omtawde09/jellmo", liveUrl: "" },
 ];
 
