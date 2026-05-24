@@ -71,4 +71,24 @@ section h1{
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}/* GlassButton custom overrides */
+.all-unset {
+  all: unset;
+}
+.glass-button-wrap {
+  position: relative;
+  display: inline-block;
+}
+.glass-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.glass-button-shadow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
