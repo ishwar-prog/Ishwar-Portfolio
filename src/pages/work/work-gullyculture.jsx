@@ -6,26 +6,26 @@ import ImageGallery from "../../components/ui/ImageGallery";
 import { CardCurtainReveal, CardCurtain, CardCurtainRevealFooter } from "../../components/ui/CardCurtainReveal";
 import ExpandCards from "../../components/ui/ExpandCards";
 
-import mediaSearchMain from "../../assets/mediasearch.png.png";
-import redux1 from "../../assets/redux-1.png";
-import redux2 from "../../assets/redux-2.png";
-import redux3 from "../../assets/redux-3.png";
+import gullycultureMain from "../../assets/gullyculture-1.png";
+import gully1 from "../../assets/gullyculture-2.png";
+import gully2 from "../../assets/gullyculture-3.png";
+import gully3 from "../../assets/gullyculture-4.png";
 
 import streamoraImg from "../../assets/streamora.png.png";
 import gsapImg from "../../assets/gsap.png.png";
 import reboxedImg from "../../assets/reboxed.png.png";
 import chronotaskImg from "../../assets/chronotask.png";
-import jellmoImg from "../../assets/jellmo.png.png";
+import docsyncImg from "../../assets/docsync.png";
 
 const otherProjects = [
   { title: "streamora", category: "video streaming", image: streamoraImg, route: "/projects/streamora", github: "https://github.com/ishwar-prog/Grand-Backend", liveUrl: "https://streamoraa.onrender.com/" },
   { title: "vibelab", category: "gsap", image: gsapImg, route: "/projects/vibelab", github: "https://github.com/ishwar-prog/Gsap-Project", liveUrl: "https://gsap1-project.onrender.com/" },
   { title: "reboxed", category: "ecommerce", image: reboxedImg, route: "/projects/reboxed", github: "https://github.com/ishwar-prog/hackios", liveUrl: "https://reboxed.onrender.com/" },
   { title: "chronotask", category: "ai-based task manager", image: chronotaskImg, route: "/projects/chronotask", github: "https://github.com/ishwar-prog/Chrono-AiTask", liveUrl: "https://chrono-ai-task.vercel.app/" },
-  { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo", github: "https://github.com/omtawde09/jellmo", liveUrl: "" },
+  { title: "docsync", category: "developer tool", image: docsyncImg, route: "/projects/docsync", github: "https://github.com/ishwar-prog/docsync", liveUrl: "https://ishwar-prog.github.io/docsync-landing" },
 ];
 
-export default function WorkMediaSearch() {
+export default function WorkGullyculture() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -37,7 +37,7 @@ export default function WorkMediaSearch() {
       {/* Project Header */}
       <section className="pt-20 md:pt-30 pb-12 md:pb-25 px-3 md:px-0 max-w-368 mx-auto">
         <h1 className="text-[12vw] sm:text-[14vw] md:text-[8rem] leading-[0.85] font-black tracking-tighter lowercase text-center">
-          media search
+          gullyculture
         </h1>
       </section>
 
@@ -45,14 +45,14 @@ export default function WorkMediaSearch() {
       <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <CardCurtainReveal className="w-full rounded-[40px]">
           <img
-            src={mediaSearchMain}
-            alt="media search main"
+            src={gullycultureMain}
+            alt="gullyculture main"
             className="w-full h-auto object-cover"
           />
           <CardCurtain />
           <CardCurtainRevealFooter>
             <a
-              href="https://github.com/ishwar-prog/Redux-Project"
+              href="https://github.com/ishwar-prog/gullyculture-landing"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/35 hover:scale-110 transition-all duration-200 text-white"
@@ -62,7 +62,7 @@ export default function WorkMediaSearch() {
               </svg>
             </a>
             <a
-              href="https://modi-rahul.vercel.app/"
+              href="https://gullyculture.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/35 hover:scale-110 transition-all duration-200 text-white"
@@ -77,7 +77,7 @@ export default function WorkMediaSearch() {
           {/* Mobile: always-visible icons at bottom-right */}
           <div className="md:hidden absolute bottom-3 right-3 flex gap-2 z-30">
             <a
-              href="https://github.com/ishwar-prog/Redux-Project"
+              href="https://github.com/ishwar-prog/gullyculture-landing"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white"
@@ -85,7 +85,7 @@ export default function WorkMediaSearch() {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
             <a
-              href="https://modi-rahul.vercel.app/"
+              href="https://gullyculture.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white"
@@ -99,31 +99,30 @@ export default function WorkMediaSearch() {
       {/* Project Overview */}
       <section className="pb-10 md:pb-16 px-3 md:px-0 max-w-368 mx-auto">
         <p className="text-white/65 text-sm md:text-xl mb-2 lowercase font-semibold">project overview</p>
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold leading-tight lowercase max-w-mx">
-          This Media Search Engine is my deep dive into production-grade state management with Redux Toolkit.
-It aggregates real APIs (Unsplash, Pexels, Giphy) into one unified experience, forcing me to design predictable data flow, async lifecycles, and global state architecture the right way. I implemented slice-based modular state, deduplication logic, persistence with LocalStorage, and optimized selectors to control re-renders. The result is a clean, responsive platform that behaves less like a demo and more like a real product.
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold leading-tight lowercase max-w-max">
+          This site is built for a thrift brand specializing in selling jerseys and streetwear clothing. It serves as a comprehensive showcase that details how the brand works, provides an in depth about us section, and highlights customer reviews. It focuses entirely on building trust and conveying brand information rather than functioning as an online store. 
 <br />
 <br />
-It’s not about searching media — it’s about mastering how data moves through a serious React application.
+The experience is designed to be engaging and informative, giving visitors a true feel of the brand identity.
         </h2>
 
         {/* Project Metadata */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 md:gap-60 mt-8 md:mt-13 text-sm md:text-base">
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">project type</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Web Application</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">web application</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">year</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">1/26</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">7/26</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">role</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Frontend Developer</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">full stack engineer</p>
           </div>
           <div>
             <p className="text-white/65 lowercase mb-1 font-semibold text-sm md:text-xl">client</p>
-            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">Personal Project</p>
+            <p className="font-semibold text-base sm:text-lg md:text-2xl lowercase">freelance project</p>
           </div>
         </div>
       </section>
@@ -132,9 +131,9 @@ It’s not about searching media — it’s about mastering how data moves throu
       <section className="pb-12 md:pb-20 px-3 md:px-0 max-w-368 mx-auto">
         <ImageGallery
           images={[
-            { title: "media search screenshot 1", url: redux1 },
-            { title: "media search screenshot 2", url: redux2 },
-            { title: "media search screenshot 3", url: redux3 },
+            { title: "gullyculture screenshot 1", url: gully1 },
+            { title: "gullyculture screenshot 2", url: gully2 },
+            { title: "gullyculture screenshot 3", url: gully3 },
           ]}
         />
       </section>

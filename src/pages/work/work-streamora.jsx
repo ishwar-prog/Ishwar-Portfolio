@@ -13,16 +13,16 @@ import streamora3 from "../../assets/streamora-3.png";
 
 import gsapImg from "../../assets/gsap.png.png";
 import reboxedImg from "../../assets/reboxed.png.png";
-import mediasearchImg from "../../assets/mediasearch.png.png";
+import gullycultureImg from "../../assets/gullyculture-1.png";
 import chronotaskImg from "../../assets/chronotask.png";
-import jellmoImg from "../../assets/jellmo.png.png";
+import docsyncImg from "../../assets/docsync.png";
 
 const otherProjects = [
   { title: "vibelab", category: "gsap", image: gsapImg, route: "/projects/vibelab", github: "https://github.com/ishwar-prog/Gsap-Project", liveUrl: "https://gsap1-project.onrender.com/" },
-  { title: "mediasearch", category: "search engine", image: mediasearchImg, route: "/projects/mediasearch", github: "https://github.com/ishwar-prog/Redux-Project", liveUrl: "https://modi-rahul.vercel.app/" },
+  { title: "gullyculture", category: "brand showcase", image: gullycultureImg, route: "/projects/gullyculture", github: "https://github.com/ishwar-prog/gullyculture-landing", liveUrl: "https://gullyculture.vercel.app/" },
   { title: "reboxed", category: "ecommerce", image: reboxedImg, route: "/projects/reboxed", github: "https://github.com/ishwar-prog/hackios", liveUrl: "https://reboxed.onrender.com/" },
   { title: "chronotask", category: "ai-based task manager", image: chronotaskImg, route: "/projects/chronotask", github: "https://github.com/ishwar-prog/Chrono-AiTask", liveUrl: "https://chrono-ai-task.vercel.app/" },
-  { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo", github: "https://github.com/omtawde09/jellmo", liveUrl: "" },
+  { title: "docsync", category: "developer tool", image: docsyncImg, route: "/projects/docsync", github: "https://github.com/ishwar-prog/docsync", liveUrl: "https://ishwar-prog.github.io/docsync-landing" },
 ];
 
 export default function WorkStreamora() {

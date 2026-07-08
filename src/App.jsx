@@ -21,10 +21,10 @@ const AboutMe = lazy(() => import("./pages/About-Me/About-Me"));
 const SelectedWork = lazy(() => import("./pages/work/selected-work"));
 const WorkStreamora = lazy(() => import("./pages/work/work-streamora"));
 const WorkGsap = lazy(() => import("./pages/work/work-gsap"));
-const WorkMediaSearch = lazy(() => import("./pages/work/work-mediasearch"));
+const WorkGullyculture = lazy(() => import("./pages/work/work-gullyculture"));
 const WorkReboxed = lazy(() => import("./pages/work/work-reboxed"));
 const WorkChronotask = lazy(() => import("./pages/work/work-chronotask"));
-const WorkJellmo = lazy(() => import("./pages/work/work-jellmo"));
+const WorkDocsync = lazy(() => import("./pages/work/work-docsync"));
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -103,10 +103,10 @@ export default function App() {
                 {/* Project routes */}
                 <Route path="/projects/streamora" element={<WorkStreamora />} />
                 <Route path="/projects/vibelab" element={<WorkGsap />} />
-                <Route path="/projects/mediasearch" element={<WorkMediaSearch />} />
+                <Route path="/projects/gullyculture" element={<WorkGullyculture />} />
                 <Route path="/projects/reboxed" element={<WorkReboxed />} />
                 <Route path="/projects/chronotask" element={<WorkChronotask />} />
-                <Route path="/projects/jellmo" element={<WorkJellmo />} />
+                <Route path="/projects/docsync" element={<WorkDocsync />} />
               </Routes>
             </Suspense>
           </TransitionWrapper>

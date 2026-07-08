@@ -12,17 +12,17 @@ import gsap2 from "../../assets/gsap-2.png";
 import gsap3 from "../../assets/gsap-3.png";
 
 import streamoraImg from "../../assets/streamora.png.png";
-import mediasearchImg from "../../assets/mediasearch.png.png";
+import gullycultureImg from "../../assets/gullyculture-1.png";
 import reboxedImg from "../../assets/reboxed.png.png";
 import chronotaskImg from "../../assets/chronotask.png";
-import jellmoImg from "../../assets/jellmo.png.png";
+import docsyncImg from "../../assets/docsync.png";
 
 const otherProjects = [
   { title: "streamora", category: "video streaming", image: streamoraImg, route: "/projects/streamora", github: "https://github.com/ishwar-prog/Grand-Backend", liveUrl: "https://streamoraa.onrender.com/" },
-  { title: "mediasearch", category: "search engine", image: mediasearchImg, route: "/projects/mediasearch", github: "https://github.com/ishwar-prog/Redux-Project", liveUrl: "https://modi-rahul.vercel.app/" },
+  { title: "gullyculture", category: "brand showcase", image: gullycultureImg, route: "/projects/gullyculture", github: "https://github.com/ishwar-prog/gullyculture-landing", liveUrl: "https://gullyculture.vercel.app/" },
   { title: "reboxed", category: "ecommerce", image: reboxedImg, route: "/projects/reboxed", github: "https://github.com/ishwar-prog/hackios", liveUrl: "https://reboxed.onrender.com/" },
   { title: "chronotask", category: "ai-based task manager", image: chronotaskImg, route: "/projects/chronotask", github: "https://github.com/ishwar-prog/Chrono-AiTask", liveUrl: "https://chrono-ai-task.vercel.app/" },
-  { title: "jellmo", category: "ai/ml", image: jellmoImg, route: "/projects/jellmo", github: "https://github.com/omtawde09/jellmo", liveUrl: "" },
+  { title: "docsync", category: "developer tool", image: docsyncImg, route: "/projects/docsync", github: "https://github.com/ishwar-prog/docsync", liveUrl: "https://ishwar-prog.github.io/docsync-landing" },
 ];
 
 export default function WorkGsap() {

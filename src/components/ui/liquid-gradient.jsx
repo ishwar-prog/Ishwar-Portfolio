@@ -155,6 +155,7 @@ const GradientSvg = ({
           cy='0'
           r='1'
           gradientUnits='userSpaceOnUse'
+          gradientTransform={gradientTransform[0]}
           animate={isHovered ? variants.hovered : variants.notHovered}
         >
           {stopsAnimationArray.map((stopConfigs, index) => (

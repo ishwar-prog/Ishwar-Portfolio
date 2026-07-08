@@ -2,10 +2,10 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import streamora from "../../assets/streamora.png.png";
 import gsap from "../../assets/gsap.png.png";
-import mediasearch from "../../assets/mediasearch.png.png";
+import gullyculture from "../../assets/gullyculture-1.png";
 import reboxed from "../../assets/reboxed.png.png";
 import chronotask from "../../assets/chronotask.png";
-import jellmo from "../../assets/jellmo.png.png";
+import docsync from "../../assets/docsync.png";
 
 const projects = [
   {
@@ -23,11 +23,11 @@ const projects = [
     route: "/projects/vibelab",
   },
   {
-    title: "mediasearch",
-    category: "search engine",
-    image: mediasearch,
+    title: "gullyculture",
+    category: "brand showcase",
+    image: gullyculture,
     className: "col-span-1 md:col-span-5",
-    route: "/projects/mediasearch",
+    route: "/projects/gullyculture",
   },
   {
     title: "reboxed",
@@ -44,11 +44,11 @@ const projects = [
     route: "/projects/chronotask",
   },
   {
-    title: "jellmo",
-    category: "ai/ml",
-    image: jellmo,
+    title: "docsync",
+    category: "developer tool",
+    image: docsync,
     className: "col-span-1 md:col-span-4",
-    route: "/projects/jellmo",
+    route: "/projects/docsync",
   },
 ];
 
