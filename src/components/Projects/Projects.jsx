@@ -1,67 +1,62 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import streamora from "../../assets/streamora.png.png";
-import gsap from "../../assets/gsap.png.png";
-import gullyculture from "../../assets/gullyculture-1.png";
-import reboxed from "../../assets/reboxed.png.png";
-import chronotask from "../../assets/chronotask.png";
-import docsync from "../../assets/docsync.png";
+import streamora from "../../assets/streamors-main.png";
+import gsap from "../../assets/gsap-main.png";
+import gullyculture from "../../assets/gullycultur.png";
+import docsync from "../../assets/docsync-main.png";
+import chronotask from "../../assets/chronotask-main.png";
+import reboxed from "../../assets/reboxed-main.png";
 
 const projects = [
   {
     title: "streamora",
-    category: "video streaming",
+    category: "video streaming platform",
     image: streamora,
-    className: "col-span-1 md:col-span-8",
     route: "/projects/streamora",
   },
   {
-    title: "VibeLab",
-    category: "gsap",
+    title: "vibelab",
+    category: "gsap animation Showcase",
     image: gsap,
-    className: "col-span-1 md:col-span-4",
     route: "/projects/vibelab",
   },
   {
     title: "gullyculture",
-    category: "brand showcase",
+    category: "brand showcase website",
     image: gullyculture,
-    className: "col-span-1 md:col-span-5",
     route: "/projects/gullyculture",
   },
   {
-    title: "reboxed",
-    category: "e-commerce",
-    image: reboxed,
-    className: "col-span-1 md:col-span-7",
-    route: "/projects/reboxed",
+    title: "docsync",
+    category: "developer tools & syncing",
+    image: docsync,
+    route: "/projects/docsync",
   },
   {
     title: "chronotask",
     category: "ai-based task manager",
     image: chronotask,
-    className: "col-span-1 md:col-span-8",
     route: "/projects/chronotask",
   },
   {
-    title: "docsync",
-    category: "developer tool",
-    image: docsync,
-    className: "col-span-1 md:col-span-4",
-    route: "/projects/docsync",
+    title: "reboxed",
+    category: "e-commerce experience",
+    image: reboxed,
+    route: "/projects/reboxed",
   },
 ];
 
 export default function Projects() {
   return (
-    <section className="relative z-10 py-10 md:py-16 lg:py-20 px-3 md:px-4 lg:px-0 text-white" id="work">
-      <div className="max-w-[92rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5 lg:gap-8 auto-rows-[250px] sm:auto-rows-[320px] md:auto-rows-[340px] lg:auto-rows-[500px]">
+    <section className="relative z-10 py-12 md:py-20 lg:py-28 px-4 md:px-8 lg:px-16 text-white" id="work">
+      <div className="max-w-[92rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20">
         {projects.map((project, index) => (
-          <div key={index} data-cursor-text="See More" className={project.className}>
-             <ProjectCard {...project} className="h-full w-full" />
+          <div key={index} data-cursor-text="See More" className="w-full">
+            <ProjectCard {...project} className="w-full" />
           </div>
         ))}
       </div>
     </section>
   );
 }
+

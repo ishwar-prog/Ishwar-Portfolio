@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { VideoText } from "./ui/VideoText";
-import galaxyVideo from "../assets/galaxy.mp4";
+
+const galaxyVideo = "/galaxy.mp4";
 import { Highlighter } from "./ui/Highlighter";
 import { GlassButton } from "./ui/GlassButton";
 import { Liquid } from "./ui/liquid-gradient";

@@ -62,7 +62,7 @@ export default function AboutPreview() {
   };
 
   return (
-    <section className="relative z-10 py-10 md:py-20 px-3 md:px-4 lg:px-0" id="about">
+    <section className="relative z-10 py-7 md:py-15 px-3 md:px-4 lg:px-0" id="about">
       <div className="max-w-[92rem] mx-auto">
         {/* Text Reveal Section */}
         <TextReveal text={revealText} className="mb-10 md:mb-20" />
