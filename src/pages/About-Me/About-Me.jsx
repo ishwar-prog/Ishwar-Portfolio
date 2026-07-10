@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../../components/Navbar";
 import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
-import ishwar from "../../assets/ishwar.png";
+import ishwar from "../../assets/ishwar.webp";
 import TiltedCard from "../../components/ui/TiltedCard";
 import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
 import smartedImg from "../../assets/smarted.png";

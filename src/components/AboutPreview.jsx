@@ -1,11 +1,11 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import TextReveal from "./ui/TextReveal";
-import ishwar from "../assets/ishwar.png";
+import ishwar from "../assets/ishwar.webp";
 import "./ui/ChromaEffect.css";
 
 export default function AboutPreview() {
-  const revealText = `Ishwar Suthar -- Full-stack developer and an UI/UX enthusiast from Mumbai, Sophomore in Computer Engineering at KCCEMSR. I build fast, expressive web apps, diving into agentic AI and automation, and fuse clean UI with visual storytelling. Learning by building and breaking. For more Contact Me.`;
+  const revealText = `ishwar suthar -- full-stack developer and an ui/ux enthusiast from mumbai, sophomore in computer engineering at kccemsr. i build fast, expressive web apps, diving into agentic ai and automation, and fuse clean ui with visual storytelling. learning by building and breaking. for more contact me.`;
   
   const rootRef = useRef(null);
   const fadeRef = useRef(null);
@@ -99,21 +99,21 @@ export default function AboutPreview() {
           <div className="flex flex-col gap-1 mt-4 md:mt-6 lg:mt-18">
             <p className="text-sm text-white/40 font-bold">why work with me</p>
             <p className="text-lg sm:text-xl md:text-base lg:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
-              I build under pressure and ship on time. hackathons taught me
+              i build under pressure and ship on time. hackathons taught me
               speed, focus, and ruthless prioritization-projects taught me how
-              real systems break and how to fix them. I'm full-stack by default,
-              ui-obsessed by habit, and deep into agentic ai by curiosity. I
+              real systems break and how to fix them. i'm full-stack by default,
+              ui-obsessed by habit, and deep into agentic ai by curiosity. i
               move fast, learn faster, and communicate clearly-through code,
               clean interfaces, and visuals. if you want someone who treats
               every idea like a live product and every deadline like it's real,
-              I'm a strong bet.
+              i'm a strong bet.
             </p>
           </div>
 
           {/* Column 3: When I'm Not Building */}
           <div className="flex flex-col gap-1 mt-4 md:mt-6 lg:mt-18">
             <p className="text-sm text-white/40 font-bold">
-              when I'm not building
+              when i'm not building
             </p>
             <p className="text-lg sm:text-xl md:text-base lg:text-2xl text-[#f6f4f0] leading-tight font-bold tracking-tight">
               you'll find me exploring music - more into rap, making short

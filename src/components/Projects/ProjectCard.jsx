@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 export default function ProjectCard({ title, category, image, className, route }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.92, y: 50 }}
+      initial={{ opacity: 0, scale: 0.96, y: 28 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: false, amount: 0.15, margin: "-50px" }}
       transition={{
         type: "spring",
-        stiffness: 110,
-        damping: 19,
-        mass: 0.5
+        stiffness: 180,
+        damping: 24,
+        mass: 0.38
       }}
       className={`w-full ${className}`}
     >
