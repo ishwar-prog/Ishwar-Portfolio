@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Hyperlink } from "./ui/Hyperlink";
 import { MenuContainer } from "./ui/MobileMenu";
-import { Menu as MenuIcon, BriefcaseIcon, UserIcon, AtSignIcon } from "lucide-react";
+import { LayoutGrid, BriefcaseIcon, UserIcon, AtSignIcon } from "lucide-react";
 
 export default function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -20,9 +20,9 @@ export default function Navbar() {
     location.pathname.startsWith("/projects/");
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 relative z-10 ">
+    <nav className="fixed top-0 left-0 w-full z-50">
       {/* Desktop nav */}
-      <div className="mx-auto max-w-[92rem] px-4 py-2 hidden md:flex items-center justify-between text-white text-xl font-bold">
+      <div className="mx-auto max-w-368 px-4 py-2 hidden md:flex items-center justify-between text-white text-xl font-bold">
         {navItems.map((item, index) => {
           const isActive =
             item.href === "/work"
@@ -53,9 +53,9 @@ export default function Navbar() {
         <Hyperlink href="/" isActive={location.pathname === "/"} className="text-lg font-bold" underlineClassName="bg-[#D3FD50]">
           ishwar suthar
         </Hyperlink>
-        <div className="fixed top-2 right-4 z-[60]">
+        <div className="fixed top-2 right-4 z-60">
           <MenuContainer>
-            <MenuIcon className="h-5 w-5" />
+            <LayoutGrid className="h-5 w-5" />
             
             <a href="/work" aria-label="Work">
               <BriefcaseIcon className="h-5 w-5" />

@@ -70,40 +70,31 @@ export function MenuContainer({ children }) {
   };
 
   return (
-    <div className="relative w-[48px]" data-expanded={isExpanded}>
-      {/* Container for all items */}
-      <div className="relative">
-        {/* First item - always visible */}
-        <div 
-          className="relative w-12 h-12 bg-[#1f1f1f]/80 backdrop-blur-md text-white border border-white/10 cursor-pointer rounded-full group will-change-transform z-50 flex items-center justify-center shadow-lg"
-          onClick={handleToggle}
-        >
-          {childrenArray[0]}
-        </div>
+    <div className="relative w-12" data-expanded={isExpanded}>
+      <button
+        type="button"
+        onClick={handleToggle}
+        className="flex h-12 w-12 items-center justify-center text-taupe-800"
+        aria-expanded={isExpanded}
+        aria-label="Toggle menu"
+      >
+        {childrenArray[0]}
+      </button>
 
-        {/* Other items */}
-        {childrenArray.slice(1).map((child, index) => (
-          <div 
-            key={index} 
-            className="absolute top-0 left-0 w-12 h-12 bg-[#1f1f1f]/80 backdrop-blur-md border border-white/10 text-white rounded-full will-change-transform flex items-center justify-center shadow-lg"
-            style={{
-              transform: `translateY(${isExpanded ? (index + 1) * 56 : 0}px)`,
-              opacity: isExpanded ? 1 : 0,
-              zIndex: 40 - index,
-              clipPath: index === childrenArray.length - 2 
-                ? "circle(50% at 50% 50%)" 
-                : "circle(50% at 50% 50%)",
-              transition: `transform ${isExpanded ? '300ms' : '300ms'} cubic-bezier(0.4, 0, 0.2, 1),
-                         opacity ${isExpanded ? '300ms' : '350ms'}`,
-              backfaceVisibility: 'hidden',
-              perspective: 1000,
-              WebkitFontSmoothing: 'antialiased'
-            }}
-          >
-            {child}
-          </div>
-        ))}
-      </div>
+      {childrenArray.slice(1).map((child, index) => (
+        <div
+          key={index}
+          className="absolute right-0 top-full mt-3 flex h-10 w-10 items-center justify-center text-taupe-800 transition-all duration-300"
+          style={{
+            transform: `translateY(${isExpanded ? index * 44 : -8}px)`,
+            opacity: isExpanded ? 1 : 0,
+            pointerEvents: isExpanded ? "auto" : "none",
+            transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          {child}
+        </div>
+      ))}
     </div>
   );
 }

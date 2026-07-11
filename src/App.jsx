@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import TransitionWrapper from "./components/ui/TransitionWrapper";
 import LoadingScreen from "./components/ui/LoadingScreen";
 import CustomCursor from "./components/ui/CustomCursor";
-
+import SnowParticles from "./components/ui/SnowParticles";
 import { GitHubCalendar } from "react-github-calendar";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
@@ -91,7 +91,18 @@ export default function App() {
     <>
       <CustomCursor />
       <LoadingScreen />
-      <div id="ishwar-app-content" className="app-dotted-bg">
+      <div id="ishwar-app-content" className="app-bg relative">
+        <SnowParticles
+          shape="Star"
+          particleCount={400}
+          minSize={3}
+          maxSize={5}
+          speed={0.5}
+          wind={0.2}
+          minOpacity={0.2}
+          maxOpacity={0.8}
+          color="#e0e0e0"
+        />
         <Router>
           <TransitionWrapper>
             <Suspense fallback={null}>
