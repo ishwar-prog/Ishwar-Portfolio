@@ -209,7 +209,7 @@ export default function SelectedWork() {
       <main className="min-h-screen w-full overflow-hidden text-[#f6f4f0]">
         <Navbar />
 
-        <section className="pt-12 md:pt-15 pb-6 md:pb-8 px-3 md:px-4 lg:px-0 max-w-368 mx-auto">
+        <section className="pt-12 md:pt-15 pb-6 md:pb-20 px-3 md:px-4 lg:px-0 max-w-368 mx-auto">
           {/* Header */}
           <h1 className="text-[10vw] sm:text-[11vw] md:text-[14vw] lg:text-[15rem] leading-[0.9] font-black tracking-tighter lowercase text-center whitespace-nowrap">
             selected work

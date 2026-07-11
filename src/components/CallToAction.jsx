@@ -25,7 +25,7 @@ export default function CallToAction() {
   return (
     <section
       id="contact"
-      className="relative z-10 py-12 md:py-16 lg:py-20 px-3 md:px-4 lg:px-0 flex justify-center items-center min-h-[30vh] md:min-h-[50vh] lg:min-h-[40vh] text-[#f6f4f0]"
+      className="relative z-10 py-12 md:py-16 lg:py-25 px-3 md:px-4 lg:px-0 flex justify-center items-center min-h-[30vh] md:min-h-[50vh] lg:min-h-[40vh] text-[#f6f4f0]"
     >
       <a 
         href="https://mail.google.com/mail/?view=cm&fs=1&to=ishwar16suthar@gmail.com"

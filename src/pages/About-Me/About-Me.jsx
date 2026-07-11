@@ -4,8 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../../components/Navbar";
 import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
-import ishwar from "../../assets/ishwar.webp";
-import TiltedCard from "../../components/ui/TiltedCard";
+import ishwarPapercut from "../../assets/ishwar-papercut.mp4";
 import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
@@ -186,10 +185,10 @@ export default function AboutMe() {
     <main className="min-h-screen w-full overflow-hidden text-[#f6f4f0]">
       <Navbar />
       
-      <section className="pt-20 md:pt-24 lg:pt-32 pb-10 md:pb-16 lg:pb-40 px-0 mx-auto overflow-hidden">
+      <section className="pt-10 md:pt-15 lg:pt-15 pb-20 md:pb-16 lg:pb-15 px-0 mx-auto overflow-hidden">
         
         {/* Header - Loop Text Animation */}
-        <div className="mb-16 md:mb-33 -ml-4 -mr-4 flex flex-col gap-2 md:gap-4 origin-center rotate-[-2deg] scale-[1.05]">
+        <div className="mb-5 md:mb-33 -ml-4 -mr-4 flex flex-col gap-2 md:gap-4 origin-center rotate-[-2deg] scale-[1.05]">
           <ScrollVelocityText 
             baseVelocity={-2} 
             className="text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[20rem] leading-[0.8] font-extrabold tracking-tighter lowercase flex items-center"
@@ -209,22 +208,16 @@ export default function AboutMe() {
         <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           {/* Image - shown first on mobile via order */}
           <div className="flex justify-center order-first md:order-last">
-            <div className="w-full max-w-[400px] md:max-w-none md:w-[540px] h-[400px] sm:h-[480px] md:h-[580px] rounded-[40px] md:rounded-[80px] relative flex items-center justify-center">
-               <TiltedCard
-                 imageSrc={ishwar}
-                 altText="Ishwar Suthar"
-                 captionText="ishwar suthar"
-                 containerHeight="100%"
-                 containerWidth="100%"
-                 imageHeight="100%"
-                 imageWidth="100%"
-                 rotateAmplitude={22}
-                 scaleOnHover={1.2}
-                 showMobileWarning={false}
-                 showTooltip={true}
-                 displayOverlayContent={false}
-               />
-            </div>
+             <video
+               src={ishwarPapercut}
+               autoPlay
+               loop
+               muted
+               playsInline
+               preload="auto"
+               className="w-full max-w-[400px] md:max-w-none md:w-[540px] h-auto block"
+               style={{ mixBlendMode: "screen" }}
+             />
           </div>
 
           {/* Text Column - shown second on mobile */}
