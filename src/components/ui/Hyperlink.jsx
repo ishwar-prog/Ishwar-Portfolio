@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../lib/utils";
 
 const Hyperlink = ({
@@ -13,10 +14,14 @@ const Hyperlink = ({
   ...props
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
+  const isInternalHref =
+    typeof href === "string" && href.startsWith("/") && !href.startsWith("//");
+  const Component = isInternalHref ? Link : "a";
+  const linkProps = isInternalHref ? { to: href } : { href };
 
   return (
-    <a
-      href={href}
+    <Component
+      {...linkProps}
       onMouseEnter={(e) => {
         setIsHovered(true);
         if (onMouseEnter) onMouseEnter(e);
@@ -42,7 +47,7 @@ const Hyperlink = ({
           underlineClassName || "bg-current"
         )}
       />
-    </a>
+    </Component>
   );
 };
 

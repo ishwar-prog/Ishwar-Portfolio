@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Hyperlink } from "./ui/Hyperlink";
 import { MenuContainer } from "./ui/MobileMenu";
 import { LayoutGrid, BriefcaseIcon, UserIcon, AtSignIcon } from "lucide-react";
@@ -57,17 +57,17 @@ export default function Navbar() {
           <MenuContainer>
             <LayoutGrid className="h-5 w-5" />
             
-            <a href="/work" aria-label="Work">
+            <Link to="/work" aria-label="Work">
               <BriefcaseIcon className="h-5 w-5" />
-            </a>
+            </Link>
             
-            <a href="/about" aria-label="About Us">
+            <Link to="/about" aria-label="About Us">
               <UserIcon className="h-5 w-5" />
-            </a>
+            </Link>
             
-            <a href="/#contact" aria-label="Socials">
+            <Link to="/#contact" aria-label="Socials">
               <AtSignIcon className="h-5 w-5" />
-            </a>
+            </Link>
           </MenuContainer>
         </div>
       </div>

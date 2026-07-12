@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../../components/Navbar";
 import CallToAction from "../../components/CallToAction";
 import Footer from "../../components/Footer";
-import ishwarPapercut from "../../assets/ishwar-papercut.mp4";
+import ishwarPortrait from "../../assets/ishwar.webp";
 import ScrollVelocityText from "../../components/ui/ScrollVelocityText";
 import smartedImg from "../../assets/smarted.png";
 import rotaractImg from "../../assets/rotaract.png";
@@ -90,6 +90,7 @@ const ScrollRevealText = ({ text, className }) => {
 export default function AboutMe() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [tappedIndex, setTappedIndex] = useState(null);
+  const [activeExperienceIndex, setActiveExperienceIndex] = useState(0);
   const imageContainerRef = useRef(null);
   const lastHoveredIndex = useRef(0); // Add this to remember last image
   
@@ -116,6 +117,7 @@ export default function AboutMe() {
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
+    setActiveExperienceIndex(index);
     lastHoveredIndex.current = index;
     if (imageContainerRef.current) {
       gsap.to(imageContainerRef.current, { scale: 1, opacity: 1, duration: 0.4, ease: "power3.out", overwrite: "auto" });
@@ -208,16 +210,11 @@ export default function AboutMe() {
         <div className="max-w-[92rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           {/* Image - shown first on mobile via order */}
           <div className="flex justify-center order-first md:order-last">
-             <video
-               src={ishwarPapercut}
-               autoPlay
-               loop
-               muted
-               playsInline
-               preload="auto"
-               className="w-full max-w-[400px] md:max-w-none md:w-[540px] h-auto block"
-               style={{ mixBlendMode: "screen" }}
-             />
+            <img
+              src={ishwarPortrait}
+              alt="Ishwar portrait"
+              className="w-full max-w-[400px] md:max-w-none md:w-[540px] h-auto block"
+            />
           </div>
 
           {/* Text Column - shown second on mobile */}
@@ -247,7 +244,7 @@ export default function AboutMe() {
         className="fixed top-0 left-0 pointer-events-none z-50 overflow-visible w-[250px] aspect-[1/1] opacity-0 scale-50 hidden md:block"
       >
         <img 
-          src={hoveredIndex !== null ? experiences[hoveredIndex].image : experiences[lastHoveredIndex.current].image} 
+          src={hoveredIndex !== null ? experiences[hoveredIndex].image : experiences[activeExperienceIndex].image} 
           className="w-full h-full object-contain drop-shadow-2xl transition-all duration-300"
           alt="Experience visual" 
         />

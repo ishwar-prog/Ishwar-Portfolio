@@ -1,45 +1,10 @@
-.transition {
-    z-index: 9999;
-    background-color: transparent;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    pointer-events: none;
-}
-
-.transition[style*="display: grid"] {
-    pointer-events: auto;
-}
-
-.transition-block {
-    background-color: #5c54f9;
-    width: 100.5%; 
-    height: 100.5%; 
-    opacity: 0; 
-    visibility: hidden;
-    margin: -1px;
-}
-
-.transition-block[style*="visibility: inherit"], 
-.transition-block[style*="visibility: visible"],
-.transition-block[style*="opacity: 1"] {
-    visibility: visible;
-}
-
-@media screen and (max-width: 767px) {
-    .transition {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .transition {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* Each page occupies the full document flow — no fixed/absolute tricks */
+.wipe-page-layer {
+  width: 100%;
+  /* 
+   * Do NOT add position:relative, overflow:hidden, isolation, or z-index here.
+   * Those properties create a CSS stacking context which breaks
+   * mix-blend-mode:screen on child elements (e.g. the About Me video).
+   * The clip-path animation works without any of them.
+   */
 }

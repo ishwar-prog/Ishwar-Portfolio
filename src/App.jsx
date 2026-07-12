@@ -84,6 +84,26 @@ function Home() {
   );
 }
 
+function AppRoutes({ location }) {
+  return (
+    <Suspense fallback={<div className="min-h-screen w-full bg-[#0a0a0a]" />}>
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutMe />} />
+        <Route path="/work" element={<SelectedWork />} />
+
+        {/* Project routes */}
+        <Route path="/projects/streamora" element={<WorkStreamora />} />
+        <Route path="/projects/vibelab" element={<WorkGsap />} />
+        <Route path="/projects/gullyculture" element={<WorkGullyculture />} />
+        <Route path="/projects/reboxed" element={<WorkReboxed />} />
+        <Route path="/projects/chronotask" element={<WorkChronotask />} />
+        <Route path="/projects/docsync" element={<WorkDocsync />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
 export default function App() {
   useLenis();
 
@@ -105,24 +125,10 @@ export default function App() {
         />
         <Router>
           <TransitionWrapper>
-            <Suspense fallback={null}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<AboutMe />} />
-                <Route path="/work" element={<SelectedWork />} />
-
-                {/* Project routes */}
-                <Route path="/projects/streamora" element={<WorkStreamora />} />
-                <Route path="/projects/vibelab" element={<WorkGsap />} />
-                <Route path="/projects/gullyculture" element={<WorkGullyculture />} />
-                <Route path="/projects/reboxed" element={<WorkReboxed />} />
-                <Route path="/projects/chronotask" element={<WorkChronotask />} />
-                <Route path="/projects/docsync" element={<WorkDocsync />} />
-              </Routes>
-            </Suspense>
+            {(location) => <AppRoutes location={location} />}
           </TransitionWrapper>
         </Router>
-        </div>
+      </div>
     </>
   );
 }

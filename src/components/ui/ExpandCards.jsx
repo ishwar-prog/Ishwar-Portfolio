@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -23,9 +24,9 @@ const ExpandCards = ({ projects }) => {
       <div className="hidden md:block w-full overflow-x-auto">
         <div className="flex items-stretch justify-center gap-2.5 min-w-0" onMouseLeave={() => setExpandedIndex(0)}>
           {projects.map((project, idx) => (
-            <a
+            <Link
               key={project.title}
-              href={project.route}
+              to={project.route}
               className="relative cursor-pointer overflow-hidden rounded-[40px] shrink-0 block border border-white/60"
               style={{
                 width: expandedIndex === idx ? "56rem" : "8rem",
@@ -85,7 +86,7 @@ const ExpandCards = ({ projects }) => {
                   )}
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -94,7 +95,7 @@ const ExpandCards = ({ projects }) => {
       <div className="md:hidden flex flex-col gap-4">
         {projects.map((project) => (
           <div key={project.title} className="relative overflow-hidden rounded-[40px] border border-white/60">
-            <a href={project.route} className="block">
+            <Link to={project.route} className="block">
               <img
                 className="w-full h-[200px] sm:h-[260px] object-cover"
                 src={project.image}
@@ -108,7 +109,7 @@ const ExpandCards = ({ projects }) => {
                   {project.category}
                 </p>
               </div>
-            </a>
+            </Link>
             {/* GitHub & Live icons pinned to bottom-right */}
             {("github" in project || "liveUrl" in project) && (
               <div className="absolute bottom-3 right-3 flex gap-2 z-30">

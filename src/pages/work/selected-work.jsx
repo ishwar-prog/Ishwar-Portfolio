@@ -147,7 +147,7 @@ const StickyProjects = ({ projects }) => {
       {/* Mobile: simple stacked list */}
       <div className="md:hidden flex flex-col gap-8 px-4 pb-16">
         {projects.map((project) => (
-          <a key={project.title} href={project.route} className="block">
+          <Link key={project.title} to={project.route} className="block">
             <div className="flex flex-col gap-3 group cursor-pointer">
               <div className="relative w-full overflow-hidden rounded-4xl bg-[#1f1f1f] border border-white/10">
                 <img
@@ -165,7 +165,7 @@ const StickyProjects = ({ projects }) => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -181,7 +181,7 @@ const StickyProjects = ({ projects }) => {
                   cardRefs.current[index] = el;
                 }}
               >
-                <a href={project.route} className="block h-full w-full group">
+                <Link to={project.route} className="block h-full w-full group">
                   <div className="w-full h-full relative overflow-hidden bg-[#0a0a0a]">
                     <img
                       src={project.image}
@@ -189,7 +189,7 @@ const StickyProjects = ({ projects }) => {
                       className="w-full h-full object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
                     />
                   </div>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
